@@ -1,0 +1,413 @@
+DIGEST d468c36fe17a1e8f8381682ed6eae159
+FProc.Proc
+R17:35 Autosubst.Autosubst <> <> lib
+ind 649:652 <> proc
+constr 659:661 <> Var
+constr 675:678 <> Zero
+constr 683:685 <> Par
+constr 701:704 <> Send
+constr 722:724 <> Rcv
+R667:669 Autosubst.Autosubst_Basics <> var def
+binder 664:664 <> X:3
+R693:696 Proc.Proc <> proc:1 ind
+binder 688:688 <> P:4
+binder 690:690 <> Q:5
+R714:717 Proc.Proc <> proc:1 ind
+binder 707:707 <> Q:6
+binder 709:709 <> R:7
+binder 711:711 <> P:8
+R730:733 Proc.Proc <> proc:1 ind
+binder 727:727 <> Q:9
+R739:744 Autosubst.Autosubst_Classes <> ::bind_scope:'{'_'bind'_x_'}' not
+R749:749 Autosubst.Autosubst_Classes <> ::bind_scope:'{'_'bind'_x_'}' not
+R745:748 Proc.Proc <> proc:1 ind
+R745:748 Proc.Proc <> proc:1 ind
+binder 737:737 <> P:10
+scheme 649:652 <> proc_rect
+scheme 649:652 <> proc_ind
+scheme 649:652 <> proc_rec
+scheme 649:652 <> proc_sind
+inst 767:774 <> Ids_proc
+R778:780 Autosubst.Autosubst_Classes <> Ids class
+R782:785 Proc.Proc <> proc ind
+inst 814:824 <> Rename_proc
+R828:833 Autosubst.Autosubst_Classes <> Rename class
+R835:838 Proc.Proc <> proc ind
+inst 867:876 <> Subst_proc
+R880:884 Autosubst.Autosubst_Classes <> Subst class
+R886:889 Proc.Proc <> proc ind
+inst 918:933 <> SubstLemmas_proc
+R937:947 Autosubst.Autosubst_Classes <> SubstLemmas class
+R949:952 Proc.Proc <> proc ind
+ind 1030:1034 <> conga
+constr 1063:1072 <> Cga_parCom
+constr 1120:1131 <> Cga_parAssoc
+constr 1195:1205 <> Cga_parNeut
+R1041:1044 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1037:1040 Proc.Proc <> proc ind
+R1049:1052 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1045:1048 Proc.Proc <> proc ind
+binder 1082:1082 <> P:13
+binder 1084:1084 <> Q:14
+R1091:1095 Proc.Proc <> conga:11 ind
+R1109:1111 Proc.Proc <> Par constr
+R1113:1113 Proc.Proc <> Q:14 var
+R1115:1115 Proc.Proc <> P:13 var
+R1098:1100 Proc.Proc <> Par constr
+R1102:1102 Proc.Proc <> P:13 var
+R1104:1104 Proc.Proc <> Q:14 var
+binder 1141:1141 <> P:15
+binder 1143:1143 <> Q:16
+binder 1145:1145 <> R:17
+R1148:1152 Proc.Proc <> conga:11 ind
+R1176:1178 Proc.Proc <> Par constr
+R1180:1180 Proc.Proc <> P:15 var
+R1183:1185 Proc.Proc <> Par constr
+R1187:1187 Proc.Proc <> Q:16 var
+R1189:1189 Proc.Proc <> R:17 var
+R1155:1157 Proc.Proc <> Par constr
+R1160:1162 Proc.Proc <> Par constr
+R1164:1164 Proc.Proc <> P:15 var
+R1166:1166 Proc.Proc <> Q:16 var
+R1169:1169 Proc.Proc <> R:17 var
+binder 1215:1215 <> P:18
+R1223:1227 Proc.Proc <> conga:11 ind
+R1242:1242 Proc.Proc <> P:18 var
+R1230:1232 Proc.Proc <> Par constr
+R1234:1234 Proc.Proc <> P:18 var
+R1236:1239 Proc.Proc <> Zero constr
+scheme 1030:1034 <> conga_ind
+scheme 1030:1034 <> conga_sind
+ind 1299:1302 <> cong
+constr 1331:1336 <> Cg_cga
+constr 1379:1385 <> Cg_refl
+constr 1415:1420 <> Cg_sym
+constr 1462:1469 <> Cg_trans
+constr 1521:1530 <> Cg_ctxParL
+constr 1591:1600 <> Cg_ctxParR
+constr 1659:1668 <> Cg_ctxSend
+constr 1735:1743 <> Cg_ctxRcv
+R1309:1312 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1305:1308 Proc.Proc <> proc ind
+R1317:1320 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1313:1316 Proc.Proc <> proc ind
+binder 1346:1346 <> P:21
+binder 1348:1348 <> Q:22
+R1364:1367 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1355:1359 Proc.Proc <> conga ind
+R1361:1361 Proc.Proc <> P:21 var
+R1363:1363 Proc.Proc <> Q:22 var
+R1368:1371 Proc.Proc <> cong:19 ind
+R1375:1375 Proc.Proc <> Q:22 var
+R1373:1373 Proc.Proc <> P:21 var
+binder 1395:1395 <> P:23
+R1404:1407 Proc.Proc <> cong:19 ind
+R1411:1411 Proc.Proc <> P:23 var
+R1409:1409 Proc.Proc <> P:23 var
+binder 1430:1430 <> P:24
+binder 1432:1432 <> Q:25
+R1447:1450 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1439:1442 Proc.Proc <> cong:19 ind
+R1446:1446 Proc.Proc <> P:24 var
+R1444:1444 Proc.Proc <> Q:25 var
+R1451:1454 Proc.Proc <> cong:19 ind
+R1458:1458 Proc.Proc <> Q:25 var
+R1456:1456 Proc.Proc <> P:24 var
+binder 1479:1479 <> P:26
+binder 1481:1481 <> Q:27
+binder 1483:1483 <> R:28
+R1494:1497 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1486:1489 Proc.Proc <> cong:19 ind
+R1493:1493 Proc.Proc <> Q:27 var
+R1491:1491 Proc.Proc <> P:26 var
+R1506:1509 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1498:1501 Proc.Proc <> cong:19 ind
+R1505:1505 Proc.Proc <> R:28 var
+R1503:1503 Proc.Proc <> Q:27 var
+R1510:1513 Proc.Proc <> cong:19 ind
+R1517:1517 Proc.Proc <> R:28 var
+R1515:1515 Proc.Proc <> P:26 var
+binder 1540:1540 <> P:29
+binder 1542:1543 <> P':30
+binder 1545:1545 <> Q:31
+R1557:1560 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1548:1551 Proc.Proc <> cong:19 ind
+R1555:1556 Proc.Proc <> P':30 var
+R1553:1553 Proc.Proc <> P:29 var
+R1561:1564 Proc.Proc <> cong:19 ind
+R1577:1579 Proc.Proc <> Par constr
+R1581:1582 Proc.Proc <> P':30 var
+R1584:1584 Proc.Proc <> Q:31 var
+R1567:1569 Proc.Proc <> Par constr
+R1571:1571 Proc.Proc <> P:29 var
+R1573:1573 Proc.Proc <> Q:31 var
+binder 1610:1610 <> P:32
+binder 1612:1612 <> Q:33
+binder 1614:1615 <> Q':34
+R1627:1630 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1618:1621 Proc.Proc <> cong:19 ind
+R1625:1626 Proc.Proc <> Q':34 var
+R1623:1623 Proc.Proc <> Q:33 var
+R1631:1634 Proc.Proc <> cong:19 ind
+R1647:1649 Proc.Proc <> Par constr
+R1651:1651 Proc.Proc <> P:32 var
+R1653:1654 Proc.Proc <> Q':34 var
+R1637:1639 Proc.Proc <> Par constr
+R1641:1641 Proc.Proc <> P:32 var
+R1643:1643 Proc.Proc <> Q:33 var
+binder 1678:1678 <> Q:35
+binder 1680:1680 <> R:36
+binder 1682:1682 <> P:37
+binder 1684:1685 <> P':38
+R1697:1700 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1688:1691 Proc.Proc <> cong:19 ind
+R1695:1696 Proc.Proc <> P':38 var
+R1693:1693 Proc.Proc <> P:37 var
+R1701:1704 Proc.Proc <> cong:19 ind
+R1720:1723 Proc.Proc <> Send constr
+R1725:1725 Proc.Proc <> Q:35 var
+R1727:1727 Proc.Proc <> R:36 var
+R1729:1730 Proc.Proc <> P':38 var
+R1707:1710 Proc.Proc <> Send constr
+R1712:1712 Proc.Proc <> Q:35 var
+R1714:1714 Proc.Proc <> R:36 var
+R1716:1716 Proc.Proc <> P:37 var
+binder 1753:1753 <> Q:39
+binder 1755:1755 <> P:40
+binder 1757:1758 <> P':41
+R1770:1773 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1761:1764 Proc.Proc <> cong:19 ind
+R1768:1769 Proc.Proc <> P':41 var
+R1766:1766 Proc.Proc <> P:40 var
+R1774:1777 Proc.Proc <> cong:19 ind
+R1790:1792 Proc.Proc <> Rcv constr
+R1794:1794 Proc.Proc <> Q:39 var
+R1796:1797 Proc.Proc <> P':41 var
+R1780:1782 Proc.Proc <> Rcv constr
+R1784:1784 Proc.Proc <> Q:39 var
+R1786:1786 Proc.Proc <> P:40 var
+scheme 1299:1302 <> cong_ind
+scheme 1299:1302 <> cong_sind
+ind 1814:1816 <> red
+constr 1845:1851 <> Red_par
+constr 1905:1913 <> Red_struc
+constr 1984:1991 <> Red_comm
+R1823:1826 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1819:1822 Proc.Proc <> proc ind
+R1831:1834 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1827:1830 Proc.Proc <> proc ind
+binder 1861:1861 <> P:44
+binder 1863:1863 <> Q:45
+binder 1865:1865 <> R:46
+R1875:1878 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1868:1870 Proc.Proc <> red:42 ind
+R1874:1874 Proc.Proc <> Q:45 var
+R1872:1872 Proc.Proc <> P:44 var
+R1879:1881 Proc.Proc <> red:42 ind
+R1894:1896 Proc.Proc <> Par constr
+R1898:1898 Proc.Proc <> Q:45 var
+R1900:1900 Proc.Proc <> R:46 var
+R1884:1886 Proc.Proc <> Par constr
+R1888:1888 Proc.Proc <> P:44 var
+R1890:1890 Proc.Proc <> R:46 var
+binder 1923:1923 <> P:47
+binder 1925:1926 <> P':48
+binder 1928:1928 <> Q:49
+binder 1930:1931 <> Q':50
+R1944:1947 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1935:1938 Proc.Proc <> cong ind
+R1940:1940 Proc.Proc <> P:47 var
+R1942:1943 Proc.Proc <> P':48 var
+R1957:1960 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1948:1950 Proc.Proc <> red:42 ind
+R1955:1956 Proc.Proc <> Q':50 var
+R1952:1953 Proc.Proc <> P':48 var
+R1970:1973 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1961:1964 Proc.Proc <> cong ind
+R1966:1966 Proc.Proc <> Q:49 var
+R1968:1969 Proc.Proc <> Q':50 var
+R1974:1976 Proc.Proc <> red:42 ind
+R1980:1980 Proc.Proc <> Q:49 var
+R1978:1978 Proc.Proc <> P:47 var
+binder 2001:2001 <> Q:51
+binder 2003:2003 <> R:52
+binder 2005:2005 <> P:53
+binder 2007:2008 <> P':54
+R2011:2013 Proc.Proc <> red:42 ind
+R2046:2048 Proc.Proc <> Par constr
+R2050:2050 Proc.Proc <> P:53 var
+R2055:2056 Autosubst.Autosubst_Classes <> ::subst_scope:x_'.['_x_'/]' not
+R2058:2059 Autosubst.Autosubst_Classes <> ::subst_scope:x_'.['_x_'/]' not
+R2057:2057 Proc.Proc <> R:52 var
+R2053:2054 Proc.Proc <> P':54 var
+R2016:2018 Proc.Proc <> Par constr
+R2021:2024 Proc.Proc <> Send constr
+R2026:2026 Proc.Proc <> Q:51 var
+R2028:2028 Proc.Proc <> R:52 var
+R2030:2030 Proc.Proc <> P:53 var
+R2034:2036 Proc.Proc <> Rcv constr
+R2038:2038 Proc.Proc <> Q:51 var
+R2040:2041 Proc.Proc <> P':54 var
+scheme 1814:1816 <> red_ind
+scheme 1814:1816 <> red_sind
+ind 2077:2079 <> lab
+constr 2086:2090 <> Lsend
+constr 2106:2109 <> Lrcv
+constr 2125:2128 <> Ltau
+R2098:2101 Proc.Proc <> proc ind
+binder 2093:2093 <> Q:57
+binder 2095:2095 <> R:58
+R2117:2120 Proc.Proc <> proc ind
+binder 2112:2112 <> Q:59
+binder 2114:2114 <> R:60
+scheme 2077:2079 <> lab_rect
+scheme 2077:2079 <> lab_ind
+scheme 2077:2079 <> lab_rec
+scheme 2077:2079 <> lab_sind
+ind 2144:2145 <> lt
+constr 2181:2187 <> Lt_send
+constr 2237:2242 <> Lt_rcv
+constr 2294:2300 <> Lt_parL
+constr 2362:2368 <> Lt_parR
+constr 2429:2436 <> Lt_commL
+constr 2543:2550 <> Lt_commR
+R2152:2155 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2148:2151 Proc.Proc <> proc ind
+R2159:2162 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2156:2158 Proc.Proc <> lab ind
+R2167:2170 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2163:2166 Proc.Proc <> proc ind
+binder 2197:2197 <> Q:63
+binder 2199:2199 <> R:64
+binder 2201:2201 <> P:65
+R2204:2205 Proc.Proc <> lt:61 ind
+R2232:2232 Proc.Proc <> P:65 var
+R2221:2225 Proc.Proc <> Lsend constr
+R2227:2227 Proc.Proc <> Q:63 var
+R2229:2229 Proc.Proc <> R:64 var
+R2208:2211 Proc.Proc <> Send constr
+R2213:2213 Proc.Proc <> Q:63 var
+R2215:2215 Proc.Proc <> R:64 var
+R2217:2217 Proc.Proc <> P:65 var
+binder 2252:2252 <> Q:66
+binder 2254:2254 <> P:67
+binder 2256:2256 <> q:68
+R2259:2260 Proc.Proc <> lt:61 ind
+R2285:2286 Autosubst.Autosubst_Classes <> ::subst_scope:x_'.['_x_'/]' not
+R2288:2289 Autosubst.Autosubst_Classes <> ::subst_scope:x_'.['_x_'/]' not
+R2287:2287 Proc.Proc <> q:68 var
+R2284:2284 Proc.Proc <> P:67 var
+R2273:2276 Proc.Proc <> Lrcv constr
+R2278:2278 Proc.Proc <> Q:66 var
+R2280:2280 Proc.Proc <> q:68 var
+R2263:2265 Proc.Proc <> Rcv constr
+R2267:2267 Proc.Proc <> Q:66 var
+R2269:2269 Proc.Proc <> P:67 var
+binder 2310:2310 <> Q:69
+binder 2312:2312 <> P:70
+binder 2314:2315 <> P':71
+binder 2317:2317 <> a:72
+R2329:2332 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2320:2321 Proc.Proc <> lt:61 ind
+R2327:2328 Proc.Proc <> P':71 var
+R2325:2325 Proc.Proc <> a:72 var
+R2323:2323 Proc.Proc <> P:70 var
+R2333:2334 Proc.Proc <> lt:61 ind
+R2349:2351 Proc.Proc <> Par constr
+R2353:2354 Proc.Proc <> P':71 var
+R2356:2356 Proc.Proc <> Q:69 var
+R2346:2346 Proc.Proc <> a:72 var
+R2337:2339 Proc.Proc <> Par constr
+R2341:2341 Proc.Proc <> P:70 var
+R2343:2343 Proc.Proc <> Q:69 var
+binder 2378:2378 <> P:73
+binder 2380:2380 <> Q:74
+binder 2382:2383 <> Q':75
+binder 2385:2385 <> a:76
+R2397:2400 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2388:2389 Proc.Proc <> lt:61 ind
+R2395:2396 Proc.Proc <> Q':75 var
+R2393:2393 Proc.Proc <> a:76 var
+R2391:2391 Proc.Proc <> Q:74 var
+R2401:2402 Proc.Proc <> lt:61 ind
+R2417:2419 Proc.Proc <> Par constr
+R2421:2421 Proc.Proc <> P:73 var
+R2423:2424 Proc.Proc <> Q':75 var
+R2414:2414 Proc.Proc <> a:76 var
+R2405:2407 Proc.Proc <> Par constr
+R2409:2409 Proc.Proc <> P:73 var
+R2411:2411 Proc.Proc <> Q:74 var
+binder 2446:2446 <> P:77
+binder 2448:2448 <> Q:78
+binder 2450:2451 <> P':79
+binder 2453:2454 <> Q':80
+binder 2456:2456 <> q:81
+binder 2458:2458 <> r:82
+R2485:2488 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2466:2467 Proc.Proc <> lt:61 ind
+R2483:2484 Proc.Proc <> P':79 var
+R2472:2476 Proc.Proc <> Lsend constr
+R2478:2478 Proc.Proc <> q:81 var
+R2480:2480 Proc.Proc <> r:82 var
+R2469:2469 Proc.Proc <> P:77 var
+R2507:2510 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2489:2490 Proc.Proc <> lt:61 ind
+R2505:2506 Proc.Proc <> Q':80 var
+R2495:2498 Proc.Proc <> Lrcv constr
+R2500:2500 Proc.Proc <> q:81 var
+R2502:2502 Proc.Proc <> r:82 var
+R2492:2492 Proc.Proc <> Q:78 var
+R2511:2512 Proc.Proc <> lt:61 ind
+R2530:2532 Proc.Proc <> Par constr
+R2534:2535 Proc.Proc <> P':79 var
+R2537:2538 Proc.Proc <> Q':80 var
+R2524:2527 Proc.Proc <> Ltau constr
+R2515:2517 Proc.Proc <> Par constr
+R2519:2519 Proc.Proc <> P:77 var
+R2521:2521 Proc.Proc <> Q:78 var
+binder 2560:2560 <> P:83
+binder 2562:2562 <> Q:84
+binder 2564:2565 <> P':85
+binder 2567:2568 <> Q':86
+binder 2570:2570 <> q:87
+binder 2572:2572 <> r:88
+R2598:2601 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2580:2581 Proc.Proc <> lt:61 ind
+R2596:2597 Proc.Proc <> P':85 var
+R2586:2589 Proc.Proc <> Lrcv constr
+R2591:2591 Proc.Proc <> q:87 var
+R2593:2593 Proc.Proc <> r:88 var
+R2583:2583 Proc.Proc <> P:83 var
+R2621:2624 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2602:2603 Proc.Proc <> lt:61 ind
+R2619:2620 Proc.Proc <> Q':86 var
+R2608:2612 Proc.Proc <> Lsend constr
+R2614:2614 Proc.Proc <> q:87 var
+R2616:2616 Proc.Proc <> r:88 var
+R2605:2605 Proc.Proc <> Q:84 var
+R2625:2626 Proc.Proc <> lt:61 ind
+R2644:2646 Proc.Proc <> Par constr
+R2648:2649 Proc.Proc <> P':85 var
+R2651:2652 Proc.Proc <> Q':86 var
+R2638:2641 Proc.Proc <> Ltau constr
+R2629:2631 Proc.Proc <> Par constr
+R2633:2633 Proc.Proc <> P:83 var
+R2635:2635 Proc.Proc <> Q:84 var
+scheme 2144:2145 <> lt_ind
+scheme 2144:2145 <> lt_sind
+R2793:2794 Proc.Proc <> lt ind
+R2793:2794 Proc.Proc <> lt ind
+R2816:2816 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2816:2816 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2942:2943 Proc.Proc <> lt ind
+R2942:2943 Proc.Proc <> lt ind
+R2965:2965 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2965:2965 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R3148:3152 Proc.Proc <> conga ind
+R3148:3152 Proc.Proc <> conga ind
+R3171:3171 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R3171:3171 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R3298:3302 Proc.Proc <> conga ind
+R3298:3302 Proc.Proc <> conga ind
+R3321:3321 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R3321:3321 Corelib.Init.Logic <> ::type_scope:x_'='_x not
