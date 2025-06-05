@@ -1,2 +1,6 @@
 -R theories Proc
+
 theories
+theories/syntax/core.v	  
+theories/syntax/ProcSyn.v
+theories/syntax/unscoped.v
