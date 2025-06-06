@@ -30,8 +30,8 @@ Inductive cong: proc -> proc -> Prop :=
 | Cg_trans: forall P Q R, cong P Q -> cong Q R -> cong P R
 | Cg_ctxParL: forall P P' Q, cong P P' -> cong (Par P Q) (Par P' Q)  
 | Cg_ctxParR: forall P Q Q', cong Q Q' -> cong (Par P Q) (Par P Q')
-| Cg_ctxSend: forall Q R P P', cong P P' -> cong (Send Q R P) (Send Q R P')
-| Cg_ctxRcv: forall Q P P', cong P P' -> cong (Rcv Q P) (Rcv Q P')
+| Cg_ctxSend: forall x y P P', cong P P' -> cong (Send x y P) (Send x y P')
+| Cg_ctxRcv: forall x P P', cong P P' -> cong (Rcv x P) (Rcv x P')
 .
 
 
@@ -77,35 +77,4 @@ Hint Constructors proc conga cong lab lt red: picalc.
 
 
 
-
-
-
-(*
-
-  x!y.0| x?(z).z!w.0  ---->  0|y!w.0 
-
-
-
-Definition x := var_chan 10.
-Definition y := var_chan 20.
-Definition z := var_chan 0.
-Definition w := var_chan 30.
-
-Definition P1 := Send x y Zero.
-Definition P2 := Rcv x (Send z w Zero).
-Definition P := Par P1 P2.
-
-Definition res := Par Zero (Send y w Zero).
-
-Axiom skip: forall A, A.
-
-Proposition test: red P res.
-Proof.
-unfold P. unfold res.
-unfold P1. unfold P2. 
-try apply (Red_comm x y Zero ((Send z w Zero)) ).
-assert ( (Send z w Zero)[y..]  = (Send y w Zero) ) .
-asimpl.
-unfold y,w .
-*)
 
