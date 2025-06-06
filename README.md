@@ -1,5 +1,3 @@
 # proc
 
-Autosubst needs to be installed via opam.
-In emacs, if ever the `Require Import Autosubst.Autosubst` fails, you can try typing:
-`M-x tuareg-opam-update-env`right after starting your new emacs session.
+A work still in progress to tackle the *scope extrusion* challenge of the *concurrent calculi formalisation benchmark* using Coq/Rocq and the autosubst tool.
