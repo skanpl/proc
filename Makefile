@@ -9,6 +9,8 @@ comp: CoqMakefile
 CoqMakefile: _CoqProject
 	rocq makefile -f _CoqProject -o CoqMakefile
 
+cleanaux:
+	rm theories/.*.aux  theories/syntax/.*.aux 
 
-clean: 
-	make clean -f CoqMakefile
+clean: cleanaux
+	make clean -f CoqMakefile 
