@@ -1,0 +1,602 @@
+DIGEST 9f1415dc538638b68bf099aaa110f213
+FProc.syntax.unscoped
+R370:373 Proc.syntax.core <> <> lib
+R391:396 Corelib.Setoids.Setoid <> <> lib
+R398:406 Corelib.Classes.Morphisms <> <> lib
+R408:427 Corelib.Relations.Relation_Definitions <> <> lib
+def 442:443 <> ap
+binder 446:446 <> X:1
+binder 448:448 <> Y:2
+R457:460 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R456:456 Proc.syntax.unscoped <> X:1 var
+R461:461 Proc.syntax.unscoped <> Y:2 var
+binder 452:452 <> f:3
+R471:471 Proc.syntax.unscoped <> X:1 var
+binder 465:465 <> x:4
+binder 467:467 <> y:5
+R480:482 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R479:479 Proc.syntax.unscoped <> x:4 var
+R483:483 Proc.syntax.unscoped <> y:5 var
+binder 475:475 <> p:6
+R491:493 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R488:488 Proc.syntax.unscoped <> f:3 var
+R490:490 Proc.syntax.unscoped <> x:4 var
+R494:494 Proc.syntax.unscoped <> f:3 var
+R496:496 Proc.syntax.unscoped <> y:5 var
+R509:509 Proc.syntax.unscoped <> p:6 var
+R516:522 Corelib.Init.Logic <> eq_refl constr
+R527:533 Corelib.Init.Logic <> eq_refl constr
+def 552:554 <> apc
+binder 557:557 <> X:8
+binder 559:559 <> Y:9
+R570:573 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R569:569 Proc.syntax.unscoped <> X:8 var
+R574:574 Proc.syntax.unscoped <> Y:9 var
+binder 563:563 <> f:10
+binder 565:565 <> g:11
+R584:584 Proc.syntax.unscoped <> X:8 var
+binder 578:578 <> x:12
+binder 580:580 <> y:13
+R593:595 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R592:592 Proc.syntax.unscoped <> f:10 var
+R596:596 Proc.syntax.unscoped <> g:11 var
+binder 588:588 <> p:14
+R605:607 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R604:604 Proc.syntax.unscoped <> x:12 var
+R608:608 Proc.syntax.unscoped <> y:13 var
+binder 600:600 <> q:15
+R616:618 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R613:613 Proc.syntax.unscoped <> f:10 var
+R615:615 Proc.syntax.unscoped <> x:12 var
+R619:619 Proc.syntax.unscoped <> g:11 var
+R621:621 Proc.syntax.unscoped <> y:13 var
+R634:634 Proc.syntax.unscoped <> q:15 var
+R641:647 Corelib.Init.Logic <> eq_refl constr
+R658:658 Proc.syntax.unscoped <> p:14 var
+R665:671 Corelib.Init.Logic <> eq_refl constr
+R676:682 Corelib.Init.Logic <> eq_refl constr
+def 750:754 <> shift
+R760:760 Corelib.Init.Datatypes <> S constr
+def 775:782 <> var_zero
+def 802:803 <> id
+binder 806:806 <> X:18
+R813:824 Corelib.Init.Datatypes <> id def
+R826:826 Proc.syntax.unscoped <> X:18 var
+def 841:845 <> scons
+binder 848:848 <> X:19
+R862:862 Proc.syntax.unscoped <> X:19 var
+binder 858:858 <> x:20
+R874:877 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R871:873 Corelib.Init.Datatypes <> nat ind
+R878:878 Proc.syntax.unscoped <> X:19 var
+binder 866:867 <> xi:21
+binder 890:890 <> n:22
+R901:901 Proc.syntax.unscoped <> n:22 var
+R923:923 Proc.syntax.unscoped <> x:20 var
+R935:935 Corelib.Init.Datatypes <> S constr
+R942:943 Proc.syntax.unscoped <> xi:21 var
+R945:945 Proc.syntax.unscoped <> n:22 var
+R985:989 Proc.syntax.unscoped <> scons def
+ind 1126:1129 <> Ren1
+constr 1162:1165 <> ren1
+rec 1126:1129 <> Ren1
+proj 1162:1165 <> ren1
+binder 1132:1133 <> X1:24
+binder 1145:1145 <> Y:25
+binder 1147:1147 <> Z:26
+R1171:1174 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1169:1170 Proc.syntax.unscoped <> X1:24 var
+R1176:1179 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1175:1175 Proc.syntax.unscoped <> Y:25 var
+R1180:1180 Proc.syntax.unscoped <> Z:26 var
+ind 1190:1193 <> Ren2
+constr 1228:1231 <> ren2
+rec 1190:1193 <> Ren2
+proj 1228:1231 <> ren2
+binder 1196:1197 <> X1:29
+binder 1199:1200 <> X2:30
+binder 1211:1211 <> Y:31
+binder 1213:1213 <> Z:32
+R1237:1240 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1235:1236 Proc.syntax.unscoped <> X1:29 var
+R1243:1246 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1241:1242 Proc.syntax.unscoped <> X2:30 var
+R1248:1251 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1247:1247 Proc.syntax.unscoped <> Y:31 var
+R1252:1252 Proc.syntax.unscoped <> Z:32 var
+ind 1262:1265 <> Ren3
+constr 1303:1306 <> ren3
+rec 1262:1265 <> Ren3
+proj 1303:1306 <> ren3
+binder 1268:1269 <> X1:35
+binder 1271:1272 <> X2:36
+binder 1274:1275 <> X3:37
+binder 1286:1286 <> Y:38
+binder 1288:1288 <> Z:39
+R1312:1315 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1310:1311 Proc.syntax.unscoped <> X1:35 var
+R1318:1321 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1316:1317 Proc.syntax.unscoped <> X2:36 var
+R1324:1327 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1322:1323 Proc.syntax.unscoped <> X3:37 var
+R1329:1332 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1328:1328 Proc.syntax.unscoped <> Y:38 var
+R1333:1333 Proc.syntax.unscoped <> Z:39 var
+ind 1343:1346 <> Ren4
+constr 1387:1390 <> ren4
+rec 1343:1346 <> Ren4
+proj 1387:1390 <> ren4
+binder 1349:1350 <> X1:42
+binder 1352:1353 <> X2:43
+binder 1355:1356 <> X3:44
+binder 1358:1359 <> X4:45
+binder 1370:1370 <> Y:46
+binder 1372:1372 <> Z:47
+R1396:1399 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1394:1395 Proc.syntax.unscoped <> X1:42 var
+R1402:1405 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1400:1401 Proc.syntax.unscoped <> X2:43 var
+R1408:1411 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1406:1407 Proc.syntax.unscoped <> X3:44 var
+R1414:1417 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1412:1413 Proc.syntax.unscoped <> X4:45 var
+R1419:1422 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1418:1418 Proc.syntax.unscoped <> Y:46 var
+R1423:1423 Proc.syntax.unscoped <> Z:47 var
+ind 1433:1436 <> Ren5
+constr 1480:1483 <> ren5
+rec 1433:1436 <> Ren5
+proj 1480:1483 <> ren5
+binder 1439:1440 <> X1:50
+binder 1442:1443 <> X2:51
+binder 1445:1446 <> X3:52
+binder 1448:1449 <> X4:53
+binder 1451:1452 <> X5:54
+binder 1463:1463 <> Y:55
+binder 1465:1465 <> Z:56
+R1489:1492 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1487:1488 Proc.syntax.unscoped <> X1:50 var
+R1495:1498 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1493:1494 Proc.syntax.unscoped <> X2:51 var
+R1501:1504 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1499:1500 Proc.syntax.unscoped <> X3:52 var
+R1507:1510 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1505:1506 Proc.syntax.unscoped <> X4:53 var
+R1513:1516 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1511:1512 Proc.syntax.unscoped <> X5:54 var
+R1518:1521 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1517:1517 Proc.syntax.unscoped <> Y:55 var
+R1522:1522 Proc.syntax.unscoped <> Z:56 var
+mod 1533:1544 <> RenNotations
+R1578:1581 Proc.syntax.unscoped <> ren1 def
+not 1558:1558 RenNotations ::subst_scope:x_'⟨'_x_'⟩'
+R1701:1704 Proc.syntax.unscoped <> ren2 def
+not 1675:1675 RenNotations ::subst_scope:x_'⟨'_x_';'_x_'⟩'
+R1840:1843 Proc.syntax.unscoped <> ren3 def
+not 1808:1808 RenNotations ::subst_scope:x_'⟨'_x_';'_x_';'_x_'⟩'
+R1995:1998 Proc.syntax.unscoped <> ren4 def
+not 1957:1957 RenNotations ::subst_scope:x_'⟨'_x_';'_x_';'_x_';'_x_'⟩'
+R2167:2170 Proc.syntax.unscoped <> ren5 def
+not 2123:2123 RenNotations ::subst_scope:x_'⟨'_x_';'_x_';'_x_';'_x_';'_x_'⟩'
+R2322:2325 Proc.syntax.unscoped <> ren1 def
+not 2305:2305 RenNotations ::fscope:'⟨'_x_'⟩'
+R2431:2434 Proc.syntax.unscoped <> ren2 def
+not 2407:2407 RenNotations ::fscope:'⟨'_x_';'_x_'⟩'
+R2520:2531 Proc.syntax.unscoped RenNotations <> mod
+ind 2582:2587 <> Subst1
+constr 2618:2623 <> subst1
+rec 2582:2587 <> Subst1
+proj 2618:2623 <> subst1
+binder 2590:2591 <> X1:59
+binder 2602:2602 <> Y:60
+binder 2604:2604 <> Z:61
+R2629:2632 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2627:2628 Proc.syntax.unscoped <> X1:59 var
+R2634:2637 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2633:2633 Proc.syntax.unscoped <> Y:60 var
+R2638:2638 Proc.syntax.unscoped <> Z:61 var
+ind 2648:2653 <> Subst2
+constr 2687:2692 <> subst2
+rec 2648:2653 <> Subst2
+proj 2687:2692 <> subst2
+binder 2656:2657 <> X1:64
+binder 2659:2660 <> X2:65
+binder 2671:2671 <> Y:66
+binder 2673:2673 <> Z:67
+R2698:2701 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2696:2697 Proc.syntax.unscoped <> X1:64 var
+R2704:2707 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2702:2703 Proc.syntax.unscoped <> X2:65 var
+R2709:2713 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2708:2708 Proc.syntax.unscoped <> Y:66 var
+R2714:2714 Proc.syntax.unscoped <> Z:67 var
+ind 2724:2729 <> Subst3
+constr 2766:2771 <> subst3
+rec 2724:2729 <> Subst3
+proj 2766:2771 <> subst3
+binder 2732:2733 <> X1:70
+binder 2735:2736 <> X2:71
+binder 2738:2739 <> X3:72
+binder 2750:2750 <> Y:73
+binder 2752:2752 <> Z:74
+R2777:2780 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2775:2776 Proc.syntax.unscoped <> X1:70 var
+R2783:2786 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2781:2782 Proc.syntax.unscoped <> X2:71 var
+R2789:2793 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2787:2788 Proc.syntax.unscoped <> X3:72 var
+R2795:2799 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2794:2794 Proc.syntax.unscoped <> Y:73 var
+R2800:2800 Proc.syntax.unscoped <> Z:74 var
+ind 2810:2815 <> Subst4
+constr 2854:2859 <> subst4
+rec 2810:2815 <> Subst4
+proj 2854:2859 <> subst4
+binder 2818:2819 <> X1:77
+binder 2821:2822 <> X2:78
+binder 2824:2825 <> X3:79
+binder 2827:2828 <> X4:80
+binder 2838:2838 <> Y:81
+binder 2840:2840 <> Z:82
+R2865:2868 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2863:2864 Proc.syntax.unscoped <> X1:77 var
+R2871:2874 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2869:2870 Proc.syntax.unscoped <> X2:78 var
+R2877:2880 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2875:2876 Proc.syntax.unscoped <> X3:79 var
+R2883:2886 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2881:2882 Proc.syntax.unscoped <> X4:80 var
+R2888:2892 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2887:2887 Proc.syntax.unscoped <> Y:81 var
+R2893:2893 Proc.syntax.unscoped <> Z:82 var
+ind 2903:2908 <> Subst5
+constr 2951:2956 <> subst5
+rec 2903:2908 <> Subst5
+proj 2951:2956 <> subst5
+binder 2911:2912 <> X1:85
+binder 2914:2915 <> X2:86
+binder 2917:2918 <> X3:87
+binder 2920:2921 <> X4:88
+binder 2923:2924 <> X5:89
+binder 2935:2935 <> Y:90
+binder 2937:2937 <> Z:91
+R2962:2965 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2960:2961 Proc.syntax.unscoped <> X1:85 var
+R2968:2971 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2966:2967 Proc.syntax.unscoped <> X2:86 var
+R2974:2977 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2972:2973 Proc.syntax.unscoped <> X3:87 var
+R2980:2983 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2978:2979 Proc.syntax.unscoped <> X4:88 var
+R2986:2990 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2984:2985 Proc.syntax.unscoped <> X5:89 var
+R2992:2996 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2991:2991 Proc.syntax.unscoped <> Y:90 var
+R2997:2997 Proc.syntax.unscoped <> Z:91 var
+mod 3008:3021 <> SubstNotations
+R3053:3058 Proc.syntax.unscoped <> subst1 def
+not 3035:3035 SubstNotations ::subst_scope:x_'['_x_']'
+R3179:3184 Proc.syntax.unscoped <> subst2 def
+not 3155:3155 SubstNotations ::subst_scope:x_'['_x_';'_x_']'
+R3288:3301 Proc.syntax.unscoped SubstNotations <> mod
+ind 3348:3350 <> Var
+constr 3361:3363 <> ids
+rec 3348:3350 <> Var
+proj 3361:3363 <> ids
+binder 3352:3352 <> X:94
+binder 3354:3354 <> Y:95
+R3368:3371 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3367:3367 Proc.syntax.unscoped <> X:94 var
+R3372:3372 Proc.syntax.unscoped <> Y:95 var
+inst 3395:3400 <> idsRen
+R3404:3406 Proc.syntax.unscoped <> Var class
+R3412:3414 Corelib.Init.Datatypes <> nat ind
+R3408:3410 Corelib.Init.Datatypes <> nat ind
+R3419:3420 Proc.syntax.unscoped <> id def
+R3485:3491 Proc.syntax.core <> funcomp def
+R3485:3491 Proc.syntax.core <> funcomp def
+R3485:3491 Proc.syntax.core <> funcomp def
+mod 3534:3549 <> CombineNotations
+R3576:3582 Proc.syntax.core <> funcomp def
+not 3563:3563 CombineNotations ::fscope:x_'>>'_x
+R3642:3646 Proc.syntax.unscoped <> scons def
+not 3625:3625 CombineNotations ::subst_scope:x_'.:'_x
+R3808:3823 Proc.syntax.unscoped CombineNotations <> mod
+R3834:3849 Proc.syntax.unscoped CombineNotations <> mod
+def 3905:3910 <> up_ren
+R3921:3924 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3918:3920 Corelib.Init.Datatypes <> nat ind
+R3925:3927 Corelib.Init.Datatypes <> nat ind
+binder 3913:3914 <> xi:98
+R3936:3940 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R3948:3948 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R3943:3946 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R3947:3947 Corelib.Init.Datatypes <> S constr
+R3941:3942 Proc.syntax.unscoped <> xi:98 var
+prf 4017:4026 <> up_ren_ren
+R4036:4039 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4033:4035 Corelib.Init.Datatypes <> nat ind
+R4040:4042 Corelib.Init.Datatypes <> nat ind
+binder 4029:4030 <> xi:99
+R4056:4059 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4053:4055 Corelib.Init.Datatypes <> nat ind
+R4060:4062 Corelib.Init.Datatypes <> nat ind
+binder 4046:4049 <> zeta:100
+R4074:4077 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4071:4073 Corelib.Init.Datatypes <> nat ind
+R4078:4080 Corelib.Init.Datatypes <> nat ind
+binder 4066:4068 <> rho:101
+binder 4094:4094 <> x:102
+R4111:4113 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4097:4097 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R4100:4103 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R4108:4110 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R4104:4107 Proc.syntax.unscoped <> zeta:100 var
+R4098:4099 Proc.syntax.unscoped <> xi:99 var
+R4110:4110 Proc.syntax.unscoped <> x:102 var
+R4114:4116 Proc.syntax.unscoped <> rho:101 var
+R4118:4118 Proc.syntax.unscoped <> x:102 var
+binder 4084:4084 <> E:103
+binder 4132:4132 <> x:104
+R4163:4165 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4135:4135 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R4145:4148 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R4160:4162 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R4149:4154 Proc.syntax.unscoped <> up_ren def
+R4156:4159 Proc.syntax.unscoped <> zeta:100 var
+R4136:4141 Proc.syntax.unscoped <> up_ren def
+R4143:4144 Proc.syntax.unscoped <> xi:99 var
+R4162:4162 Proc.syntax.unscoped <> x:104 var
+R4166:4171 Proc.syntax.unscoped <> up_ren def
+R4173:4175 Proc.syntax.unscoped <> rho:101 var
+R4177:4177 Proc.syntax.unscoped <> x:104 var
+R4230:4235 Proc.syntax.unscoped <> up_ren def
+R4250:4256 Proc.syntax.core <> funcomp def
+prf 4306:4315 <> scons_eta'
+binder 4318:4318 <> T:105
+R4329:4332 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4326:4328 Corelib.Init.Datatypes <> nat ind
+R4333:4333 Proc.syntax.unscoped <> T:105 var
+binder 4322:4322 <> f:106
+R4340:4357 Corelib.Classes.Morphisms <> pointwise_relation def
+R4398:4398 Proc.syntax.unscoped <> f:106 var
+R4375:4379 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R4395:4395 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R4365:4365 Proc.syntax.unscoped <> f:106 var
+R4367:4374 Proc.syntax.unscoped <> var_zero def
+R4380:4386 Proc.syntax.core <> funcomp def
+R4390:4394 Proc.syntax.unscoped <> shift def
+R4388:4388 Proc.syntax.unscoped <> f:106 var
+R4361:4362 Corelib.Init.Logic <> eq ind
+prf 4455:4467 <> scons_eta_id'
+R4473:4490 Corelib.Classes.Morphisms <> pointwise_relation def
+R4517:4518 Proc.syntax.unscoped <> id def
+R4506:4509 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R4498:4505 Proc.syntax.unscoped <> var_zero def
+R4510:4514 Proc.syntax.unscoped <> shift def
+R4494:4495 Corelib.Init.Logic <> eq ind
+prf 4575:4585 <> scons_comp'
+binder 4588:4588 <> T:107
+binder 4598:4598 <> U:108
+R4605:4605 Proc.syntax.unscoped <> T:107 var
+binder 4602:4602 <> s:109
+R4619:4622 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4616:4618 Corelib.Init.Datatypes <> nat ind
+R4623:4623 Proc.syntax.unscoped <> T:107 var
+binder 4609:4613 <> sigma:110
+R4633:4636 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4632:4632 Proc.syntax.unscoped <> T:107 var
+R4637:4637 Proc.syntax.unscoped <> U:108 var
+binder 4627:4629 <> tau:111
+R4644:4661 Corelib.Classes.Morphisms <> pointwise_relation def
+R4696:4696 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R4702:4707 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R4725:4725 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R4697:4699 Proc.syntax.unscoped <> tau:111 var
+R4701:4701 Proc.syntax.unscoped <> s:109 var
+R4708:4714 Proc.syntax.core <> funcomp def
+R4720:4724 Proc.syntax.unscoped <> sigma:110 var
+R4716:4718 Proc.syntax.unscoped <> tau:111 var
+R4669:4675 Proc.syntax.core <> funcomp def
+R4683:4686 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R4682:4682 Proc.syntax.unscoped <> s:109 var
+R4687:4691 Proc.syntax.unscoped <> sigma:110 var
+R4677:4679 Proc.syntax.unscoped <> tau:111 var
+R4665:4666 Corelib.Init.Logic <> eq ind
+inst 4883:4896 <> scons_morphism
+binder 4899:4899 <> X:112
+R4912:4917 Corelib.Classes.Morphisms <> Proper class
+R4982:4986 Proc.syntax.unscoped <> scons def
+R4988:4988 Proc.syntax.unscoped <> X:112 var
+R4922:4926 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R4920:4921 Corelib.Init.Logic <> eq ind
+R4950:4954 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R4927:4944 Corelib.Classes.Morphisms <> pointwise_relation def
+R4948:4949 Corelib.Init.Logic <> eq ind
+R4955:4972 Corelib.Classes.Morphisms <> pointwise_relation def
+R4976:4977 Corelib.Init.Logic <> eq ind
+inst 5099:5113 <> scons_morphism2
+binder 5116:5116 <> X:113
+R5129:5134 Corelib.Classes.Morphisms <> Proper class
+R5185:5189 Proc.syntax.unscoped <> scons def
+R5191:5191 Proc.syntax.unscoped <> X:113 var
+R5139:5143 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R5137:5138 Corelib.Init.Logic <> eq ind
+R5167:5171 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R5144:5161 Corelib.Classes.Morphisms <> pointwise_relation def
+R5165:5166 Corelib.Init.Logic <> eq ind
+R5174:5178 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R5172:5173 Corelib.Init.Logic <> eq ind
+R5179:5180 Corelib.Init.Logic <> eq ind
+def 5356:5363 <> up_allfv
+R5372:5375 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5369:5371 Corelib.Init.Datatypes <> nat ind
+binder 5366:5366 <> p:114
+R5387:5390 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5384:5386 Corelib.Init.Datatypes <> nat ind
+R5399:5403 Proc.syntax.unscoped <> scons def
+R5410:5410 Proc.syntax.unscoped <> p:114 var
+R5405:5408 Corelib.Init.Logic <> True ind
+mod 5461:5477 <> UnscopedNotations
+R5490:5501 Proc.syntax.unscoped RenNotations <> modtype
+R5514:5527 Proc.syntax.unscoped SubstNotations <> modtype
+R5540:5555 Proc.syntax.unscoped CombineNotations <> modtype
+R5703:5707 Proc.syntax.unscoped <> scons def
+R5711:5713 Proc.syntax.unscoped <> ids def
+not 5690:5690 UnscopedNotations ::subst_scope:x_'..'
+R5781:5785 Proc.syntax.unscoped <> shift def
+not 5771:5771 UnscopedNotations ::subst_scope:'↑'
+R5879:5895 Proc.syntax.unscoped UnscopedNotations <> mod
+R6181:6183 Corelib.Init.Datatypes <> nat ind
+binder 6177:6177 <> i:115
+R6181:6183 Corelib.Init.Datatypes <> nat ind
+binder 6177:6177 <> i:116
+R6395:6398 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6393:6394 Proc.syntax.unscoped <> id def
+R6395:6398 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6393:6394 Proc.syntax.unscoped <> id def
+R6476:6479 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6480:6481 Proc.syntax.unscoped <> id def
+R6476:6479 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6480:6481 Proc.syntax.unscoped <> id def
+R6556:6557 Proc.syntax.unscoped <> id def
+R6556:6557 Proc.syntax.unscoped <> id def
+R6611:6611 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6620:6624 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6614:6617 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6611:6611 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6620:6624 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6614:6617 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6700:6700 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6703:6706 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6709:6718 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6711:6718 Proc.syntax.unscoped <> var_zero def
+R6700:6700 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6703:6706 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6709:6718 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6711:6718 Proc.syntax.unscoped <> var_zero def
+R6782:6782 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6785:6788 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6791:6793 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6782:6782 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6785:6788 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6791:6793 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6850:6850 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6853:6856 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6859:6866 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6862:6862 Corelib.Init.Datatypes <> S constr
+R6850:6850 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6853:6856 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6859:6866 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6862:6862 Corelib.Init.Datatypes <> S constr
+R6933:6937 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6946:6946 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6940:6943 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6933:6937 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6946:6946 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6940:6943 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R7039:7046 Proc.syntax.unscoped <> var_zero def
+R7039:7046 Proc.syntax.unscoped <> var_zero def
+R7103:7107 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R7124:7124 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R7108:7114 Proc.syntax.core <> funcomp def
+R7119:7123 Proc.syntax.unscoped <> shift def
+R7103:7107 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R7124:7124 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R7108:7114 Proc.syntax.core <> funcomp def
+R7119:7123 Proc.syntax.unscoped <> shift def
+R7281:7284 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R7273:7280 Proc.syntax.unscoped <> var_zero def
+R7281:7284 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R7273:7280 Proc.syntax.unscoped <> var_zero def
+R7403:7406 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7403:7406 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7483:7485 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7483:7485 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7678:7684 Proc.syntax.core <> funcomp def
+R7689:7693 Proc.syntax.unscoped <> scons def
+R7678:7684 Proc.syntax.core <> funcomp def
+R7689:7693 Proc.syntax.unscoped <> scons def
+R7767:7771 Proc.syntax.unscoped <> scons def
+R7782:7786 Proc.syntax.unscoped <> shift def
+R7773:7780 Proc.syntax.unscoped <> var_zero def
+R7767:7771 Proc.syntax.unscoped <> scons def
+R7782:7786 Proc.syntax.unscoped <> shift def
+R7773:7780 Proc.syntax.unscoped <> var_zero def
+R7808:7820 Proc.syntax.unscoped <> scons_eta_id' thm
+R7720:7730 Proc.syntax.unscoped <> scons_comp' thm
+R7515:7515 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R7517:7520 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R7522:7524 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R7445:7445 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R7447:7450 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R7452:7454 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R7301:7305 Proc.syntax.unscoped <> scons def
+R7310:7317 Proc.syntax.unscoped <> var_zero def
+R7301:7305 Proc.syntax.unscoped <> scons def
+R7310:7317 Proc.syntax.unscoped <> var_zero def
+R7329:7333 Proc.syntax.unscoped <> scons def
+R7349:7355 Proc.syntax.core <> funcomp def
+R7359:7363 Proc.syntax.unscoped <> shift def
+R7338:7345 Proc.syntax.unscoped <> var_zero def
+R7376:7385 Proc.syntax.unscoped <> scons_eta' thm
+R7139:7143 Proc.syntax.unscoped <> scons def
+R7149:7155 Proc.syntax.core <> funcomp def
+R7159:7163 Proc.syntax.unscoped <> shift def
+R7139:7143 Proc.syntax.unscoped <> scons def
+R7149:7155 Proc.syntax.core <> funcomp def
+R7159:7163 Proc.syntax.unscoped <> shift def
+R7173:7177 Proc.syntax.unscoped <> scons def
+R7193:7199 Proc.syntax.core <> funcomp def
+R7203:7207 Proc.syntax.unscoped <> shift def
+R7182:7189 Proc.syntax.unscoped <> var_zero def
+R7229:7238 Proc.syntax.unscoped <> scons_eta' thm
+R7061:7068 Proc.syntax.unscoped <> var_zero def
+R7061:7068 Proc.syntax.unscoped <> var_zero def
+R6962:6966 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6973:6973 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6968:6971 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6962:6966 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6973:6973 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6968:6971 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6881:6881 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6883:6886 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6888:6894 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6891:6891 Corelib.Init.Datatypes <> S constr
+R6881:6881 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6883:6886 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6888:6894 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6891:6891 Corelib.Init.Datatypes <> S constr
+R6808:6808 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6810:6813 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6815:6817 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6808:6808 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6810:6813 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6815:6817 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6733:6733 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6735:6738 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6740:6749 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6742:6749 Proc.syntax.unscoped <> var_zero def
+R6733:6733 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6735:6738 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6740:6749 Proc.syntax.unscoped CombineNotations ::subst_scope:x_'.:'_x not
+R6742:6749 Proc.syntax.unscoped <> var_zero def
+R6641:6641 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6648:6652 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6643:6646 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6641:6641 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6648:6652 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6643:6646 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6663:6667 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6674:6674 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6669:6672 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6575:6576 Proc.syntax.unscoped <> id def
+R6575:6576 Proc.syntax.unscoped <> id def
+R6497:6500 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6501:6502 Proc.syntax.unscoped <> id def
+R6497:6500 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6501:6502 Proc.syntax.unscoped <> id def
+R6417:6420 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6415:6416 Proc.syntax.unscoped <> id def
+R6417:6420 Proc.syntax.unscoped CombineNotations ::fscope:x_'>>'_x not
+R6415:6416 Proc.syntax.unscoped <> id def

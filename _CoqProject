@@ -1,7 +1,7 @@
 -R theories Proc
 -arg "-w none"
-theories/CongLtLemma.v
-theories/Normal.v  
-theories/Semantics.v  
-theories/SemEquiv.v  
+theories/syntax/core.v	
+theories/syntax/ProcSyn.v  
+theories/syntax/unscoped.v
+theories/Semantics.v
 theories/SubCompatible.v
