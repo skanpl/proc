@@ -1,10 +1,23 @@
 
+
 Require Import ProcSyn.
 Require Import unscoped.
+
+(*
 Require Import core.
 Import ProcSyn.Core.
 Import unscoped.UnscopedNotations.
 Require Import Coq.Logic.FunctionalExtensionality.
+*)
+ 
+(*Open Scope subst_scope.
+
+Locate ".:".
+Print subst_proc.
+
+Definition foo (x:chan) (P:proc) := P  [x ..]. 
+Definition bar (sigma : nat -> chan) (P:proc) := P  [sigma]. 
+*)
 
 
 
@@ -42,16 +55,18 @@ Fixpoint swap n P := match P with
 
 
  
-  
+Definition shift_pr (P:proc) := P [fun x => var_chan (x+1)].  
 Definition shiftn_pr n (P:proc) := P [fun x => var_chan (x+n)].  
-Definition shift_pr (P:proc) := shiftn_pr 1 P.
-
 
 Inductive conga: proc -> proc -> Prop :=
 | Cga_parCom: forall P Q,     conga (Par P Q)  (Par Q P)
 | Cga_parAssoc: forall P Q R, conga (Par (Par P Q) R)    (Par P (Par Q R))
 | Cga_parNeut: forall P,      conga (Par P Zero) P
-.
+(*
+| Cga_nuZero: conga (Nu Zero) Zero
+| Cga_nuPar: forall P Q,  conga (Par (Nu P) Q)   (Nu (Par P (shift_pr Q) ))
+| Cga_nuSwap: forall P, conga (Nu (Nu P))  (Nu (Nu (swap 0 P)))
+*).
 
 
 Inductive congb: proc -> proc -> Prop :=
@@ -127,6 +142,192 @@ Fixpoint iter_nu n P := match n with
  | 0   => P
  | S n => Nu (iter_nu n P)
  end.
+
+
+Lemma iter_nu_cong: forall P Q R n,
+  cong P (iter_nu n Q) -> cong (Par P R) (Par (iter_nu n Q) R).  
+Proof.
+intros. 
+induction n; unfold iter_nu; eauto with picalc.
+Qed.
+
+
+
+Lemma conga_resp_sub: forall P Q sigma,
+  conga P Q -> conga (P [sigma]) (Q [sigma]).
+Proof.
+intros.
+inversion H; asimpl; eauto with picalc.
+Qed.
+
+
+Definition lift (sigma: fin -> chan) := 
+ 0 .: (sigma >> S ).
+
+Definition shift_sub := fun x => var_chan (x+1).
+ 
+
+
+ 
+
+
+(*
+Lemma bind_simpl: forall sigma,
+ shift >> lift sigma = sigma >> shift .
+Proof.
+intro.
+symmetry.
+unfold funcomp. unfold lift.
+apply functional_extensionality.
+intro.
+unfold shift. unfold funcomp.
+cbv. auto.
+Qed.
+*)
+ 
+Print up_chan.
+Print subst_proc.
+
+
+
+
+
+
+Lemma cong_resp_sub: forall P Q sigma,
+  cong P Q -> cong (P [sigma]) (Q [sigma]).
+Proof.
+intros. 
+generalize dependent sigma.  
+induction H; try(asimpl; eauto with picalc).
+intro.
+econstructor.
+eauto using conga_resp_sub.
+intro.
+
+inversion H; eauto with picalc. 
+subst.    
+eapply Cg_cgb.
+asimpl.
+
+(*
+rewrite bind_simpl.*)
+asimpl.
+eapply Cgb_nuPar.
+eauto with picalc.
+
+
+
+eapply Cg_cgb.
+eauto with picalc.
+
+Qed.
+
+Hint Resolve cong_resp_sub: sublem.
+*)
+
+
+
+Lemma iden_ren: forall P:proc,  P [fun x => var_chan (x+0)] = P [fun x => var_chan (x)]. 
+Proof.
+intros.
+assert ((fun x : nat => (x + 0)__chan) = fun x : nat => x __chan).
+apply functional_extensionality.
+intros.
+auto.
+rewrite H.
+auto.
+Qed.
+
+(*
+Lemma iter_nu_scope_extr: forall n P Q,
+  cong (Par (iter_nu n P) Q)   (iter_nu n (Par P (shiftn_pr n Q) )).
+Proof.
+intros.
+induction n.
+unfold shiftn_pr. simpl.  
+rewrite iden_ren in *.
+asimpl. 
+eauto with picalc.
+
+simpl. 
+eapply Cg_ctxParL.
+eauto with picalc.
+*)
+
+
+
+
+Lemma red_normal: forall P Q ,
+  red P Q -> exists n S x y R1 R2 , 
+     cong P  (iter_nu n  (Par  (Par (Send x y R1) (Rcv x R2))    S) ) 
+     /\
+     cong Q  (iter_nu n  (Par (Par R1 (R2 [y..])  )   S)) .
+Proof.
+intros.
+induction H.   
+firstorder. 
+exists x. 
+
+
+(*
+generalize dependent x.
+intro. induction x.
+firstorder.
+simpl in *. 
+repeat eexists.
+eauto with picalc. eauto with picalc.
+firstorder. simpl in *.
+set (lem:= IHx H0 H1).
+*)
+
+
+repeat eexists.
+apply Cg_ctxParL with (Q:=R) in H0.
+induction x.  
+simpl in *. 
+eauto with picalc.
+simpl in *. 
+
+econstructor in  H0. eapply Cga_nuPar in H0. 
+
+
+
+eapply Cg_sym in .
+
+
+
+set (lem:= IHx  H1 H0).
+eauto with picalc.
+
+eapply Cg_ctxParL in H1.
+
+
+
+(*
+
+ P cong Nux1...Nuxn  (x0!x1.x2| x0?x3)|x 
+
+
+
+  P|R  cong   (x!y.R1| x?R2 )| S
+
+
+
+
+*)
+
+
+asimpl. 
+
+firstorder.
+exists 0. split.
+eauto with picalc.
+
+repeat eexists. 
+
+
+induction H;repeat eexists; eauto with picalc.
+
 
 
 
