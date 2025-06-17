@@ -1,3 +1,4 @@
+
 -- the types
 chan : Type
 proc : Type
@@ -7,6 +8,6 @@ proc : Type
 -- the constructors for proc
 Zero : proc  
 Par : proc -> proc -> proc 
-Rcv : chan -> (bind chan in proc) -> proc
+Rcv : chan -> (chan -> proc) -> proc
 Send : chan -> chan -> proc -> proc
-Nu : (bind chan in proc) -> proc
+Nu : (chan -> proc) -> proc

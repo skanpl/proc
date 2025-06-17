@@ -1,0 +1,1024 @@
+DIGEST b463cc1d9a33340d18cd38a17461275f
+FProc.ProcSyn
+R15:22 Proc.headers.unscoped <> <> lib
+sec 36:39 <> chan
+ind 52:55 <> chan
+constr 72:79 <> var_chan
+R83:84 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R88:93 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R85:87 Proc.headers.unscoped <> fin abbrev
+R94:97 Proc.ProcSyn <> chan:1 ind
+scheme 52:55 <> chan_rect
+scheme 52:55 <> chan_ind
+scheme 52:55 <> chan_rec
+scheme 52:55 <> chan_sind
+def 113:122 <> subst_chan
+R139:140 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R144:149 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R141:143 Proc.headers.unscoped <> fin abbrev
+R150:153 Proc.ProcSyn <> chan ind
+binder 127:135 <> sigmachan:3
+R162:165 Proc.ProcSyn <> chan ind
+binder 158:158 <> s:4
+R171:174 Proc.ProcSyn <> chan ind
+R190:190 Proc.ProcSyn <> s:4 var
+R199:202 Proc.ProcSyn <> chan ind
+R216:223 Proc.ProcSyn <> var_chan constr
+R231:239 Proc.ProcSyn <> sigmachan:3 var
+R241:241 Proc.ProcSyn <> s:4 var
+def 264:275 <> up_chan_chan
+R288:289 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R293:298 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R290:292 Proc.headers.unscoped <> fin abbrev
+R299:302 Proc.ProcSyn <> chan ind
+binder 280:284 <> sigma:6
+R308:309 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R313:318 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R310:312 Proc.headers.unscoped <> fin abbrev
+R319:322 Proc.ProcSyn <> chan ind
+R331:335 Proc.headers.unscoped <> scons def
+R365:371 Proc.headers.unscoped <> funcomp def
+R419:423 Proc.ProcSyn <> sigma:6 var
+R375:384 Proc.ProcSyn <> subst_chan def
+R388:394 Proc.headers.unscoped <> funcomp def
+R410:414 Proc.headers.unscoped <> shift def
+R398:405 Proc.ProcSyn <> var_chan constr
+R340:347 Proc.ProcSyn <> var_chan constr
+R352:359 Proc.headers.unscoped <> var_zero def
+def 439:452 <> upId_chan_chan
+R464:465 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R469:474 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R466:468 Proc.headers.unscoped <> fin abbrev
+R475:478 Proc.ProcSyn <> chan ind
+binder 456:460 <> sigma:7
+binder 495:495 <> x:8
+R505:507 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R498:502 Proc.ProcSyn <> sigma:7 var
+R504:504 Proc.ProcSyn <> x:8 var
+R509:516 Proc.ProcSyn <> var_chan constr
+R520:520 Proc.ProcSyn <> x:8 var
+binder 483:484 <> Eq:9
+binder 532:532 <> x:10
+R557:559 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R536:547 Proc.ProcSyn <> up_chan_chan def
+R549:553 Proc.ProcSyn <> sigma:7 var
+R556:556 Proc.ProcSyn <> x:10 var
+R561:568 Proc.ProcSyn <> var_chan constr
+R572:572 Proc.ProcSyn <> x:10 var
+binder 583:583 <> n:11
+R594:594 Proc.ProcSyn <> n:11 var
+R605:605 Corelib.Init.Datatypes <> S constr
+R617:618 Proc.headers.unscoped <> ap def
+R667:668 Proc.ProcSyn <> Eq:9 var
+R622:631 Proc.ProcSyn <> subst_chan def
+R635:641 Proc.headers.unscoped <> funcomp def
+R657:661 Proc.headers.unscoped <> shift def
+R645:652 Proc.ProcSyn <> var_chan constr
+R687:693 Corelib.Init.Logic <> eq_refl constr
+def 714:725 <> idSubst_chan
+R741:742 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R746:751 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R743:745 Proc.headers.unscoped <> fin abbrev
+R752:755 Proc.ProcSyn <> chan ind
+binder 729:737 <> sigmachan:13
+binder 776:776 <> x:14
+R790:792 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R779:787 Proc.ProcSyn <> sigmachan:13 var
+R789:789 Proc.ProcSyn <> x:14 var
+R794:801 Proc.ProcSyn <> var_chan constr
+R805:805 Proc.ProcSyn <> x:14 var
+binder 760:765 <> Eqchan:15
+R813:816 Proc.ProcSyn <> chan ind
+binder 809:809 <> s:16
+R844:846 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R822:831 Proc.ProcSyn <> subst_chan def
+R833:841 Proc.ProcSyn <> sigmachan:13 var
+R843:843 Proc.ProcSyn <> s:16 var
+R847:847 Proc.ProcSyn <> s:16 var
+R862:862 Proc.ProcSyn <> s:16 var
+R893:895 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R871:880 Proc.ProcSyn <> subst_chan def
+R882:890 Proc.ProcSyn <> sigmachan:13 var
+R892:892 Proc.ProcSyn <> s:17 var
+R896:896 Proc.ProcSyn <> s:17 var
+R909:916 Proc.ProcSyn <> var_chan constr
+R924:929 Proc.ProcSyn <> Eqchan:15 var
+R931:931 Proc.ProcSyn <> s:16 var
+def 954:968 <> upExt_chan_chan
+R981:982 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R986:991 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R983:985 Proc.headers.unscoped <> fin abbrev
+R992:995 Proc.ProcSyn <> chan ind
+binder 973:977 <> sigma:18
+R1006:1007 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1011:1016 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1008:1010 Proc.headers.unscoped <> fin abbrev
+R1017:1020 Proc.ProcSyn <> chan ind
+binder 1000:1002 <> tau:19
+binder 1037:1037 <> x:20
+R1047:1049 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1040:1044 Proc.ProcSyn <> sigma:18 var
+R1046:1046 Proc.ProcSyn <> x:20 var
+R1050:1052 Proc.ProcSyn <> tau:19 var
+R1054:1054 Proc.ProcSyn <> x:20 var
+binder 1025:1026 <> Eq:21
+binder 1066:1066 <> x:22
+R1091:1093 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1070:1081 Proc.ProcSyn <> up_chan_chan def
+R1083:1087 Proc.ProcSyn <> sigma:18 var
+R1090:1090 Proc.ProcSyn <> x:22 var
+R1095:1106 Proc.ProcSyn <> up_chan_chan def
+R1108:1110 Proc.ProcSyn <> tau:19 var
+R1113:1113 Proc.ProcSyn <> x:22 var
+binder 1124:1124 <> n:23
+R1135:1135 Proc.ProcSyn <> n:23 var
+R1146:1146 Corelib.Init.Datatypes <> S constr
+R1158:1159 Proc.headers.unscoped <> ap def
+R1208:1209 Proc.ProcSyn <> Eq:21 var
+R1163:1172 Proc.ProcSyn <> subst_chan def
+R1176:1182 Proc.headers.unscoped <> funcomp def
+R1198:1202 Proc.headers.unscoped <> shift def
+R1186:1193 Proc.ProcSyn <> var_chan constr
+R1228:1234 Corelib.Init.Logic <> eq_refl constr
+def 1255:1262 <> ext_chan
+R1279:1280 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1284:1289 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1281:1283 Proc.headers.unscoped <> fin abbrev
+R1290:1293 Proc.ProcSyn <> chan ind
+binder 1267:1275 <> sigmachan:25
+R1308:1309 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1313:1318 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1310:1312 Proc.headers.unscoped <> fin abbrev
+R1319:1322 Proc.ProcSyn <> chan ind
+binder 1298:1304 <> tauchan:26
+binder 1343:1343 <> x:27
+R1357:1359 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1346:1354 Proc.ProcSyn <> sigmachan:25 var
+R1356:1356 Proc.ProcSyn <> x:27 var
+R1360:1366 Proc.ProcSyn <> tauchan:26 var
+R1368:1368 Proc.ProcSyn <> x:27 var
+binder 1327:1332 <> Eqchan:28
+R1376:1379 Proc.ProcSyn <> chan ind
+binder 1372:1372 <> s:29
+R1407:1409 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1385:1394 Proc.ProcSyn <> subst_chan def
+R1396:1404 Proc.ProcSyn <> sigmachan:25 var
+R1406:1406 Proc.ProcSyn <> s:29 var
+R1410:1419 Proc.ProcSyn <> subst_chan def
+R1421:1427 Proc.ProcSyn <> tauchan:26 var
+R1429:1429 Proc.ProcSyn <> s:29 var
+R1444:1444 Proc.ProcSyn <> s:29 var
+R1475:1477 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1453:1462 Proc.ProcSyn <> subst_chan def
+R1464:1472 Proc.ProcSyn <> sigmachan:25 var
+R1474:1474 Proc.ProcSyn <> s:30 var
+R1478:1487 Proc.ProcSyn <> subst_chan def
+R1489:1495 Proc.ProcSyn <> tauchan:26 var
+R1497:1497 Proc.ProcSyn <> s:30 var
+R1510:1517 Proc.ProcSyn <> var_chan constr
+R1525:1530 Proc.ProcSyn <> Eqchan:28 var
+R1532:1532 Proc.ProcSyn <> s:29 var
+def 1555:1573 <> compSubstSubst_chan
+R1591:1592 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1596:1601 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1593:1595 Proc.headers.unscoped <> fin abbrev
+R1602:1605 Proc.ProcSyn <> chan ind
+binder 1579:1587 <> sigmachan:31
+R1620:1621 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1625:1630 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1622:1624 Proc.headers.unscoped <> fin abbrev
+R1631:1634 Proc.ProcSyn <> chan ind
+binder 1610:1616 <> tauchan:32
+R1651:1652 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1656:1661 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1653:1655 Proc.headers.unscoped <> fin abbrev
+R1662:1665 Proc.ProcSyn <> chan ind
+binder 1639:1647 <> thetachan:33
+binder 1686:1686 <> x:34
+R1733:1735 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1691:1697 Proc.headers.unscoped <> funcomp def
+R1721:1729 Proc.ProcSyn <> sigmachan:31 var
+R1701:1710 Proc.ProcSyn <> subst_chan def
+R1712:1718 Proc.ProcSyn <> tauchan:32 var
+R1732:1732 Proc.ProcSyn <> x:34 var
+R1736:1744 Proc.ProcSyn <> thetachan:33 var
+R1746:1746 Proc.ProcSyn <> x:34 var
+binder 1670:1675 <> Eqchan:35
+R1754:1757 Proc.ProcSyn <> chan ind
+binder 1750:1750 <> s:36
+R1806:1808 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1763:1772 Proc.ProcSyn <> subst_chan def
+R1774:1780 Proc.ProcSyn <> tauchan:32 var
+R1783:1792 Proc.ProcSyn <> subst_chan def
+R1794:1802 Proc.ProcSyn <> sigmachan:31 var
+R1804:1804 Proc.ProcSyn <> s:36 var
+R1809:1818 Proc.ProcSyn <> subst_chan def
+R1820:1828 Proc.ProcSyn <> thetachan:33 var
+R1830:1830 Proc.ProcSyn <> s:36 var
+R1845:1845 Proc.ProcSyn <> s:36 var
+R1897:1899 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1854:1863 Proc.ProcSyn <> subst_chan def
+R1865:1871 Proc.ProcSyn <> tauchan:32 var
+R1874:1883 Proc.ProcSyn <> subst_chan def
+R1885:1893 Proc.ProcSyn <> sigmachan:31 var
+R1895:1895 Proc.ProcSyn <> s:37 var
+R1900:1909 Proc.ProcSyn <> subst_chan def
+R1911:1919 Proc.ProcSyn <> thetachan:33 var
+R1921:1921 Proc.ProcSyn <> s:37 var
+R1934:1941 Proc.ProcSyn <> var_chan constr
+R1949:1954 Proc.ProcSyn <> Eqchan:35 var
+R1956:1956 Proc.ProcSyn <> s:36 var
+def 1979:2002 <> up_subst_subst_chan_chan
+R2016:2017 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2021:2026 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2018:2020 Proc.headers.unscoped <> fin abbrev
+R2027:2030 Proc.ProcSyn <> chan ind
+binder 2008:2012 <> sigma:38
+R2045:2046 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2050:2055 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2047:2049 Proc.headers.unscoped <> fin abbrev
+R2056:2059 Proc.ProcSyn <> chan ind
+binder 2035:2041 <> tauchan:39
+R2072:2073 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2077:2082 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2074:2076 Proc.headers.unscoped <> fin abbrev
+R2083:2086 Proc.ProcSyn <> chan ind
+binder 2064:2068 <> theta:40
+binder 2103:2103 <> x:41
+R2146:2148 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2108:2114 Proc.headers.unscoped <> funcomp def
+R2138:2142 Proc.ProcSyn <> sigma:38 var
+R2118:2127 Proc.ProcSyn <> subst_chan def
+R2129:2135 Proc.ProcSyn <> tauchan:39 var
+R2145:2145 Proc.ProcSyn <> x:41 var
+R2149:2153 Proc.ProcSyn <> theta:40 var
+R2155:2155 Proc.ProcSyn <> x:41 var
+binder 2091:2092 <> Eq:42
+binder 2167:2167 <> x:43
+R2240:2242 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2172:2178 Proc.headers.unscoped <> funcomp def
+R2218:2229 Proc.ProcSyn <> up_chan_chan def
+R2231:2235 Proc.ProcSyn <> sigma:38 var
+R2182:2191 Proc.ProcSyn <> subst_chan def
+R2194:2205 Proc.ProcSyn <> up_chan_chan def
+R2207:2213 Proc.ProcSyn <> tauchan:39 var
+R2239:2239 Proc.ProcSyn <> x:43 var
+R2244:2255 Proc.ProcSyn <> up_chan_chan def
+R2257:2261 Proc.ProcSyn <> theta:40 var
+R2264:2264 Proc.ProcSyn <> x:43 var
+binder 2275:2275 <> n:44
+R2286:2286 Proc.ProcSyn <> n:44 var
+R2297:2297 Corelib.Init.Datatypes <> S constr
+R2309:2316 Corelib.Init.Logic <> eq_trans thm
+R2474:2481 Corelib.Init.Logic <> eq_trans thm
+R2657:2658 Proc.headers.unscoped <> ap def
+R2707:2708 Proc.ProcSyn <> Eq:42 var
+R2662:2671 Proc.ProcSyn <> subst_chan def
+R2675:2681 Proc.headers.unscoped <> funcomp def
+R2697:2701 Proc.headers.unscoped <> shift def
+R2685:2692 Proc.ProcSyn <> var_chan constr
+R2486:2491 Corelib.Init.Logic <> eq_sym thm
+R2495:2513 Proc.ProcSyn <> compSubstSubst_chan def
+R2515:2521 Proc.ProcSyn <> tauchan:39 var
+R2525:2531 Proc.headers.unscoped <> funcomp def
+R2547:2551 Proc.headers.unscoped <> shift def
+R2535:2542 Proc.ProcSyn <> var_chan constr
+R2557:2563 Proc.headers.unscoped <> funcomp def
+R2611:2617 Proc.ProcSyn <> tauchan:39 var
+R2567:2576 Proc.ProcSyn <> subst_chan def
+R2580:2586 Proc.headers.unscoped <> funcomp def
+R2602:2606 Proc.headers.unscoped <> shift def
+R2590:2597 Proc.ProcSyn <> var_chan constr
+binder 2625:2625 <> x:46
+R2630:2636 Corelib.Init.Logic <> eq_refl constr
+R2640:2644 Proc.ProcSyn <> sigma:38 var
+R2320:2338 Proc.ProcSyn <> compSubstSubst_chan def
+R2342:2348 Proc.headers.unscoped <> funcomp def
+R2364:2368 Proc.headers.unscoped <> shift def
+R2352:2359 Proc.ProcSyn <> var_chan constr
+R2373:2384 Proc.ProcSyn <> up_chan_chan def
+R2386:2392 Proc.ProcSyn <> tauchan:39 var
+R2397:2403 Proc.headers.unscoped <> funcomp def
+R2430:2434 Proc.headers.unscoped <> shift def
+R2407:2418 Proc.ProcSyn <> up_chan_chan def
+R2420:2426 Proc.ProcSyn <> tauchan:39 var
+binder 2443:2443 <> x:47
+R2448:2454 Corelib.Init.Logic <> eq_refl constr
+R2458:2462 Proc.ProcSyn <> sigma:38 var
+R2729:2735 Corelib.Init.Logic <> eq_refl constr
+prf 2751:2761 <> instId_chan
+R2788:2790 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2766:2775 Proc.ProcSyn <> subst_chan def
+R2778:2785 Proc.ProcSyn <> var_chan constr
+R2791:2792 Proc.headers.unscoped <> id def
+R2811:2860 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 2873:2873 <> x:48
+R2878:2889 Proc.ProcSyn <> idSubst_chan def
+R2892:2899 Proc.ProcSyn <> var_chan constr
+binder 2908:2908 <> n:49
+R2913:2919 Corelib.Init.Logic <> eq_refl constr
+R2924:2925 Proc.headers.unscoped <> id def
+R2928:2928 Proc.ProcSyn <> x:48 var
+R2811:2860 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 2873:2873 <> x:50
+R2878:2889 Proc.ProcSyn <> idSubst_chan def
+R2892:2899 Proc.ProcSyn <> var_chan constr
+binder 2908:2908 <> n:51
+R2913:2919 Corelib.Init.Logic <> eq_refl constr
+R2924:2925 Proc.headers.unscoped <> id def
+R2928:2928 Proc.ProcSyn <> x:50 var
+prf 2946:2954 <> varL_chan
+R2971:2972 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2976:2981 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2973:2975 Proc.headers.unscoped <> fin abbrev
+R2982:2985 Proc.ProcSyn <> chan ind
+binder 2959:2967 <> sigmachan:52
+R3035:3037 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2992:2998 Proc.headers.unscoped <> funcomp def
+R3025:3032 Proc.ProcSyn <> var_chan constr
+R3002:3011 Proc.ProcSyn <> subst_chan def
+R3013:3021 Proc.ProcSyn <> sigmachan:52 var
+R3038:3046 Proc.ProcSyn <> sigmachan:52 var
+R3065:3114 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 3127:3127 <> x:53
+R3132:3138 Corelib.Init.Logic <> eq_refl constr
+R3065:3114 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 3127:3127 <> x:54
+R3132:3138 Corelib.Init.Logic <> eq_refl constr
+prf 3155:3167 <> compComp_chan
+R3185:3186 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3190:3195 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3187:3189 Proc.headers.unscoped <> fin abbrev
+R3196:3199 Proc.ProcSyn <> chan ind
+binder 3173:3181 <> sigmachan:55
+R3214:3215 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3219:3224 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3216:3218 Proc.headers.unscoped <> fin abbrev
+R3225:3228 Proc.ProcSyn <> chan ind
+binder 3204:3210 <> tauchan:56
+R3237:3240 Proc.ProcSyn <> chan ind
+binder 3233:3233 <> s:57
+R3289:3291 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R3246:3255 Proc.ProcSyn <> subst_chan def
+R3257:3263 Proc.ProcSyn <> tauchan:56 var
+R3266:3275 Proc.ProcSyn <> subst_chan def
+R3277:3285 Proc.ProcSyn <> sigmachan:55 var
+R3287:3287 Proc.ProcSyn <> s:57 var
+R3292:3301 Proc.ProcSyn <> subst_chan def
+R3305:3311 Proc.headers.unscoped <> funcomp def
+R3335:3343 Proc.ProcSyn <> sigmachan:55 var
+R3315:3324 Proc.ProcSyn <> subst_chan def
+R3326:3332 Proc.ProcSyn <> tauchan:56 var
+R3346:3346 Proc.ProcSyn <> s:57 var
+R3364:3382 Proc.ProcSyn <> compSubstSubst_chan def
+binder 3411:3411 <> n:58
+R3416:3422 Corelib.Init.Logic <> eq_refl constr
+R3364:3382 Proc.ProcSyn <> compSubstSubst_chan def
+binder 3411:3411 <> n:59
+R3416:3422 Corelib.Init.Logic <> eq_refl constr
+prf 3441:3454 <> compComp'_chan
+R3472:3473 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3477:3482 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3474:3476 Proc.headers.unscoped <> fin abbrev
+R3483:3486 Proc.ProcSyn <> chan ind
+binder 3460:3468 <> sigmachan:60
+R3501:3502 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3506:3511 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3503:3505 Proc.headers.unscoped <> fin abbrev
+R3512:3515 Proc.ProcSyn <> chan ind
+binder 3491:3497 <> tauchan:61
+R3574:3576 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R3522:3528 Proc.headers.unscoped <> funcomp def
+R3553:3562 Proc.ProcSyn <> subst_chan def
+R3564:3572 Proc.ProcSyn <> sigmachan:60 var
+R3532:3541 Proc.ProcSyn <> subst_chan def
+R3543:3549 Proc.ProcSyn <> tauchan:61 var
+R3577:3586 Proc.ProcSyn <> subst_chan def
+R3590:3596 Proc.headers.unscoped <> funcomp def
+R3620:3628 Proc.ProcSyn <> sigmachan:60 var
+R3600:3609 Proc.ProcSyn <> subst_chan def
+R3611:3617 Proc.ProcSyn <> tauchan:61 var
+R3648:3697 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 3710:3710 <> n:62
+R3715:3727 Proc.ProcSyn <> compComp_chan thm
+R3747:3747 Proc.ProcSyn <> n:62 var
+R3648:3697 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 3710:3710 <> n:63
+R3715:3727 Proc.ProcSyn <> compComp_chan thm
+R3747:3747 Proc.ProcSyn <> n:63 var
+R3762:3765 Proc.ProcSyn chan <> sec
+sec 3777:3780 <> proc
+ind 3793:3796 <> proc
+constr 3813:3816 <> Zero
+constr 3830:3832 <> Par
+constr 3874:3876 <> Rcv
+constr 3918:3921 <> Send
+constr 3977:3978 <> Nu
+R3820:3823 Proc.ProcSyn <> proc:64 ind
+R3836:3837 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3842:3849 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3838:3841 Proc.ProcSyn <> proc:64 ind
+R3850:3851 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3856:3863 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3852:3855 Proc.ProcSyn <> proc:64 ind
+R3864:3867 Proc.ProcSyn <> proc:64 ind
+R3880:3881 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3886:3893 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3882:3885 Proc.ProcSyn <> chan ind
+R3894:3895 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3900:3907 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3896:3899 Proc.ProcSyn <> proc:64 ind
+R3908:3911 Proc.ProcSyn <> proc:64 ind
+R3925:3926 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3931:3938 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3927:3930 Proc.ProcSyn <> chan ind
+R3939:3940 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3945:3952 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3941:3944 Proc.ProcSyn <> chan ind
+R3953:3954 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3959:3966 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3955:3958 Proc.ProcSyn <> proc:64 ind
+R3967:3970 Proc.ProcSyn <> proc:64 ind
+R3982:3983 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3988:3995 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3984:3987 Proc.ProcSyn <> proc:64 ind
+R3996:3999 Proc.ProcSyn <> proc:64 ind
+scheme 3793:3796 <> proc_rect
+scheme 3793:3796 <> proc_ind
+scheme 3793:3796 <> proc_rec
+scheme 3793:3796 <> proc_sind
+prf 4010:4019 <> congr_Zero
+R4028:4031 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4024:4027 Proc.ProcSyn <> Zero constr
+R4032:4035 Proc.ProcSyn <> Zero constr
+prf 4071:4079 <> congr_Par
+R4089:4092 Proc.ProcSyn <> proc ind
+binder 4084:4085 <> s0:66
+R4105:4108 Proc.ProcSyn <> proc ind
+binder 4100:4101 <> s1:67
+R4121:4124 Proc.ProcSyn <> proc ind
+binder 4116:4117 <> t0:68
+R4137:4140 Proc.ProcSyn <> proc ind
+binder 4132:4133 <> t1:69
+R4154:4156 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4152:4153 Proc.ProcSyn <> s0:66 var
+R4157:4158 Proc.ProcSyn <> t0:68 var
+binder 4147:4148 <> H1:70
+R4169:4171 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4167:4168 Proc.ProcSyn <> s1:67 var
+R4172:4173 Proc.ProcSyn <> t1:69 var
+binder 4162:4163 <> H2:71
+R4188:4190 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4178:4180 Proc.ProcSyn <> Par constr
+R4183:4184 Proc.ProcSyn <> s0:66 var
+R4186:4187 Proc.ProcSyn <> s1:67 var
+R4191:4193 Proc.ProcSyn <> Par constr
+R4196:4197 Proc.ProcSyn <> t0:68 var
+R4199:4200 Proc.ProcSyn <> t1:69 var
+prf 4235:4243 <> congr_Rcv
+R4253:4256 Proc.ProcSyn <> chan ind
+binder 4248:4249 <> s0:72
+R4269:4272 Proc.ProcSyn <> proc ind
+binder 4264:4265 <> s1:73
+R4285:4288 Proc.ProcSyn <> chan ind
+binder 4280:4281 <> t0:74
+R4301:4304 Proc.ProcSyn <> proc ind
+binder 4296:4297 <> t1:75
+R4318:4320 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4316:4317 Proc.ProcSyn <> s0:72 var
+R4321:4322 Proc.ProcSyn <> t0:74 var
+binder 4311:4312 <> H1:76
+R4333:4335 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4331:4332 Proc.ProcSyn <> s1:73 var
+R4336:4337 Proc.ProcSyn <> t1:75 var
+binder 4326:4327 <> H2:77
+R4352:4354 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4342:4344 Proc.ProcSyn <> Rcv constr
+R4347:4348 Proc.ProcSyn <> s0:72 var
+R4350:4351 Proc.ProcSyn <> s1:73 var
+R4355:4357 Proc.ProcSyn <> Rcv constr
+R4360:4361 Proc.ProcSyn <> t0:74 var
+R4363:4364 Proc.ProcSyn <> t1:75 var
+prf 4399:4408 <> congr_Send
+R4418:4421 Proc.ProcSyn <> chan ind
+binder 4413:4414 <> s0:78
+R4434:4437 Proc.ProcSyn <> chan ind
+binder 4429:4430 <> s1:79
+R4450:4453 Proc.ProcSyn <> proc ind
+binder 4445:4446 <> s2:80
+R4466:4469 Proc.ProcSyn <> chan ind
+binder 4461:4462 <> t0:81
+R4482:4485 Proc.ProcSyn <> chan ind
+binder 4477:4478 <> t1:82
+R4498:4501 Proc.ProcSyn <> proc ind
+binder 4493:4494 <> t2:83
+R4515:4517 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4513:4514 Proc.ProcSyn <> s0:78 var
+R4518:4519 Proc.ProcSyn <> t0:81 var
+binder 4508:4509 <> H1:84
+R4530:4532 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4528:4529 Proc.ProcSyn <> s1:79 var
+R4533:4534 Proc.ProcSyn <> t1:82 var
+binder 4523:4524 <> H2:85
+R4545:4547 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4543:4544 Proc.ProcSyn <> s2:80 var
+R4548:4549 Proc.ProcSyn <> t2:83 var
+binder 4538:4539 <> H3:86
+R4568:4570 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4554:4557 Proc.ProcSyn <> Send constr
+R4560:4561 Proc.ProcSyn <> s0:78 var
+R4563:4564 Proc.ProcSyn <> s1:79 var
+R4566:4567 Proc.ProcSyn <> s2:80 var
+R4571:4574 Proc.ProcSyn <> Send constr
+R4577:4578 Proc.ProcSyn <> t0:81 var
+R4580:4581 Proc.ProcSyn <> t1:82 var
+R4583:4584 Proc.ProcSyn <> t2:83 var
+prf 4619:4626 <> congr_Nu
+R4636:4639 Proc.ProcSyn <> proc ind
+binder 4631:4632 <> s0:87
+R4652:4655 Proc.ProcSyn <> proc ind
+binder 4647:4648 <> t0:88
+R4669:4671 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4667:4668 Proc.ProcSyn <> s0:87 var
+R4672:4673 Proc.ProcSyn <> t0:88 var
+binder 4662:4663 <> H1:89
+R4684:4686 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R4678:4679 Proc.ProcSyn <> Nu constr
+R4682:4683 Proc.ProcSyn <> s0:87 var
+R4687:4688 Proc.ProcSyn <> Nu constr
+R4691:4692 Proc.ProcSyn <> t0:88 var
+def 4730:4739 <> subst_proc
+R4756:4757 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4761:4766 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4758:4760 Proc.headers.unscoped <> fin abbrev
+R4767:4770 Proc.ProcSyn <> chan ind
+binder 4744:4752 <> sigmachan:90
+R4779:4782 Proc.ProcSyn <> proc ind
+binder 4775:4775 <> s:91
+R4788:4791 Proc.ProcSyn <> proc ind
+R4807:4807 Proc.ProcSyn <> s:91 var
+R4816:4819 Proc.ProcSyn <> proc ind
+R4833:4836 Proc.ProcSyn <> Zero constr
+R4843:4846 Proc.ProcSyn <> Zero constr
+R4855:4857 Proc.ProcSyn <> Par constr
+R4869:4871 Proc.ProcSyn <> Par constr
+R4876:4885 Proc.ProcSyn <> subst_proc:92 def
+R4887:4895 Proc.ProcSyn <> sigmachan:90 var
+R4904:4913 Proc.ProcSyn <> subst_proc:92 def
+R4915:4923 Proc.ProcSyn <> sigmachan:90 var
+R4936:4938 Proc.ProcSyn <> Rcv constr
+R4950:4952 Proc.ProcSyn <> Rcv constr
+R4957:4966 Proc.ProcSyn <> subst_chan def
+R4968:4976 Proc.ProcSyn <> sigmachan:90 var
+R4985:4994 Proc.ProcSyn <> subst_proc:92 def
+R4997:5008 Proc.ProcSyn <> up_chan_chan def
+R5010:5018 Proc.ProcSyn <> sigmachan:90 var
+R5032:5035 Proc.ProcSyn <> Send constr
+R5050:5053 Proc.ProcSyn <> Send constr
+R5058:5067 Proc.ProcSyn <> subst_chan def
+R5069:5077 Proc.ProcSyn <> sigmachan:90 var
+R5086:5095 Proc.ProcSyn <> subst_chan def
+R5097:5105 Proc.ProcSyn <> sigmachan:90 var
+R5114:5123 Proc.ProcSyn <> subst_proc:92 def
+R5125:5133 Proc.ProcSyn <> sigmachan:90 var
+R5146:5147 Proc.ProcSyn <> Nu constr
+R5156:5157 Proc.ProcSyn <> Nu constr
+R5162:5171 Proc.ProcSyn <> subst_proc:92 def
+R5174:5185 Proc.ProcSyn <> up_chan_chan def
+R5187:5195 Proc.ProcSyn <> sigmachan:90 var
+def 5222:5233 <> idSubst_proc
+R5249:5250 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5254:5259 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5251:5253 Proc.headers.unscoped <> fin abbrev
+R5260:5263 Proc.ProcSyn <> chan ind
+binder 5237:5245 <> sigmachan:94
+binder 5284:5284 <> x:95
+R5298:5300 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R5287:5295 Proc.ProcSyn <> sigmachan:94 var
+R5297:5297 Proc.ProcSyn <> x:95 var
+R5302:5309 Proc.ProcSyn <> var_chan constr
+R5313:5313 Proc.ProcSyn <> x:95 var
+binder 5268:5273 <> Eqchan:96
+R5321:5324 Proc.ProcSyn <> proc ind
+binder 5317:5317 <> s:97
+R5352:5354 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R5330:5339 Proc.ProcSyn <> subst_proc def
+R5341:5349 Proc.ProcSyn <> sigmachan:94 var
+R5351:5351 Proc.ProcSyn <> s:97 var
+R5355:5355 Proc.ProcSyn <> s:97 var
+R5370:5370 Proc.ProcSyn <> s:97 var
+R5401:5403 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R5379:5388 Proc.ProcSyn <> subst_proc def
+R5390:5398 Proc.ProcSyn <> sigmachan:94 var
+R5400:5400 Proc.ProcSyn <> s:99 var
+R5404:5404 Proc.ProcSyn <> s:99 var
+R5417:5420 Proc.ProcSyn <> Zero constr
+R5427:5436 Proc.ProcSyn <> congr_Zero thm
+R5445:5447 Proc.ProcSyn <> Par constr
+R5459:5467 Proc.ProcSyn <> congr_Par thm
+R5508:5519 Proc.ProcSyn <> idSubst_proc:98 def
+R5531:5536 Proc.ProcSyn <> Eqchan:96 var
+R5521:5529 Proc.ProcSyn <> sigmachan:94 var
+R5471:5482 Proc.ProcSyn <> idSubst_proc:98 def
+R5494:5499 Proc.ProcSyn <> Eqchan:96 var
+R5484:5492 Proc.ProcSyn <> sigmachan:94 var
+R5549:5551 Proc.ProcSyn <> Rcv constr
+R5563:5571 Proc.ProcSyn <> congr_Rcv thm
+R5612:5623 Proc.ProcSyn <> idSubst_proc:98 def
+R5651:5664 Proc.ProcSyn <> upId_chan_chan def
+R5670:5675 Proc.ProcSyn <> Eqchan:96 var
+R5626:5637 Proc.ProcSyn <> up_chan_chan def
+R5639:5647 Proc.ProcSyn <> sigmachan:94 var
+R5575:5586 Proc.ProcSyn <> idSubst_chan def
+R5588:5596 Proc.ProcSyn <> sigmachan:94 var
+R5598:5603 Proc.ProcSyn <> Eqchan:96 var
+R5689:5692 Proc.ProcSyn <> Send constr
+R5707:5716 Proc.ProcSyn <> congr_Send thm
+R5794:5805 Proc.ProcSyn <> idSubst_proc:98 def
+R5817:5822 Proc.ProcSyn <> Eqchan:96 var
+R5807:5815 Proc.ProcSyn <> sigmachan:94 var
+R5757:5768 Proc.ProcSyn <> idSubst_chan def
+R5770:5778 Proc.ProcSyn <> sigmachan:94 var
+R5780:5785 Proc.ProcSyn <> Eqchan:96 var
+R5720:5731 Proc.ProcSyn <> idSubst_chan def
+R5733:5741 Proc.ProcSyn <> sigmachan:94 var
+R5743:5748 Proc.ProcSyn <> Eqchan:96 var
+R5835:5836 Proc.ProcSyn <> Nu constr
+R5845:5852 Proc.ProcSyn <> congr_Nu thm
+R5856:5867 Proc.ProcSyn <> idSubst_proc:98 def
+R5895:5908 Proc.ProcSyn <> upId_chan_chan def
+R5914:5919 Proc.ProcSyn <> Eqchan:96 var
+R5870:5881 Proc.ProcSyn <> up_chan_chan def
+R5883:5891 Proc.ProcSyn <> sigmachan:94 var
+def 5946:5953 <> ext_proc
+R5970:5971 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5975:5980 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5972:5974 Proc.headers.unscoped <> fin abbrev
+R5981:5984 Proc.ProcSyn <> chan ind
+binder 5958:5966 <> sigmachan:100
+R5999:6000 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6004:6009 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6001:6003 Proc.headers.unscoped <> fin abbrev
+R6010:6013 Proc.ProcSyn <> chan ind
+binder 5989:5995 <> tauchan:101
+binder 6034:6034 <> x:102
+R6048:6050 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R6037:6045 Proc.ProcSyn <> sigmachan:100 var
+R6047:6047 Proc.ProcSyn <> x:102 var
+R6051:6057 Proc.ProcSyn <> tauchan:101 var
+R6059:6059 Proc.ProcSyn <> x:102 var
+binder 6018:6023 <> Eqchan:103
+R6067:6070 Proc.ProcSyn <> proc ind
+binder 6063:6063 <> s:104
+R6098:6100 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R6076:6085 Proc.ProcSyn <> subst_proc def
+R6087:6095 Proc.ProcSyn <> sigmachan:100 var
+R6097:6097 Proc.ProcSyn <> s:104 var
+R6101:6110 Proc.ProcSyn <> subst_proc def
+R6112:6118 Proc.ProcSyn <> tauchan:101 var
+R6120:6120 Proc.ProcSyn <> s:104 var
+R6135:6135 Proc.ProcSyn <> s:104 var
+R6166:6168 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R6144:6153 Proc.ProcSyn <> subst_proc def
+R6155:6163 Proc.ProcSyn <> sigmachan:100 var
+R6165:6165 Proc.ProcSyn <> s:106 var
+R6169:6178 Proc.ProcSyn <> subst_proc def
+R6180:6186 Proc.ProcSyn <> tauchan:101 var
+R6188:6188 Proc.ProcSyn <> s:106 var
+R6201:6204 Proc.ProcSyn <> Zero constr
+R6211:6220 Proc.ProcSyn <> congr_Zero thm
+R6229:6231 Proc.ProcSyn <> Par constr
+R6243:6251 Proc.ProcSyn <> congr_Par thm
+R6296:6303 Proc.ProcSyn <> ext_proc:105 def
+R6323:6328 Proc.ProcSyn <> Eqchan:103 var
+R6315:6321 Proc.ProcSyn <> tauchan:101 var
+R6305:6313 Proc.ProcSyn <> sigmachan:100 var
+R6255:6262 Proc.ProcSyn <> ext_proc:105 def
+R6282:6287 Proc.ProcSyn <> Eqchan:103 var
+R6274:6280 Proc.ProcSyn <> tauchan:101 var
+R6264:6272 Proc.ProcSyn <> sigmachan:100 var
+R6341:6343 Proc.ProcSyn <> Rcv constr
+R6355:6363 Proc.ProcSyn <> congr_Rcv thm
+R6408:6415 Proc.ProcSyn <> ext_proc:105 def
+R6466:6480 Proc.ProcSyn <> upExt_chan_chan def
+R6490:6495 Proc.ProcSyn <> Eqchan:103 var
+R6443:6454 Proc.ProcSyn <> up_chan_chan def
+R6456:6462 Proc.ProcSyn <> tauchan:101 var
+R6418:6429 Proc.ProcSyn <> up_chan_chan def
+R6431:6439 Proc.ProcSyn <> sigmachan:100 var
+R6367:6374 Proc.ProcSyn <> ext_chan def
+R6376:6384 Proc.ProcSyn <> sigmachan:100 var
+R6386:6392 Proc.ProcSyn <> tauchan:101 var
+R6394:6399 Proc.ProcSyn <> Eqchan:103 var
+R6509:6512 Proc.ProcSyn <> Send constr
+R6527:6536 Proc.ProcSyn <> congr_Send thm
+R6622:6629 Proc.ProcSyn <> ext_proc:105 def
+R6649:6654 Proc.ProcSyn <> Eqchan:103 var
+R6641:6647 Proc.ProcSyn <> tauchan:101 var
+R6631:6639 Proc.ProcSyn <> sigmachan:100 var
+R6581:6588 Proc.ProcSyn <> ext_chan def
+R6590:6598 Proc.ProcSyn <> sigmachan:100 var
+R6600:6606 Proc.ProcSyn <> tauchan:101 var
+R6608:6613 Proc.ProcSyn <> Eqchan:103 var
+R6540:6547 Proc.ProcSyn <> ext_chan def
+R6549:6557 Proc.ProcSyn <> sigmachan:100 var
+R6559:6565 Proc.ProcSyn <> tauchan:101 var
+R6567:6572 Proc.ProcSyn <> Eqchan:103 var
+R6667:6668 Proc.ProcSyn <> Nu constr
+R6677:6684 Proc.ProcSyn <> congr_Nu thm
+R6688:6695 Proc.ProcSyn <> ext_proc:105 def
+R6746:6760 Proc.ProcSyn <> upExt_chan_chan def
+R6770:6775 Proc.ProcSyn <> Eqchan:103 var
+R6723:6734 Proc.ProcSyn <> up_chan_chan def
+R6736:6742 Proc.ProcSyn <> tauchan:101 var
+R6698:6709 Proc.ProcSyn <> up_chan_chan def
+R6711:6719 Proc.ProcSyn <> sigmachan:100 var
+def 6802:6820 <> compSubstSubst_proc
+R6838:6839 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6843:6848 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6840:6842 Proc.headers.unscoped <> fin abbrev
+R6849:6852 Proc.ProcSyn <> chan ind
+binder 6826:6834 <> sigmachan:107
+R6867:6868 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6872:6877 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6869:6871 Proc.headers.unscoped <> fin abbrev
+R6878:6881 Proc.ProcSyn <> chan ind
+binder 6857:6863 <> tauchan:108
+R6898:6899 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6903:6908 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6900:6902 Proc.headers.unscoped <> fin abbrev
+R6909:6912 Proc.ProcSyn <> chan ind
+binder 6886:6894 <> thetachan:109
+binder 6933:6933 <> x:110
+R6980:6982 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R6938:6944 Proc.headers.unscoped <> funcomp def
+R6968:6976 Proc.ProcSyn <> sigmachan:107 var
+R6948:6957 Proc.ProcSyn <> subst_chan def
+R6959:6965 Proc.ProcSyn <> tauchan:108 var
+R6979:6979 Proc.ProcSyn <> x:110 var
+R6983:6991 Proc.ProcSyn <> thetachan:109 var
+R6993:6993 Proc.ProcSyn <> x:110 var
+binder 6917:6922 <> Eqchan:111
+R7001:7004 Proc.ProcSyn <> proc ind
+binder 6997:6997 <> s:112
+R7053:7055 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7010:7019 Proc.ProcSyn <> subst_proc def
+R7021:7027 Proc.ProcSyn <> tauchan:108 var
+R7030:7039 Proc.ProcSyn <> subst_proc def
+R7041:7049 Proc.ProcSyn <> sigmachan:107 var
+R7051:7051 Proc.ProcSyn <> s:112 var
+R7056:7065 Proc.ProcSyn <> subst_proc def
+R7067:7075 Proc.ProcSyn <> thetachan:109 var
+R7077:7077 Proc.ProcSyn <> s:112 var
+R7092:7092 Proc.ProcSyn <> s:112 var
+R7144:7146 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7101:7110 Proc.ProcSyn <> subst_proc def
+R7112:7118 Proc.ProcSyn <> tauchan:108 var
+R7121:7130 Proc.ProcSyn <> subst_proc def
+R7132:7140 Proc.ProcSyn <> sigmachan:107 var
+R7142:7142 Proc.ProcSyn <> s:114 var
+R7147:7156 Proc.ProcSyn <> subst_proc def
+R7158:7166 Proc.ProcSyn <> thetachan:109 var
+R7168:7168 Proc.ProcSyn <> s:114 var
+R7181:7184 Proc.ProcSyn <> Zero constr
+R7191:7200 Proc.ProcSyn <> congr_Zero thm
+R7209:7211 Proc.ProcSyn <> Par constr
+R7223:7231 Proc.ProcSyn <> congr_Par thm
+R7297:7315 Proc.ProcSyn <> compSubstSubst_proc:113 def
+R7345:7350 Proc.ProcSyn <> Eqchan:111 var
+R7335:7343 Proc.ProcSyn <> thetachan:109 var
+R7327:7333 Proc.ProcSyn <> tauchan:108 var
+R7317:7325 Proc.ProcSyn <> sigmachan:107 var
+R7235:7253 Proc.ProcSyn <> compSubstSubst_proc:113 def
+R7283:7288 Proc.ProcSyn <> Eqchan:111 var
+R7273:7281 Proc.ProcSyn <> thetachan:109 var
+R7265:7271 Proc.ProcSyn <> tauchan:108 var
+R7255:7263 Proc.ProcSyn <> sigmachan:107 var
+R7363:7365 Proc.ProcSyn <> Rcv constr
+R7377:7385 Proc.ProcSyn <> congr_Rcv thm
+R7451:7469 Proc.ProcSyn <> compSubstSubst_proc:113 def
+R7545:7568 Proc.ProcSyn <> up_subst_subst_chan_chan def
+R7582:7587 Proc.ProcSyn <> Eqchan:111 var
+R7520:7531 Proc.ProcSyn <> up_chan_chan def
+R7533:7541 Proc.ProcSyn <> thetachan:109 var
+R7497:7508 Proc.ProcSyn <> up_chan_chan def
+R7510:7516 Proc.ProcSyn <> tauchan:108 var
+R7472:7483 Proc.ProcSyn <> up_chan_chan def
+R7485:7493 Proc.ProcSyn <> sigmachan:107 var
+R7389:7407 Proc.ProcSyn <> compSubstSubst_chan def
+R7409:7417 Proc.ProcSyn <> sigmachan:107 var
+R7419:7425 Proc.ProcSyn <> tauchan:108 var
+R7427:7435 Proc.ProcSyn <> thetachan:109 var
+R7437:7442 Proc.ProcSyn <> Eqchan:111 var
+R7601:7604 Proc.ProcSyn <> Send constr
+R7619:7628 Proc.ProcSyn <> congr_Send thm
+R7756:7774 Proc.ProcSyn <> compSubstSubst_proc:113 def
+R7804:7809 Proc.ProcSyn <> Eqchan:111 var
+R7794:7802 Proc.ProcSyn <> thetachan:109 var
+R7786:7792 Proc.ProcSyn <> tauchan:108 var
+R7776:7784 Proc.ProcSyn <> sigmachan:107 var
+R7694:7712 Proc.ProcSyn <> compSubstSubst_chan def
+R7714:7722 Proc.ProcSyn <> sigmachan:107 var
+R7724:7730 Proc.ProcSyn <> tauchan:108 var
+R7732:7740 Proc.ProcSyn <> thetachan:109 var
+R7742:7747 Proc.ProcSyn <> Eqchan:111 var
+R7632:7650 Proc.ProcSyn <> compSubstSubst_chan def
+R7652:7660 Proc.ProcSyn <> sigmachan:107 var
+R7662:7668 Proc.ProcSyn <> tauchan:108 var
+R7670:7678 Proc.ProcSyn <> thetachan:109 var
+R7680:7685 Proc.ProcSyn <> Eqchan:111 var
+R7822:7823 Proc.ProcSyn <> Nu constr
+R7832:7839 Proc.ProcSyn <> congr_Nu thm
+R7843:7861 Proc.ProcSyn <> compSubstSubst_proc:113 def
+R7937:7960 Proc.ProcSyn <> up_subst_subst_chan_chan def
+R7974:7979 Proc.ProcSyn <> Eqchan:111 var
+R7912:7923 Proc.ProcSyn <> up_chan_chan def
+R7925:7933 Proc.ProcSyn <> thetachan:109 var
+R7889:7900 Proc.ProcSyn <> up_chan_chan def
+R7902:7908 Proc.ProcSyn <> tauchan:108 var
+R7864:7875 Proc.ProcSyn <> up_chan_chan def
+R7877:7885 Proc.ProcSyn <> sigmachan:107 var
+prf 8003:8013 <> instId_proc
+R8040:8042 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8018:8027 Proc.ProcSyn <> subst_proc def
+R8030:8037 Proc.ProcSyn <> var_chan constr
+R8043:8044 Proc.headers.unscoped <> id def
+R8063:8112 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 8125:8125 <> x:115
+R8130:8141 Proc.ProcSyn <> idSubst_proc def
+R8144:8151 Proc.ProcSyn <> var_chan constr
+binder 8160:8160 <> n:116
+R8165:8171 Corelib.Init.Logic <> eq_refl constr
+R8176:8177 Proc.headers.unscoped <> id def
+R8180:8180 Proc.ProcSyn <> x:115 var
+R8063:8112 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 8125:8125 <> x:117
+R8130:8141 Proc.ProcSyn <> idSubst_proc def
+R8144:8151 Proc.ProcSyn <> var_chan constr
+binder 8160:8160 <> n:118
+R8165:8171 Corelib.Init.Logic <> eq_refl constr
+R8176:8177 Proc.headers.unscoped <> id def
+R8180:8180 Proc.ProcSyn <> x:117 var
+prf 8198:8210 <> compComp_proc
+R8228:8229 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8233:8238 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8230:8232 Proc.headers.unscoped <> fin abbrev
+R8239:8242 Proc.ProcSyn <> chan ind
+binder 8216:8224 <> sigmachan:119
+R8257:8258 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8262:8267 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8259:8261 Proc.headers.unscoped <> fin abbrev
+R8268:8271 Proc.ProcSyn <> chan ind
+binder 8247:8253 <> tauchan:120
+R8280:8283 Proc.ProcSyn <> proc ind
+binder 8276:8276 <> s:121
+R8332:8334 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8289:8298 Proc.ProcSyn <> subst_proc def
+R8300:8306 Proc.ProcSyn <> tauchan:120 var
+R8309:8318 Proc.ProcSyn <> subst_proc def
+R8320:8328 Proc.ProcSyn <> sigmachan:119 var
+R8330:8330 Proc.ProcSyn <> s:121 var
+R8335:8344 Proc.ProcSyn <> subst_proc def
+R8348:8354 Proc.headers.unscoped <> funcomp def
+R8378:8386 Proc.ProcSyn <> sigmachan:119 var
+R8358:8367 Proc.ProcSyn <> subst_chan def
+R8369:8375 Proc.ProcSyn <> tauchan:120 var
+R8389:8389 Proc.ProcSyn <> s:121 var
+R8407:8425 Proc.ProcSyn <> compSubstSubst_proc def
+binder 8454:8454 <> n:122
+R8459:8465 Corelib.Init.Logic <> eq_refl constr
+R8407:8425 Proc.ProcSyn <> compSubstSubst_proc def
+binder 8454:8454 <> n:123
+R8459:8465 Corelib.Init.Logic <> eq_refl constr
+prf 8484:8497 <> compComp'_proc
+R8515:8516 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8520:8525 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8517:8519 Proc.headers.unscoped <> fin abbrev
+R8526:8529 Proc.ProcSyn <> chan ind
+binder 8503:8511 <> sigmachan:124
+R8544:8545 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8549:8554 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8546:8548 Proc.headers.unscoped <> fin abbrev
+R8555:8558 Proc.ProcSyn <> chan ind
+binder 8534:8540 <> tauchan:125
+R8617:8619 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8565:8571 Proc.headers.unscoped <> funcomp def
+R8596:8605 Proc.ProcSyn <> subst_proc def
+R8607:8615 Proc.ProcSyn <> sigmachan:124 var
+R8575:8584 Proc.ProcSyn <> subst_proc def
+R8586:8592 Proc.ProcSyn <> tauchan:125 var
+R8620:8629 Proc.ProcSyn <> subst_proc def
+R8633:8639 Proc.headers.unscoped <> funcomp def
+R8663:8671 Proc.ProcSyn <> sigmachan:124 var
+R8643:8652 Proc.ProcSyn <> subst_chan def
+R8654:8660 Proc.ProcSyn <> tauchan:125 var
+R8691:8740 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 8753:8753 <> n:126
+R8758:8770 Proc.ProcSyn <> compComp_proc thm
+R8790:8790 Proc.ProcSyn <> n:126 var
+R8691:8740 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+binder 8753:8753 <> n:127
+R8758:8770 Proc.ProcSyn <> compComp_proc thm
+R8790:8790 Proc.ProcSyn <> n:127 var
+R8805:8808 Proc.ProcSyn proc <> sec
+inst 8840:8849 <> Subst_chan
+R8855:8860 Proc.headers.unscoped <> Subst1 class
+R8890:8893 Proc.ProcSyn <> chan ind
+R8882:8885 Proc.ProcSyn <> chan ind
+R8863:8864 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8868:8873 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8865:8867 Proc.headers.unscoped <> fin abbrev
+R8874:8877 Proc.ProcSyn <> chan ind
+R8901:8910 Proc.ProcSyn <> subst_chan def
+inst 8933:8942 <> Subst_proc
+R8948:8953 Proc.headers.unscoped <> Subst1 class
+R8983:8986 Proc.ProcSyn <> proc ind
+R8975:8978 Proc.ProcSyn <> proc ind
+R8956:8957 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8961:8966 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8958:8960 Proc.headers.unscoped <> fin abbrev
+R8967:8970 Proc.ProcSyn <> chan ind
+R8994:9003 Proc.ProcSyn <> subst_proc def
+inst 9026:9041 <> VarInstance_chan
+R9046:9048 Proc.headers.unscoped <> Var class
+R9057:9060 Proc.ProcSyn <> chan ind
+R9051:9053 Proc.headers.unscoped <> fin abbrev
+R9068:9075 Proc.ProcSyn <> var_chan constr
+R9107:9114 Proc.ProcSyn <> var_chan constr
+not 9090:9090 <> ::subst_scope:x_'__chan'
+R9194:9196 Proc.headers.unscoped <> ids def
+R9206:9221 Proc.ProcSyn <> VarInstance_chan inst
+not 9176:9176 <> ::subst_scope:x_'__chan'
+R9310:9317 Proc.ProcSyn <> var_chan constr
+not 9298:9298 <> ::subst_scope:'var'
+ind 9370:9376 <> Up_chan
+constr 9385:9391 <> up_chan
+rec 9370:9376 <> Up_chan
+proj 9385:9391 <> up_chan
+binder 9378:9378 <> X:128
+binder 9380:9380 <> Y:129
+R9395:9396 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R9398:9403 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R9397:9397 Proc.ProcSyn <> X:128 var
+R9404:9404 Proc.ProcSyn <> Y:129 var
+R9433:9439 Proc.ProcSyn <> up_chan def
+not 9417:9417 <> ::subst_scope:'↑__chan'
+R9499:9510 Proc.ProcSyn <> up_chan_chan def
+not 9483:9483 <> ::subst_scope:'↑__chan'
+inst 9561:9572 <> Up_chan_chan
+R9578:9584 Proc.ProcSyn <> Up_chan class
+R9598:9609 Proc.ProcSyn <> up_chan_chan def
+R9647:9656 Proc.ProcSyn <> subst_chan def
+not 9625:9625 <> ::subst_scope:x_'['_x_']'
+R9764:9773 Proc.ProcSyn <> subst_chan def
+not 9744:9744 <> ::fscope:'['_x_']'
+R9876:9885 Proc.ProcSyn <> subst_proc def
+not 9854:9854 <> ::subst_scope:x_'['_x_']'
+R9993:10002 Proc.ProcSyn <> subst_proc def
+not 9973:9973 <> ::fscope:'['_x_']'
+R10108:10113 Proc.headers.unscoped <> subst1 def
+R10117:10122 Proc.headers.unscoped <> subst2 def
+R10126:10131 Proc.headers.unscoped <> Subst1 class
+R10135:10140 Proc.headers.unscoped <> Subst2 class
+R10144:10146 Proc.headers.unscoped <> ids def
+R10150:10153 Proc.headers.unscoped <> ren1 def
+R10157:10160 Proc.headers.unscoped <> ren2 def
+R10164:10167 Proc.headers.unscoped <> Ren1 class
+R10171:10174 Proc.headers.unscoped <> Ren2 class
+R10178:10187 Proc.ProcSyn <> Subst_chan inst
+R10191:10200 Proc.ProcSyn <> Subst_proc inst
+R10204:10219 Proc.ProcSyn <> VarInstance_chan inst
+R10279:10284 Proc.headers.unscoped <> subst1 def
+R10288:10293 Proc.headers.unscoped <> subst2 def
+R10297:10302 Proc.headers.unscoped <> Subst1 class
+R10306:10311 Proc.headers.unscoped <> Subst2 class
+R10315:10317 Proc.headers.unscoped <> ids def
+R10321:10324 Proc.headers.unscoped <> ren1 def
+R10328:10331 Proc.headers.unscoped <> ren2 def
+R10335:10338 Proc.headers.unscoped <> Ren1 class
+R10342:10345 Proc.headers.unscoped <> Ren2 class
+R10349:10358 Proc.ProcSyn <> Subst_chan inst
+R10362:10371 Proc.ProcSyn <> Subst_proc inst
+R10375:10390 Proc.ProcSyn <> VarInstance_chan inst
+R10447:10457 Proc.ProcSyn <> instId_chan thm
+R10478:10490 Proc.ProcSyn <> compComp_chan thm
+R10511:10524 Proc.ProcSyn <> compComp'_chan thm
+R10545:10555 Proc.ProcSyn <> instId_proc thm
+R10576:10588 Proc.ProcSyn <> compComp_proc thm
+R10609:10622 Proc.ProcSyn <> compComp'_proc thm
+R10643:10651 Proc.ProcSyn <> varL_chan thm
+R10671:10676 Proc.headers.unscoped <> up_ren def
+R10679:10690 Proc.ProcSyn <> up_chan_chan def
+R10709:10718 Proc.ProcSyn <> subst_chan def
+R10720:10729 Proc.ProcSyn <> subst_proc def
+R11061:11071 Proc.ProcSyn <> instId_chan thm
+R11097:11109 Proc.ProcSyn <> compComp_chan thm
+R11135:11148 Proc.ProcSyn <> compComp'_chan thm
+R11174:11184 Proc.ProcSyn <> instId_proc thm
+R11210:11222 Proc.ProcSyn <> compComp_proc thm
+R11248:11261 Proc.ProcSyn <> compComp'_proc thm
+R11287:11295 Proc.ProcSyn <> varL_chan thm
+R11320:11325 Proc.headers.unscoped <> up_ren def
+R11328:11339 Proc.ProcSyn <> up_chan_chan def
+R11363:11372 Proc.ProcSyn <> subst_chan def
+R11374:11383 Proc.ProcSyn <> subst_proc def

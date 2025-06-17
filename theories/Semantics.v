@@ -6,9 +6,6 @@ Import ProcSyn.Core.
 Import unscoped.UnscopedNotations.
 Require Import Coq.Logic.FunctionalExtensionality.
 
-
-Print proc.
-Print chan. 
  
 (*Open Scope subst_scope.
 
@@ -57,7 +54,6 @@ Fixpoint swap n P := match P with
  
 Definition shift_pr (P:proc) := P [fun x => var_chan (x+1)].  
 Definition shiftn_pr n (P:proc) := P [fun x => var_chan (x+n)].  
-Definition shift_sub := fun x => var_chan (x+1).
 
 Inductive conga: proc -> proc -> Prop :=
 | Cga_parCom: forall P Q,     conga (Par P Q)  (Par Q P)
@@ -165,6 +161,19 @@ Qed.
 Definition lift sigma := 
  0 .: (sigma >> S ).
 
+Definition shift_sub := fun x => var_chan (x+1).
+
+
+
+Lemma bind_simpl: forall sigma: nat->chan,
+ shift_sub >> (up_chan sigma) = 
+shift_sub >> (up_chan sigma)
+(*
+sigma >> shift_sub 
+*)
+.
+Proof.
+
  
 Lemma bind_simpl: forall sigma,
  shift >> lift sigma = sigma >> shift .
@@ -177,6 +186,13 @@ intro.
 unfold shift. unfold funcomp.
 cbv. auto.
 Qed.
+
+
+Print up_chan.
+Print subst_proc.
+
+
+
 
 
 Lemma cong_resp_sub: forall P Q sigma,

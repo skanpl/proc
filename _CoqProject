@@ -1,7 +1,16 @@
--R theories Proc
+########-R theories Proc
+-R theories/as2haskell Proc
 -arg "-w none"
-theories/syntax/core.v	
-theories/syntax/ProcSyn.v  
-theories/syntax/unscoped.v
-theories/Semantics.v
-theories/SubCompatible.v
+
+theories/as2haskell/headers/axioms.v
+theories/as2haskell/headers/fintype.v
+theories/as2haskell/headers/unscoped.v
+theories/as2haskell/ProcSyn.v	
+theories/as2haskell/headers/header_extensible.v
+
+
+#####theories/syntax/core.v	
+#####theories/syntax/ProcSyn.v  
+#####theories/syntax/unscoped.v
+#####theories/Semantics.v
+#####theories/SubCompatible.v

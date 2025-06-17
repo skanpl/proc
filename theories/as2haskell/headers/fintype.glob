@@ -1,0 +1,1306 @@
+DIGEST 1deff9b56ab77109c8dc5272b11b21c5
+FProc.headers.fintype
+R483:488 Proc.headers.axioms <> <> lib
+def 550:551 <> ap
+binder 554:554 <> X:1
+binder 556:556 <> Y:2
+R565:568 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R564:564 Proc.headers.fintype <> X:1 var
+R569:569 Proc.headers.fintype <> Y:2 var
+binder 560:560 <> f:3
+R579:579 Proc.headers.fintype <> X:1 var
+binder 573:573 <> x:4
+binder 575:575 <> y:5
+R588:590 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R587:587 Proc.headers.fintype <> x:4 var
+R591:591 Proc.headers.fintype <> y:5 var
+binder 583:583 <> p:6
+R599:601 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R596:596 Proc.headers.fintype <> f:3 var
+R598:598 Proc.headers.fintype <> x:4 var
+R602:602 Proc.headers.fintype <> f:3 var
+R604:604 Proc.headers.fintype <> y:5 var
+R617:617 Proc.headers.fintype <> p:6 var
+R624:630 Corelib.Init.Logic <> eq_refl constr
+R635:641 Corelib.Init.Logic <> eq_refl constr
+def 660:662 <> apc
+binder 665:665 <> X:8
+binder 667:667 <> Y:9
+R678:681 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R677:677 Proc.headers.fintype <> X:8 var
+R682:682 Proc.headers.fintype <> Y:9 var
+binder 671:671 <> f:10
+binder 673:673 <> g:11
+R692:692 Proc.headers.fintype <> X:8 var
+binder 686:686 <> x:12
+binder 688:688 <> y:13
+R701:703 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R700:700 Proc.headers.fintype <> f:10 var
+R704:704 Proc.headers.fintype <> g:11 var
+binder 696:696 <> p:14
+R713:715 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R712:712 Proc.headers.fintype <> x:12 var
+R716:716 Proc.headers.fintype <> y:13 var
+binder 708:708 <> q:15
+R724:726 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R721:721 Proc.headers.fintype <> f:10 var
+R723:723 Proc.headers.fintype <> x:12 var
+R727:727 Proc.headers.fintype <> g:11 var
+R729:729 Proc.headers.fintype <> y:13 var
+R742:742 Proc.headers.fintype <> q:15 var
+R749:755 Corelib.Init.Logic <> eq_refl constr
+R766:766 Proc.headers.fintype <> p:14 var
+R773:779 Corelib.Init.Logic <> eq_refl constr
+R784:790 Corelib.Init.Logic <> eq_refl constr
+def 1000:1002 <> fin
+R1009:1011 Corelib.Init.Datatypes <> nat ind
+binder 1005:1005 <> n:18
+R1032:1032 Proc.headers.fintype <> n:18 var
+R1048:1052 Corelib.Init.Logic <> False ind
+R1058:1058 Corelib.Init.Datatypes <> S constr
+R1065:1070 Corelib.Init.Datatypes <> option ind
+R1073:1075 Proc.headers.fintype <> fin:19 def
+def 1192:1194 <> ren
+R1203:1205 Corelib.Init.Datatypes <> nat ind
+binder 1197:1197 <> m:21
+binder 1199:1199 <> n:22
+R1223:1226 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1218:1220 Proc.headers.fintype <> fin def
+R1222:1222 Proc.headers.fintype <> m:21 var
+R1227:1229 Proc.headers.fintype <> fin def
+R1231:1231 Proc.headers.fintype <> n:22 var
+def 1246:1247 <> id
+binder 1250:1250 <> X:23
+R1258:1258 Proc.headers.fintype <> X:23 var
+binder 1254:1254 <> x:24
+R1264:1264 Proc.headers.fintype <> x:24 var
+def 1279:1283 <> idren
+R1289:1291 Corelib.Init.Datatypes <> nat ind
+binder 1286:1286 <> k:25
+R1296:1298 Proc.headers.fintype <> ren def
+R1302:1302 Proc.headers.fintype <> k:25 var
+R1300:1300 Proc.headers.fintype <> k:25 var
+binder 1313:1313 <> x:26
+R1318:1318 Proc.headers.fintype <> x:26 var
+def 1469:1476 <> var_zero
+R1483:1485 Corelib.Init.Datatypes <> nat ind
+binder 1479:1479 <> n:27
+R1490:1492 Proc.headers.fintype <> fin def
+R1495:1495 Corelib.Init.Datatypes <> S constr
+R1497:1497 Proc.headers.fintype <> n:27 var
+R1503:1506 Corelib.Init.Datatypes <> None constr
+def 1521:1524 <> null
+binder 1527:1527 <> T:28
+R1535:1537 Proc.headers.fintype <> fin def
+binder 1531:1531 <> i:29
+R1544:1544 Proc.headers.fintype <> T:28 var
+R1555:1555 Proc.headers.fintype <> i:29 var
+def 1579:1583 <> shift
+R1590:1592 Corelib.Init.Datatypes <> nat ind
+binder 1586:1586 <> n:31
+R1597:1599 Proc.headers.fintype <> ren def
+R1604:1604 Corelib.Init.Datatypes <> S constr
+R1606:1606 Proc.headers.fintype <> n:31 var
+R1601:1601 Proc.headers.fintype <> n:31 var
+R1614:1617 Corelib.Init.Datatypes <> Some constr
+def 1632:1635 <> comp
+R1641:1647 Proc.headers.axioms <> funcomp def
+def 1925:1929 <> scons
+binder 1932:1932 <> X:32
+R1947:1949 Corelib.Init.Datatypes <> nat ind
+binder 1943:1943 <> n:33
+R1957:1957 Proc.headers.fintype <> X:32 var
+binder 1953:1953 <> x:34
+R1970:1973 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1965:1967 Proc.headers.fintype <> fin def
+R1969:1969 Proc.headers.fintype <> n:33 var
+R1974:1974 Proc.headers.fintype <> X:32 var
+binder 1961:1961 <> f:35
+R1982:1984 Proc.headers.fintype <> fin def
+R1987:1987 Corelib.Init.Datatypes <> S constr
+R1989:1989 Proc.headers.fintype <> n:33 var
+binder 1978:1978 <> m:36
+R1995:1995 Proc.headers.fintype <> X:32 var
+R2008:2008 Proc.headers.fintype <> m:36 var
+R2019:2022 Corelib.Init.Datatypes <> None constr
+R2027:2027 Proc.headers.fintype <> x:34 var
+R2033:2036 Corelib.Init.Datatypes <> Some constr
+R2043:2043 Proc.headers.fintype <> f:35 var
+ind 2147:2150 <> Ren1
+constr 2183:2186 <> ren1
+rec 2147:2150 <> Ren1
+proj 2183:2186 <> ren1
+binder 2153:2154 <> X1:38
+binder 2166:2166 <> Y:39
+binder 2168:2168 <> Z:40
+R2192:2195 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2190:2191 Proc.headers.fintype <> X1:38 var
+R2197:2200 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2196:2196 Proc.headers.fintype <> Y:39 var
+R2201:2201 Proc.headers.fintype <> Z:40 var
+ind 2211:2214 <> Ren2
+constr 2249:2252 <> ren2
+rec 2211:2214 <> Ren2
+proj 2249:2252 <> ren2
+binder 2217:2218 <> X1:43
+binder 2220:2221 <> X2:44
+binder 2232:2232 <> Y:45
+binder 2234:2234 <> Z:46
+R2258:2261 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2256:2257 Proc.headers.fintype <> X1:43 var
+R2264:2267 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2262:2263 Proc.headers.fintype <> X2:44 var
+R2269:2272 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2268:2268 Proc.headers.fintype <> Y:45 var
+R2273:2273 Proc.headers.fintype <> Z:46 var
+ind 2283:2286 <> Ren3
+constr 2324:2327 <> ren3
+rec 2283:2286 <> Ren3
+proj 2324:2327 <> ren3
+binder 2289:2290 <> X1:49
+binder 2292:2293 <> X2:50
+binder 2295:2296 <> X3:51
+binder 2307:2307 <> Y:52
+binder 2309:2309 <> Z:53
+R2333:2336 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2331:2332 Proc.headers.fintype <> X1:49 var
+R2339:2342 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2337:2338 Proc.headers.fintype <> X2:50 var
+R2345:2348 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2343:2344 Proc.headers.fintype <> X3:51 var
+R2350:2353 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2349:2349 Proc.headers.fintype <> Y:52 var
+R2354:2354 Proc.headers.fintype <> Z:53 var
+ind 2364:2367 <> Ren4
+constr 2408:2411 <> ren4
+rec 2364:2367 <> Ren4
+proj 2408:2411 <> ren4
+binder 2370:2371 <> X1:56
+binder 2373:2374 <> X2:57
+binder 2376:2377 <> X3:58
+binder 2379:2380 <> X4:59
+binder 2391:2391 <> Y:60
+binder 2393:2393 <> Z:61
+R2417:2420 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2415:2416 Proc.headers.fintype <> X1:56 var
+R2423:2426 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2421:2422 Proc.headers.fintype <> X2:57 var
+R2429:2432 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2427:2428 Proc.headers.fintype <> X3:58 var
+R2435:2438 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2433:2434 Proc.headers.fintype <> X4:59 var
+R2440:2443 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2439:2439 Proc.headers.fintype <> Y:60 var
+R2444:2444 Proc.headers.fintype <> Z:61 var
+ind 2454:2457 <> Ren5
+constr 2501:2504 <> ren5
+rec 2454:2457 <> Ren5
+proj 2501:2504 <> ren5
+binder 2460:2461 <> X1:64
+binder 2463:2464 <> X2:65
+binder 2466:2467 <> X3:66
+binder 2469:2470 <> X4:67
+binder 2472:2473 <> X5:68
+binder 2484:2484 <> Y:69
+binder 2486:2486 <> Z:70
+R2510:2513 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2508:2509 Proc.headers.fintype <> X1:64 var
+R2516:2519 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2514:2515 Proc.headers.fintype <> X2:65 var
+R2522:2525 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2520:2521 Proc.headers.fintype <> X3:66 var
+R2528:2531 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2526:2527 Proc.headers.fintype <> X4:67 var
+R2534:2537 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2532:2533 Proc.headers.fintype <> X5:68 var
+R2539:2542 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2538:2538 Proc.headers.fintype <> Y:69 var
+R2543:2543 Proc.headers.fintype <> Z:70 var
+R2627:2630 Proc.headers.fintype <> ren1 def
+not 2607:2607 <> ::subst_scope:x_'⟨'_x_'⟩'
+R2749:2752 Proc.headers.fintype <> ren2 def
+not 2723:2723 <> ::subst_scope:x_'⟨'_x_';'_x_'⟩'
+R2886:2889 Proc.headers.fintype <> ren3 def
+not 2854:2854 <> ::subst_scope:x_'⟨'_x_';'_x_';'_x_'⟩'
+R3039:3042 Proc.headers.fintype <> ren4 def
+not 3001:3001 <> ::subst_scope:x_'⟨'_x_';'_x_';'_x_';'_x_'⟩'
+R3209:3212 Proc.headers.fintype <> ren5 def
+not 3165:3165 <> ::subst_scope:x_'⟨'_x_';'_x_';'_x_';'_x_';'_x_'⟩'
+R3362:3365 Proc.headers.fintype <> ren1 def
+not 3345:3345 <> ::fscope:'⟨'_x_'⟩'
+R3469:3472 Proc.headers.fintype <> ren2 def
+not 3445:3445 <> ::fscope:'⟨'_x_';'_x_'⟩'
+ind 3603:3608 <> Subst1
+constr 3639:3644 <> subst1
+rec 3603:3608 <> Subst1
+proj 3639:3644 <> subst1
+binder 3611:3612 <> X1:73
+binder 3623:3623 <> Y:74
+binder 3625:3625 <> Z:75
+R3650:3653 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3648:3649 Proc.headers.fintype <> X1:73 var
+R3655:3658 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3654:3654 Proc.headers.fintype <> Y:74 var
+R3659:3659 Proc.headers.fintype <> Z:75 var
+ind 3669:3674 <> Subst2
+constr 3708:3713 <> subst2
+rec 3669:3674 <> Subst2
+proj 3708:3713 <> subst2
+binder 3677:3678 <> X1:78
+binder 3680:3681 <> X2:79
+binder 3692:3692 <> Y:80
+binder 3694:3694 <> Z:81
+R3719:3722 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3717:3718 Proc.headers.fintype <> X1:78 var
+R3725:3728 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3723:3724 Proc.headers.fintype <> X2:79 var
+R3730:3734 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3729:3729 Proc.headers.fintype <> Y:80 var
+R3735:3735 Proc.headers.fintype <> Z:81 var
+ind 3745:3750 <> Subst3
+constr 3787:3792 <> subst3
+rec 3745:3750 <> Subst3
+proj 3787:3792 <> subst3
+binder 3753:3754 <> X1:84
+binder 3756:3757 <> X2:85
+binder 3759:3760 <> X3:86
+binder 3771:3771 <> Y:87
+binder 3773:3773 <> Z:88
+R3798:3801 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3796:3797 Proc.headers.fintype <> X1:84 var
+R3804:3807 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3802:3803 Proc.headers.fintype <> X2:85 var
+R3810:3814 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3808:3809 Proc.headers.fintype <> X3:86 var
+R3816:3820 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3815:3815 Proc.headers.fintype <> Y:87 var
+R3821:3821 Proc.headers.fintype <> Z:88 var
+ind 3831:3836 <> Subst4
+constr 3875:3880 <> subst4
+rec 3831:3836 <> Subst4
+proj 3875:3880 <> subst4
+binder 3839:3840 <> X1:91
+binder 3842:3843 <> X2:92
+binder 3845:3846 <> X3:93
+binder 3848:3849 <> X4:94
+binder 3859:3859 <> Y:95
+binder 3861:3861 <> Z:96
+R3886:3889 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3884:3885 Proc.headers.fintype <> X1:91 var
+R3892:3895 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3890:3891 Proc.headers.fintype <> X2:92 var
+R3898:3901 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3896:3897 Proc.headers.fintype <> X3:93 var
+R3904:3907 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3902:3903 Proc.headers.fintype <> X4:94 var
+R3909:3913 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3908:3908 Proc.headers.fintype <> Y:95 var
+R3914:3914 Proc.headers.fintype <> Z:96 var
+ind 3924:3929 <> Subst5
+constr 3972:3977 <> subst5
+rec 3924:3929 <> Subst5
+proj 3972:3977 <> subst5
+binder 3932:3933 <> X1:99
+binder 3935:3936 <> X2:100
+binder 3938:3939 <> X3:101
+binder 3941:3942 <> X4:102
+binder 3944:3945 <> X5:103
+binder 3956:3956 <> Y:104
+binder 3958:3958 <> Z:105
+R3983:3986 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3981:3982 Proc.headers.fintype <> X1:99 var
+R3989:3992 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3987:3988 Proc.headers.fintype <> X2:100 var
+R3995:3998 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3993:3994 Proc.headers.fintype <> X3:101 var
+R4001:4004 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3999:4000 Proc.headers.fintype <> X4:102 var
+R4007:4011 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4005:4006 Proc.headers.fintype <> X5:103 var
+R4013:4017 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4012:4012 Proc.headers.fintype <> Y:104 var
+R4018:4018 Proc.headers.fintype <> Z:105 var
+R4049:4054 Proc.headers.fintype <> subst1 def
+not 4031:4031 <> ::subst_scope:x_'['_x_']'
+R4173:4178 Proc.headers.fintype <> subst2 def
+not 4149:4149 <> ::subst_scope:x_'['_x_';'_x_']'
+ind 4320:4322 <> Var
+constr 4333:4335 <> ids
+rec 4320:4322 <> Var
+proj 4333:4335 <> ids
+binder 4324:4324 <> X:108
+binder 4326:4326 <> Y:109
+R4340:4343 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R4339:4339 Proc.headers.fintype <> X:108 var
+R4344:4344 Proc.headers.fintype <> Y:109 var
+R4869:4875 Proc.headers.axioms <> funcomp def
+R4869:4875 Proc.headers.axioms <> funcomp def
+R4869:4875 Proc.headers.axioms <> funcomp def
+R4931:4937 Proc.headers.axioms <> funcomp def
+not 4918:4918 <> :::x_'>>'_x
+R5007:5011 Proc.headers.fintype <> scons def
+not 4993:4993 <> ::subst_scope:x_'.:'_x
+def 5110:5115 <> up_ren
+binder 5117:5117 <> m:112
+binder 5119:5119 <> n:113
+R5127:5129 Proc.headers.fintype <> ren def
+R5133:5133 Proc.headers.fintype <> n:113 var
+R5131:5131 Proc.headers.fintype <> m:112 var
+binder 5122:5123 <> xi:114
+R5138:5140 Proc.headers.fintype <> ren def
+R5149:5149 Corelib.Init.Datatypes <> S constr
+R5151:5151 Proc.headers.fintype <> n:113 var
+R5143:5143 Corelib.Init.Datatypes <> S constr
+R5145:5145 Proc.headers.fintype <> m:112 var
+R5167:5170 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R5159:5166 Proc.headers.fintype <> var_zero def
+R5173:5176 Proc.headers.fintype <> :::x_'>>'_x not
+R5177:5181 Proc.headers.fintype <> shift def
+R5171:5172 Proc.headers.fintype <> xi:114 var
+prf 5248:5257 <> up_ren_ren
+binder 5259:5259 <> k:115
+binder 5261:5261 <> l:116
+binder 5263:5263 <> m:117
+R5270:5272 Proc.headers.fintype <> ren def
+R5276:5276 Proc.headers.fintype <> l:116 var
+R5274:5274 Proc.headers.fintype <> k:115 var
+binder 5266:5267 <> xi:118
+R5287:5289 Proc.headers.fintype <> ren def
+R5293:5293 Proc.headers.fintype <> m:117 var
+R5291:5291 Proc.headers.fintype <> l:116 var
+binder 5280:5283 <> zeta:119
+R5302:5304 Proc.headers.fintype <> ren def
+R5308:5308 Proc.headers.fintype <> m:117 var
+R5306:5306 Proc.headers.fintype <> k:115 var
+binder 5297:5299 <> rho:120
+binder 5322:5322 <> x:121
+R5339:5341 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R5325:5325 Proc.headers.fintype <> :::x_'>>'_x not
+R5328:5331 Proc.headers.fintype <> :::x_'>>'_x not
+R5336:5338 Proc.headers.fintype <> :::x_'>>'_x not
+R5332:5335 Proc.headers.fintype <> zeta:119 var
+R5326:5327 Proc.headers.fintype <> xi:118 var
+R5338:5338 Proc.headers.fintype <> x:121 var
+R5342:5344 Proc.headers.fintype <> rho:120 var
+R5346:5346 Proc.headers.fintype <> x:121 var
+binder 5312:5312 <> E:122
+binder 5360:5360 <> x:123
+R5391:5393 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R5363:5363 Proc.headers.fintype <> :::x_'>>'_x not
+R5373:5376 Proc.headers.fintype <> :::x_'>>'_x not
+R5388:5390 Proc.headers.fintype <> :::x_'>>'_x not
+R5377:5382 Proc.headers.fintype <> up_ren def
+R5384:5387 Proc.headers.fintype <> zeta:119 var
+R5364:5369 Proc.headers.fintype <> up_ren def
+R5371:5372 Proc.headers.fintype <> xi:118 var
+R5390:5390 Proc.headers.fintype <> x:123 var
+R5394:5399 Proc.headers.fintype <> up_ren def
+R5405:5405 Proc.headers.fintype <> x:123 var
+R5401:5403 Proc.headers.fintype <> rho:120 var
+R5448:5454 Proc.headers.axioms <> funcomp def
+R5508:5517 Proc.headers.fintype <> up_ren_ren thm
+R5508:5517 Proc.headers.fintype <> up_ren_ren thm
+prf 5549:5557 <> scons_eta
+binder 5560:5560 <> T:124
+R5568:5570 Corelib.Init.Datatypes <> nat ind
+binder 5564:5564 <> n:125
+R5587:5590 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5578:5580 Proc.headers.fintype <> fin def
+R5583:5583 Corelib.Init.Datatypes <> S constr
+R5585:5585 Proc.headers.fintype <> n:125 var
+R5591:5591 Proc.headers.fintype <> T:124 var
+binder 5574:5574 <> f:126
+R5622:5624 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R5608:5611 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R5598:5598 Proc.headers.fintype <> f:126 var
+R5600:5607 Proc.headers.fintype <> var_zero def
+R5617:5620 Proc.headers.fintype <> :::x_'>>'_x not
+R5621:5621 Proc.headers.fintype <> f:126 var
+R5612:5616 Proc.headers.fintype <> shift def
+R5625:5625 Proc.headers.fintype <> f:126 var
+prf 5681:5692 <> scons_eta_id
+R5699:5701 Corelib.Init.Datatypes <> nat ind
+binder 5695:5695 <> n:127
+R5723:5725 Corelib.Init.Logic <> ::type_scope:x_'='_x_':>'_x not
+R5728:5732 Corelib.Init.Logic <> ::type_scope:x_'='_x_':>'_x not
+R5755:5755 Corelib.Init.Logic <> ::type_scope:x_'='_x_':>'_x not
+R5742:5745 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5733:5735 Proc.headers.fintype <> fin def
+R5738:5738 Corelib.Init.Datatypes <> S constr
+R5740:5740 Proc.headers.fintype <> n:127 var
+R5746:5748 Proc.headers.fintype <> fin def
+R5751:5751 Corelib.Init.Datatypes <> S constr
+R5753:5753 Proc.headers.fintype <> n:127 var
+R5714:5717 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R5706:5713 Proc.headers.fintype <> var_zero def
+R5718:5722 Proc.headers.fintype <> shift def
+R5726:5727 Proc.headers.fintype <> id def
+prf 5809:5818 <> scons_comp
+binder 5821:5821 <> T:128
+binder 5830:5830 <> U:129
+binder 5833:5833 <> m:130
+R5840:5840 Proc.headers.fintype <> T:128 var
+binder 5837:5837 <> s:131
+R5856:5859 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5851:5853 Proc.headers.fintype <> fin def
+R5855:5855 Proc.headers.fintype <> m:130 var
+R5860:5860 Proc.headers.fintype <> T:128 var
+binder 5844:5848 <> sigma:132
+R5870:5873 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R5869:5869 Proc.headers.fintype <> T:128 var
+R5874:5874 Proc.headers.fintype <> U:129 var
+binder 5864:5866 <> tau:133
+R5901:5903 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R5882:5882 Proc.headers.fintype <> :::x_'>>'_x not
+R5893:5897 Proc.headers.fintype <> :::x_'>>'_x not
+R5898:5900 Proc.headers.fintype <> tau:133 var
+R5884:5887 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R5883:5883 Proc.headers.fintype <> s:131 var
+R5888:5892 Proc.headers.fintype <> sigma:132 var
+R5904:5904 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R5910:5915 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R5928:5928 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R5905:5907 Proc.headers.fintype <> tau:133 var
+R5909:5909 Proc.headers.fintype <> s:131 var
+R5921:5924 Proc.headers.fintype <> :::x_'>>'_x not
+R5925:5927 Proc.headers.fintype <> tau:133 var
+R5916:5920 Proc.headers.fintype <> sigma:132 var
+prf 6005:6011 <> fin_eta
+binder 6014:6014 <> X:134
+R6029:6032 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6024:6026 Proc.headers.fintype <> fin def
+R6033:6033 Proc.headers.fintype <> X:134 var
+binder 6018:6018 <> f:135
+binder 6020:6020 <> g:136
+binder 6047:6047 <> x:137
+R6053:6055 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R6050:6050 Proc.headers.fintype <> f:135 var
+R6052:6052 Proc.headers.fintype <> x:137 var
+R6056:6056 Proc.headers.fintype <> g:136 var
+R6058:6058 Proc.headers.fintype <> x:137 var
+def 6139:6145 <> shift_p
+R6152:6154 Corelib.Init.Datatypes <> nat ind
+binder 6148:6148 <> p:138
+binder 6158:6158 <> n:139
+R6163:6165 Proc.headers.fintype <> ren def
+R6171:6173 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R6170:6170 Proc.headers.fintype <> p:138 var
+R6174:6174 Proc.headers.fintype <> n:139 var
+R6167:6167 Proc.headers.fintype <> n:139 var
+binder 6186:6186 <> n:141
+R6197:6197 Proc.headers.fintype <> p:138 var
+R6219:6219 Proc.headers.fintype <> n:141 var
+R6231:6231 Corelib.Init.Datatypes <> S constr
+R6238:6241 Corelib.Init.Datatypes <> Some constr
+R6244:6250 Proc.headers.fintype <> shift_p:140 def
+R6254:6254 Proc.headers.fintype <> n:141 var
+R6252:6252 Proc.headers.fintype <> p:138 var
+def 6280:6286 <> scons_p
+binder 6289:6289 <> X:143
+R6303:6305 Corelib.Init.Datatypes <> nat ind
+binder 6299:6299 <> m:144
+binder 6318:6318 <> n:145
+R6331:6334 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6326:6328 Proc.headers.fintype <> fin def
+R6330:6330 Proc.headers.fintype <> m:144 var
+R6335:6335 Proc.headers.fintype <> X:143 var
+binder 6322:6322 <> f:146
+R6348:6351 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6343:6345 Proc.headers.fintype <> fin def
+R6347:6347 Proc.headers.fintype <> n:145 var
+R6352:6352 Proc.headers.fintype <> X:143 var
+binder 6339:6339 <> g:147
+R6367:6371 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6356:6358 Proc.headers.fintype <> fin def
+R6362:6364 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R6361:6361 Proc.headers.fintype <> m:144 var
+R6365:6365 Proc.headers.fintype <> n:145 var
+R6372:6372 Proc.headers.fintype <> X:143 var
+R6452:6456 Proc.headers.fintype <> scons def
+R6452:6456 Proc.headers.fintype <> scons def
+R6474:6481 Proc.headers.fintype <> var_zero def
+R6474:6481 Proc.headers.fintype <> var_zero def
+R6534:6537 Corelib.Init.Datatypes <> Some constr
+R6534:6537 Corelib.Init.Datatypes <> Some constr
+def 6582:6587 <> zero_p
+R6594:6596 Corelib.Init.Datatypes <> nat ind
+binder 6590:6590 <> m:149
+binder 6600:6600 <> n:150
+R6610:6613 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6605:6607 Proc.headers.fintype <> fin def
+R6609:6609 Proc.headers.fintype <> m:149 var
+R6614:6616 Proc.headers.fintype <> fin def
+R6620:6622 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R6619:6619 Proc.headers.fintype <> m:149 var
+R6623:6623 Proc.headers.fintype <> n:150 var
+R6694:6700 Proc.headers.fintype <> shift_p def
+R6694:6700 Proc.headers.fintype <> shift_p def
+R6726:6733 Proc.headers.fintype <> var_zero def
+R6726:6733 Proc.headers.fintype <> var_zero def
+prf 6752:6764 <> scons_p_head'
+binder 6767:6767 <> X:151
+binder 6771:6771 <> m:152
+binder 6773:6773 <> n:153
+R6786:6789 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6781:6783 Proc.headers.fintype <> fin def
+R6785:6785 Proc.headers.fintype <> m:152 var
+R6790:6790 Proc.headers.fintype <> X:151 var
+binder 6777:6777 <> f:154
+R6803:6806 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6798:6800 Proc.headers.fintype <> fin def
+R6802:6802 Proc.headers.fintype <> n:153 var
+R6807:6807 Proc.headers.fintype <> X:151 var
+binder 6794:6794 <> g:155
+binder 6810:6810 <> z:156
+R6841:6843 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R6816:6822 Proc.headers.fintype <> scons_p def
+R6827:6827 Proc.headers.fintype <> g:155 var
+R6825:6825 Proc.headers.fintype <> f:154 var
+R6831:6836 Proc.headers.fintype <> zero_p def
+R6839:6839 Proc.headers.fintype <> z:156 var
+R6844:6844 Proc.headers.fintype <> f:154 var
+R6846:6846 Proc.headers.fintype <> z:156 var
+prf 6971:6982 <> scons_p_head
+binder 6984:6984 <> X:157
+binder 6986:6986 <> m:158
+binder 6988:6988 <> n:159
+R7000:7003 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R6995:6997 Proc.headers.fintype <> fin def
+R6999:6999 Proc.headers.fintype <> m:158 var
+R7004:7004 Proc.headers.fintype <> X:157 var
+binder 6991:6991 <> f:160
+R7017:7020 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R7012:7014 Proc.headers.fintype <> fin def
+R7016:7016 Proc.headers.fintype <> n:159 var
+R7021:7021 Proc.headers.fintype <> X:157 var
+binder 7008:7008 <> g:161
+R7028:7028 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7051:7054 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7035:7039 Proc.headers.fintype <> :::x_'>>'_x not
+R7040:7046 Proc.headers.fintype <> scons_p def
+R7050:7050 Proc.headers.fintype <> g:161 var
+R7048:7048 Proc.headers.fintype <> f:160 var
+R7029:7034 Proc.headers.fintype <> zero_p def
+R7055:7055 Proc.headers.fintype <> f:160 var
+R7088:7094 Proc.headers.axioms <> funcomp def
+R7103:7115 Proc.headers.fintype <> scons_p_head' thm
+R7103:7115 Proc.headers.fintype <> scons_p_head' thm
+prf 7130:7142 <> scons_p_tail'
+binder 7144:7144 <> X:162
+binder 7147:7147 <> m:163
+binder 7149:7149 <> n:164
+R7161:7164 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R7156:7158 Proc.headers.fintype <> fin def
+R7160:7160 Proc.headers.fintype <> m:163 var
+R7165:7165 Proc.headers.fintype <> X:162 var
+binder 7152:7152 <> f:165
+R7178:7181 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R7173:7175 Proc.headers.fintype <> fin def
+R7177:7177 Proc.headers.fintype <> n:164 var
+R7182:7182 Proc.headers.fintype <> X:162 var
+binder 7169:7169 <> g:166
+binder 7185:7185 <> z:167
+R7217:7219 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7191:7197 Proc.headers.fintype <> scons_p def
+R7205:7211 Proc.headers.fintype <> shift_p def
+R7215:7215 Proc.headers.fintype <> z:167 var
+R7213:7213 Proc.headers.fintype <> m:163 var
+R7202:7202 Proc.headers.fintype <> g:166 var
+R7200:7200 Proc.headers.fintype <> f:165 var
+R7220:7220 Proc.headers.fintype <> g:166 var
+R7222:7222 Proc.headers.fintype <> z:167 var
+prf 7269:7280 <> scons_p_tail
+binder 7282:7282 <> X:168
+binder 7285:7285 <> m:169
+binder 7287:7287 <> n:170
+R7299:7302 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R7294:7296 Proc.headers.fintype <> fin def
+R7298:7298 Proc.headers.fintype <> m:169 var
+R7303:7303 Proc.headers.fintype <> X:168 var
+binder 7290:7290 <> f:171
+R7316:7319 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R7311:7313 Proc.headers.fintype <> fin def
+R7315:7315 Proc.headers.fintype <> n:170 var
+R7320:7320 Proc.headers.fintype <> X:168 var
+binder 7307:7307 <> g:172
+R7352:7354 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7336:7340 Proc.headers.fintype <> :::x_'>>'_x not
+R7341:7347 Proc.headers.fintype <> scons_p def
+R7351:7351 Proc.headers.fintype <> g:172 var
+R7349:7349 Proc.headers.fintype <> f:171 var
+R7327:7333 Proc.headers.fintype <> shift_p def
+R7335:7335 Proc.headers.fintype <> m:169 var
+R7355:7355 Proc.headers.fintype <> g:172 var
+R7388:7394 Proc.headers.axioms <> funcomp def
+R7403:7415 Proc.headers.fintype <> scons_p_tail' thm
+R7403:7415 Proc.headers.fintype <> scons_p_tail' thm
+prf 7430:7441 <> destruct_fin
+binder 7444:7444 <> m:173
+binder 7446:7446 <> n:174
+R7454:7456 Proc.headers.fintype <> fin def
+R7460:7462 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R7459:7459 Proc.headers.fintype <> m:173 var
+R7463:7463 Proc.headers.fintype <> n:174 var
+binder 7450:7450 <> x:175
+R7470:7470 Corelib.Init.Logic <> ::type_scope:x_'\/'_x not
+R7496:7500 Corelib.Init.Logic <> ::type_scope:x_'\/'_x not
+R7471:7477 Corelib.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R7480:7481 Corelib.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 7478:7479 <> x':176
+R7483:7485 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7482:7482 Proc.headers.fintype <> x:175 var
+R7486:7491 Proc.headers.fintype <> zero_p def
+R7494:7495 Proc.headers.fintype <> x':176 var
+R7501:7507 Corelib.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R7510:7511 Corelib.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 7508:7509 <> x':177
+R7513:7515 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7512:7512 Proc.headers.fintype <> x:175 var
+R7516:7522 Proc.headers.fintype <> shift_p def
+R7526:7527 Proc.headers.fintype <> x':177 var
+R7524:7524 Proc.headers.fintype <> m:173 var
+R7678:7681 Corelib.Init.Datatypes <> Some constr
+R7678:7681 Corelib.Init.Datatypes <> Some constr
+R7729:7732 Corelib.Init.Datatypes <> None constr
+R7729:7732 Corelib.Init.Datatypes <> None constr
+prf 7754:7766 <> scons_p_comp'
+binder 7768:7768 <> X:178
+binder 7770:7770 <> Y:179
+binder 7772:7772 <> m:180
+binder 7774:7774 <> n:181
+R7786:7789 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R7781:7783 Proc.headers.fintype <> fin def
+R7785:7785 Proc.headers.fintype <> m:180 var
+R7790:7790 Proc.headers.fintype <> X:178 var
+binder 7777:7777 <> f:182
+R7803:7806 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R7798:7800 Proc.headers.fintype <> fin def
+R7802:7802 Proc.headers.fintype <> n:181 var
+R7807:7807 Proc.headers.fintype <> X:178 var
+binder 7794:7794 <> g:183
+R7816:7819 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R7815:7815 Proc.headers.fintype <> X:178 var
+R7820:7820 Proc.headers.fintype <> Y:179 var
+binder 7811:7811 <> h:184
+binder 7823:7823 <> x:185
+R7845:7848 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R7827:7827 Proc.headers.fintype <> h:184 var
+R7830:7836 Proc.headers.fintype <> scons_p def
+R7843:7843 Proc.headers.fintype <> x:185 var
+R7841:7841 Proc.headers.fintype <> g:183 var
+R7839:7839 Proc.headers.fintype <> f:182 var
+R7849:7855 Proc.headers.fintype <> scons_p def
+R7875:7875 Proc.headers.fintype <> x:185 var
+R7868:7871 Proc.headers.fintype <> :::x_'>>'_x not
+R7872:7872 Proc.headers.fintype <> h:184 var
+R7867:7867 Proc.headers.fintype <> g:183 var
+R7859:7862 Proc.headers.fintype <> :::x_'>>'_x not
+R7863:7863 Proc.headers.fintype <> h:184 var
+R7858:7858 Proc.headers.fintype <> f:182 var
+R7897:7908 Proc.headers.fintype <> destruct_fin thm
+R7897:7908 Proc.headers.fintype <> destruct_fin thm
+R7952:7964 Proc.headers.fintype <> scons_p_head' thm
+R7952:7964 Proc.headers.fintype <> scons_p_head' thm
+R7952:7964 Proc.headers.fintype <> scons_p_head' thm
+R7952:7964 Proc.headers.fintype <> scons_p_head' thm
+R7952:7964 Proc.headers.fintype <> scons_p_head' thm
+R7984:7996 Proc.headers.fintype <> scons_p_tail' thm
+R7984:7996 Proc.headers.fintype <> scons_p_tail' thm
+R7984:7996 Proc.headers.fintype <> scons_p_tail' thm
+R7984:7996 Proc.headers.fintype <> scons_p_tail' thm
+R7984:7996 Proc.headers.fintype <> scons_p_tail' thm
+prf 8011:8022 <> scons_p_comp
+binder 8025:8025 <> X:186
+binder 8027:8027 <> Y:187
+binder 8029:8029 <> m:188
+binder 8031:8031 <> n:189
+R8044:8047 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8039:8041 Proc.headers.fintype <> fin def
+R8043:8043 Proc.headers.fintype <> m:188 var
+R8048:8048 Proc.headers.fintype <> X:186 var
+binder 8035:8035 <> f:190
+R8061:8064 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8056:8058 Proc.headers.fintype <> fin def
+R8060:8060 Proc.headers.fintype <> n:189 var
+R8065:8065 Proc.headers.fintype <> X:186 var
+binder 8052:8052 <> g:191
+R8074:8077 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8073:8073 Proc.headers.fintype <> X:186 var
+R8078:8078 Proc.headers.fintype <> Y:187 var
+binder 8069:8069 <> h:192
+R8103:8105 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8085:8085 Proc.headers.fintype <> :::x_'>>'_x not
+R8097:8101 Proc.headers.fintype <> :::x_'>>'_x not
+R8102:8102 Proc.headers.fintype <> h:192 var
+R8086:8092 Proc.headers.fintype <> scons_p def
+R8096:8096 Proc.headers.fintype <> g:191 var
+R8094:8094 Proc.headers.fintype <> f:190 var
+R8106:8112 Proc.headers.fintype <> scons_p def
+R8127:8130 Proc.headers.fintype <> :::x_'>>'_x not
+R8131:8131 Proc.headers.fintype <> h:192 var
+R8126:8126 Proc.headers.fintype <> g:191 var
+R8118:8121 Proc.headers.fintype <> :::x_'>>'_x not
+R8122:8122 Proc.headers.fintype <> h:192 var
+R8117:8117 Proc.headers.fintype <> f:190 var
+R8165:8171 Proc.headers.axioms <> funcomp def
+R8180:8192 Proc.headers.fintype <> scons_p_comp' thm
+R8180:8192 Proc.headers.fintype <> scons_p_comp' thm
+prf 8207:8219 <> scons_p_congr
+binder 8222:8222 <> X:193
+binder 8226:8226 <> m:194
+binder 8228:8228 <> n:195
+R8244:8247 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8239:8241 Proc.headers.fintype <> fin def
+R8243:8243 Proc.headers.fintype <> m:194 var
+R8248:8248 Proc.headers.fintype <> X:193 var
+binder 8232:8232 <> f:196
+binder 8234:8235 <> f':197
+R8263:8266 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8258:8260 Proc.headers.fintype <> fin def
+R8262:8262 Proc.headers.fintype <> n:195 var
+R8267:8267 Proc.headers.fintype <> X:193 var
+binder 8252:8252 <> g:198
+binder 8254:8255 <> g':199
+binder 8270:8270 <> z:200
+R8275:8275 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8296:8300 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 8283:8283 <> x:201
+R8289:8291 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8286:8286 Proc.headers.fintype <> f:196 var
+R8288:8288 Proc.headers.fintype <> x:201 var
+R8292:8293 Proc.headers.fintype <> f':197 var
+R8295:8295 Proc.headers.fintype <> x:201 var
+R8301:8301 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8322:8326 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 8309:8309 <> x:202
+R8315:8317 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8312:8312 Proc.headers.fintype <> g:198 var
+R8314:8314 Proc.headers.fintype <> x:202 var
+R8318:8319 Proc.headers.fintype <> g':199 var
+R8321:8321 Proc.headers.fintype <> x:202 var
+R8340:8342 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8327:8333 Proc.headers.fintype <> scons_p def
+R8339:8339 Proc.headers.fintype <> z:200 var
+R8337:8337 Proc.headers.fintype <> g:198 var
+R8335:8335 Proc.headers.fintype <> f:196 var
+R8343:8349 Proc.headers.fintype <> scons_p def
+R8357:8357 Proc.headers.fintype <> z:200 var
+R8354:8355 Proc.headers.fintype <> g':199 var
+R8351:8352 Proc.headers.fintype <> f':197 var
+def 8482:8488 <> upRen_p
+binder 8490:8490 <> p:203
+R8498:8500 Corelib.Init.Datatypes <> nat ind
+binder 8494:8494 <> m:204
+R8510:8512 Corelib.Init.Datatypes <> nat ind
+binder 8506:8506 <> n:205
+R8531:8534 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8523:8525 Proc.headers.fintype <> fin def
+R8529:8529 Proc.headers.fintype <> m:204 var
+R8536:8538 Proc.headers.fintype <> fin def
+R8542:8542 Proc.headers.fintype <> n:205 var
+binder 8517:8518 <> xi:206
+R8559:8562 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R8548:8550 Proc.headers.fintype <> fin def
+R8554:8556 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R8553:8553 Proc.headers.fintype <> p:203 var
+R8557:8557 Proc.headers.fintype <> m:204 var
+R8563:8565 Proc.headers.fintype <> fin def
+R8569:8571 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R8568:8568 Proc.headers.fintype <> p:203 var
+R8572:8572 Proc.headers.fintype <> n:205 var
+R8582:8588 Proc.headers.fintype <> scons_p def
+R8604:8607 Proc.headers.fintype <> :::x_'>>'_x not
+R8608:8614 Proc.headers.fintype <> shift_p def
+R8602:8603 Proc.headers.fintype <> xi:206 var
+R8592:8597 Proc.headers.fintype <> zero_p def
+R8631:8637 Proc.headers.fintype <> upRen_p def
+R8631:8637 Proc.headers.fintype <> upRen_p def
+prf 8713:8724 <> up_ren_ren_p
+binder 8726:8726 <> p:207
+binder 8728:8728 <> k:208
+binder 8730:8730 <> l:209
+binder 8732:8732 <> m:210
+R8739:8741 Proc.headers.fintype <> ren def
+R8745:8745 Proc.headers.fintype <> l:209 var
+R8743:8743 Proc.headers.fintype <> k:208 var
+binder 8735:8736 <> xi:211
+R8756:8758 Proc.headers.fintype <> ren def
+R8762:8762 Proc.headers.fintype <> m:210 var
+R8760:8760 Proc.headers.fintype <> l:209 var
+binder 8749:8752 <> zeta:212
+R8771:8773 Proc.headers.fintype <> ren def
+R8777:8777 Proc.headers.fintype <> m:210 var
+R8775:8775 Proc.headers.fintype <> k:208 var
+binder 8766:8768 <> rho:213
+binder 8791:8791 <> x:214
+R8808:8810 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8794:8794 Proc.headers.fintype <> :::x_'>>'_x not
+R8797:8800 Proc.headers.fintype <> :::x_'>>'_x not
+R8805:8807 Proc.headers.fintype <> :::x_'>>'_x not
+R8801:8804 Proc.headers.fintype <> zeta:212 var
+R8795:8796 Proc.headers.fintype <> xi:211 var
+R8807:8807 Proc.headers.fintype <> x:214 var
+R8811:8813 Proc.headers.fintype <> rho:213 var
+R8815:8815 Proc.headers.fintype <> x:214 var
+binder 8781:8781 <> E:215
+binder 8829:8829 <> x:216
+R8866:8868 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R8832:8832 Proc.headers.fintype <> :::x_'>>'_x not
+R8845:8848 Proc.headers.fintype <> :::x_'>>'_x not
+R8863:8865 Proc.headers.fintype <> :::x_'>>'_x not
+R8849:8855 Proc.headers.fintype <> upRen_p def
+R8859:8862 Proc.headers.fintype <> zeta:212 var
+R8857:8857 Proc.headers.fintype <> p:207 var
+R8833:8839 Proc.headers.fintype <> upRen_p def
+R8843:8844 Proc.headers.fintype <> xi:211 var
+R8841:8841 Proc.headers.fintype <> p:207 var
+R8865:8865 Proc.headers.fintype <> x:216 var
+R8869:8875 Proc.headers.fintype <> upRen_p def
+R8883:8883 Proc.headers.fintype <> x:216 var
+R8879:8881 Proc.headers.fintype <> rho:213 var
+R8877:8877 Proc.headers.fintype <> p:207 var
+R8915:8926 Proc.headers.fintype <> destruct_fin thm
+R8915:8926 Proc.headers.fintype <> destruct_fin thm
+R8962:8968 Proc.headers.fintype <> upRen_p def
+R8978:8984 Proc.headers.axioms <> funcomp def
+R9006:9018 Proc.headers.fintype <> scons_p_head' thm
+R9006:9018 Proc.headers.fintype <> scons_p_head' thm
+R9006:9018 Proc.headers.fintype <> scons_p_head' thm
+R9006:9018 Proc.headers.fintype <> scons_p_head' thm
+R9006:9018 Proc.headers.fintype <> scons_p_head' thm
+R9006:9018 Proc.headers.fintype <> scons_p_head' thm
+R9006:9018 Proc.headers.fintype <> scons_p_head' thm
+R9006:9018 Proc.headers.fintype <> scons_p_head' thm
+R9032:9038 Proc.headers.fintype <> upRen_p def
+R9048:9054 Proc.headers.axioms <> funcomp def
+R9072:9084 Proc.headers.fintype <> scons_p_tail' thm
+R9072:9084 Proc.headers.fintype <> scons_p_tail' thm
+R9072:9084 Proc.headers.fintype <> scons_p_tail' thm
+R9072:9084 Proc.headers.fintype <> scons_p_tail' thm
+R9072:9084 Proc.headers.fintype <> scons_p_tail' thm
+R9072:9084 Proc.headers.fintype <> scons_p_tail' thm
+R9072:9084 Proc.headers.fintype <> scons_p_tail' thm
+R9072:9084 Proc.headers.fintype <> scons_p_tail' thm
+R9126:9131 Proc.headers.fintype <> zero_p def
+R9126:9131 Proc.headers.fintype <> zero_p def
+R9150:9156 Proc.headers.fintype <> scons_p def
+R9150:9156 Proc.headers.fintype <> scons_p def
+prf 9181:9191 <> scons_p_eta
+binder 9194:9194 <> X:217
+binder 9198:9198 <> m:218
+binder 9200:9200 <> n:219
+R9213:9216 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R9208:9210 Proc.headers.fintype <> fin def
+R9212:9212 Proc.headers.fintype <> m:218 var
+R9217:9217 Proc.headers.fintype <> X:217 var
+binder 9204:9204 <> f:220
+R9236:9239 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R9231:9233 Proc.headers.fintype <> fin def
+R9235:9235 Proc.headers.fintype <> n:219 var
+R9240:9240 Proc.headers.fintype <> X:217 var
+binder 9227:9227 <> g:221
+R9258:9261 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R9247:9249 Proc.headers.fintype <> fin def
+R9253:9255 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R9252:9252 Proc.headers.fintype <> m:218 var
+R9256:9256 Proc.headers.fintype <> n:219 var
+R9262:9262 Proc.headers.fintype <> X:217 var
+binder 9244:9244 <> h:222
+R9269:9271 Proc.headers.fintype <> fin def
+R9275:9277 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R9274:9274 Proc.headers.fintype <> m:218 var
+R9278:9278 Proc.headers.fintype <> n:219 var
+binder 9266:9266 <> z:223
+R9285:9285 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R9317:9321 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 9293:9293 <> x:224
+R9299:9301 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R9296:9296 Proc.headers.fintype <> g:221 var
+R9298:9298 Proc.headers.fintype <> x:224 var
+R9302:9302 Proc.headers.fintype <> h:222 var
+R9305:9311 Proc.headers.fintype <> shift_p def
+R9315:9315 Proc.headers.fintype <> x:224 var
+R9313:9313 Proc.headers.fintype <> m:218 var
+R9322:9322 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R9353:9357 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 9330:9330 <> x:225
+R9336:9338 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R9333:9333 Proc.headers.fintype <> f:220 var
+R9335:9335 Proc.headers.fintype <> x:225 var
+R9339:9339 Proc.headers.fintype <> h:222 var
+R9342:9347 Proc.headers.fintype <> zero_p def
+R9351:9351 Proc.headers.fintype <> x:225 var
+R9349:9349 Proc.headers.fintype <> m:218 var
+R9373:9375 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R9358:9364 Proc.headers.fintype <> scons_p def
+R9372:9372 Proc.headers.fintype <> z:223 var
+R9370:9370 Proc.headers.fintype <> g:221 var
+R9368:9368 Proc.headers.fintype <> f:220 var
+R9366:9366 Proc.headers.fintype <> m:218 var
+R9376:9376 Proc.headers.fintype <> h:222 var
+R9378:9378 Proc.headers.fintype <> z:223 var
+R9414:9425 Proc.headers.fintype <> destruct_fin thm
+R9414:9425 Proc.headers.fintype <> destruct_fin thm
+R9463:9475 Proc.headers.fintype <> scons_p_head' thm
+R9463:9475 Proc.headers.fintype <> scons_p_head' thm
+R9463:9475 Proc.headers.fintype <> scons_p_head' thm
+R9497:9509 Proc.headers.fintype <> scons_p_tail' thm
+R9497:9509 Proc.headers.fintype <> scons_p_tail' thm
+R9497:9509 Proc.headers.fintype <> scons_p_tail' thm
+R9535:9545 Proc.headers.fintype <> scons_p_eta thm
+R9535:9545 Proc.headers.fintype <> scons_p_eta thm
+R9580:9592 Proc.headers.fintype <> scons_p_congr thm
+R9580:9592 Proc.headers.fintype <> scons_p_congr thm
+R9631:9635 Proc.headers.fintype <> scons def
+R9645:9652 Proc.headers.fintype <> var_zero def
+R9662:9665 Proc.headers.fintype <> null def
+R9675:9679 Proc.headers.fintype <> shift def
+R9689:9694 Proc.headers.fintype <> up_ren def
+R9704:9711 Proc.headers.fintype <> var_zero def
+R9721:9725 Proc.headers.fintype <> idren def
+R9735:9738 Proc.headers.fintype <> comp def
+R9748:9754 Proc.headers.axioms <> funcomp def
+R9764:9765 Proc.headers.fintype <> id def
+mod 9816:9828 <> CommaNotation
+R9856:9860 Proc.headers.fintype <> scons def
+not 9840:9840 CommaNotation ::subst_scope:x_','_x
+R9946:9958 Proc.headers.fintype CommaNotation <> mod
+R9984:9988 Proc.headers.fintype <> scons def
+R9992:9994 Proc.headers.fintype <> ids def
+not 9971:9971 <> ::subst_scope:x_'..'
+R10060:10064 Proc.headers.fintype <> shift def
+not 10050:10050 <> ::subst_scope:'↑'
+R10163:10163 Proc.headers.fintype <> :::x_'>>'_x not
+R10166:10169 Proc.headers.fintype <> :::x_'>>'_x not
+R10172:10175 Proc.headers.fintype <> :::x_'>>'_x not
+R10163:10163 Proc.headers.fintype <> :::x_'>>'_x not
+R10166:10169 Proc.headers.fintype <> :::x_'>>'_x not
+R10172:10175 Proc.headers.fintype <> :::x_'>>'_x not
+R10189:10189 Proc.headers.fintype <> :::x_'>>'_x not
+R10191:10194 Proc.headers.fintype <> :::x_'>>'_x not
+R10196:10198 Proc.headers.fintype <> :::x_'>>'_x not
+R10189:10189 Proc.headers.fintype <> :::x_'>>'_x not
+R10191:10194 Proc.headers.fintype <> :::x_'>>'_x not
+R10196:10198 Proc.headers.fintype <> :::x_'>>'_x not
+R10425:10428 Proc.headers.fintype <> :::x_'>>'_x not
+R10423:10424 Proc.headers.fintype <> id def
+R10425:10428 Proc.headers.fintype <> :::x_'>>'_x not
+R10423:10424 Proc.headers.fintype <> id def
+R10506:10509 Proc.headers.fintype <> :::x_'>>'_x not
+R10510:10511 Proc.headers.fintype <> id def
+R10506:10509 Proc.headers.fintype <> :::x_'>>'_x not
+R10510:10511 Proc.headers.fintype <> id def
+R10586:10587 Proc.headers.fintype <> id def
+R10586:10587 Proc.headers.fintype <> id def
+R10641:10644 Proc.headers.fintype <> comp def
+R10641:10644 Proc.headers.fintype <> comp def
+R10732:10732 Proc.headers.fintype <> :::x_'>>'_x not
+R10741:10745 Proc.headers.fintype <> :::x_'>>'_x not
+R10735:10738 Proc.headers.fintype <> :::x_'>>'_x not
+R10732:10732 Proc.headers.fintype <> :::x_'>>'_x not
+R10741:10745 Proc.headers.fintype <> :::x_'>>'_x not
+R10735:10738 Proc.headers.fintype <> :::x_'>>'_x not
+R10848:10851 Proc.headers.fintype <> :::x_'>>'_x not
+R10852:10858 Proc.headers.fintype <> scons_p def
+R10842:10847 Proc.headers.fintype <> zero_p def
+R10848:10851 Proc.headers.fintype <> :::x_'>>'_x not
+R10852:10858 Proc.headers.fintype <> scons_p def
+R10842:10847 Proc.headers.fintype <> zero_p def
+R10915:10915 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10918:10919 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10926:10935 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10928:10935 Proc.headers.fintype <> var_zero def
+R10915:10915 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10918:10919 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10926:10935 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10928:10935 Proc.headers.fintype <> var_zero def
+R11001:11001 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11004:11005 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11012:11023 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11015:11019 Proc.headers.fintype <> shift def
+R11001:11001 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11004:11005 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11012:11023 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11015:11019 Proc.headers.fintype <> shift def
+R11104:11107 Proc.headers.fintype <> :::x_'>>'_x not
+R11099:11103 Proc.headers.fintype <> idren def
+R11104:11107 Proc.headers.fintype <> :::x_'>>'_x not
+R11099:11103 Proc.headers.fintype <> idren def
+R11168:11171 Proc.headers.fintype <> :::x_'>>'_x not
+R11172:11176 Proc.headers.fintype <> idren def
+R11168:11171 Proc.headers.fintype <> :::x_'>>'_x not
+R11172:11176 Proc.headers.fintype <> idren def
+R11235:11239 Proc.headers.fintype <> :::x_'>>'_x not
+R11248:11248 Proc.headers.fintype <> :::x_'>>'_x not
+R11242:11245 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11235:11239 Proc.headers.fintype <> :::x_'>>'_x not
+R11248:11248 Proc.headers.fintype <> :::x_'>>'_x not
+R11242:11245 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11311:11314 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11320:11323 Proc.headers.fintype <> :::x_'>>'_x not
+R11315:11319 Proc.headers.fintype <> shift def
+R11311:11314 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11320:11323 Proc.headers.fintype <> :::x_'>>'_x not
+R11315:11319 Proc.headers.fintype <> shift def
+R11422:11425 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11414:11421 Proc.headers.fintype <> var_zero def
+R11422:11425 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11414:11421 Proc.headers.fintype <> var_zero def
+R11496:11499 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R11496:11499 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R11575:11577 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R11575:11577 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R11661:11670 Proc.headers.fintype <> scons_comp thm
+R11694:11705 Proc.headers.fintype <> scons_eta_id thm
+R11607:11607 Proc.headers.fintype <> :::x_'>>'_x not
+R11609:11612 Proc.headers.fintype <> :::x_'>>'_x not
+R11614:11616 Proc.headers.fintype <> :::x_'>>'_x not
+R11538:11538 Proc.headers.fintype <> :::x_'>>'_x not
+R11540:11543 Proc.headers.fintype <> :::x_'>>'_x not
+R11545:11547 Proc.headers.fintype <> :::x_'>>'_x not
+R11454:11457 Proc.headers.fintype <> :::x_'>>'_x not
+R11449:11453 Proc.headers.fintype <> shift def
+R11470:11478 Proc.headers.fintype <> scons_eta thm
+R11350:11357 Proc.headers.fintype <> var_zero def
+R11371:11379 Proc.headers.fintype <> scons_eta thm
+R11264:11268 Proc.headers.fintype <> :::x_'>>'_x not
+R11275:11275 Proc.headers.fintype <> :::x_'>>'_x not
+R11270:11273 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11264:11268 Proc.headers.fintype <> :::x_'>>'_x not
+R11275:11275 Proc.headers.fintype <> :::x_'>>'_x not
+R11270:11273 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11192:11195 Proc.headers.fintype <> :::x_'>>'_x not
+R11196:11200 Proc.headers.fintype <> idren def
+R11192:11195 Proc.headers.fintype <> :::x_'>>'_x not
+R11196:11200 Proc.headers.fintype <> idren def
+R11129:11132 Proc.headers.fintype <> :::x_'>>'_x not
+R11124:11128 Proc.headers.fintype <> idren def
+R11129:11132 Proc.headers.fintype <> :::x_'>>'_x not
+R11124:11128 Proc.headers.fintype <> idren def
+R11038:11038 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11040:11041 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11047:11057 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11050:11054 Proc.headers.fintype <> shift def
+R11038:11038 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11040:11041 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11047:11057 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R11050:11054 Proc.headers.fintype <> shift def
+R10950:10950 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10952:10953 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10959:10968 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10961:10968 Proc.headers.fintype <> var_zero def
+R10950:10950 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10952:10953 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10959:10968 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R10961:10968 Proc.headers.fintype <> var_zero def
+R10878:10889 Proc.headers.fintype <> scons_p_head thm
+R10773:10773 Proc.headers.fintype <> :::x_'>>'_x not
+R10780:10784 Proc.headers.fintype <> :::x_'>>'_x not
+R10775:10778 Proc.headers.fintype <> :::x_'>>'_x not
+R10773:10773 Proc.headers.fintype <> :::x_'>>'_x not
+R10780:10784 Proc.headers.fintype <> :::x_'>>'_x not
+R10775:10778 Proc.headers.fintype <> :::x_'>>'_x not
+R10795:10799 Proc.headers.fintype <> :::x_'>>'_x not
+R10806:10806 Proc.headers.fintype <> :::x_'>>'_x not
+R10801:10804 Proc.headers.fintype <> :::x_'>>'_x not
+R10665:10668 Proc.headers.fintype <> comp def
+R10665:10668 Proc.headers.fintype <> comp def
+R10682:10685 Proc.headers.fintype <> :::x_'>>'_x not
+R10605:10606 Proc.headers.fintype <> id def
+R10605:10606 Proc.headers.fintype <> id def
+R10527:10530 Proc.headers.fintype <> :::x_'>>'_x not
+R10531:10532 Proc.headers.fintype <> id def
+R10527:10530 Proc.headers.fintype <> :::x_'>>'_x not
+R10531:10532 Proc.headers.fintype <> id def
+R10447:10450 Proc.headers.fintype <> :::x_'>>'_x not
+R10445:10446 Proc.headers.fintype <> id def
+R10447:10450 Proc.headers.fintype <> :::x_'>>'_x not
+R10445:10446 Proc.headers.fintype <> id def
+R11914:11917 Proc.headers.fintype <> :::x_'>>'_x not
+R11912:11913 Proc.headers.fintype <> id def
+R11914:11917 Proc.headers.fintype <> :::x_'>>'_x not
+R11912:11913 Proc.headers.fintype <> id def
+R12004:12007 Proc.headers.fintype <> :::x_'>>'_x not
+R12008:12009 Proc.headers.fintype <> id def
+R12004:12007 Proc.headers.fintype <> :::x_'>>'_x not
+R12008:12009 Proc.headers.fintype <> id def
+R12092:12093 Proc.headers.fintype <> id def
+R12092:12093 Proc.headers.fintype <> id def
+R12156:12159 Proc.headers.fintype <> comp def
+R12156:12159 Proc.headers.fintype <> comp def
+R12256:12256 Proc.headers.fintype <> :::x_'>>'_x not
+R12265:12269 Proc.headers.fintype <> :::x_'>>'_x not
+R12259:12262 Proc.headers.fintype <> :::x_'>>'_x not
+R12256:12256 Proc.headers.fintype <> :::x_'>>'_x not
+R12265:12269 Proc.headers.fintype <> :::x_'>>'_x not
+R12259:12262 Proc.headers.fintype <> :::x_'>>'_x not
+R12382:12382 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12385:12386 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12393:12402 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12395:12402 Proc.headers.fintype <> var_zero def
+R12382:12382 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12385:12386 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12393:12402 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12395:12402 Proc.headers.fintype <> var_zero def
+R12477:12477 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12480:12481 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12488:12497 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12490:12497 Proc.headers.fintype <> var_zero def
+R12477:12477 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12480:12481 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12488:12497 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12490:12497 Proc.headers.fintype <> var_zero def
+R12572:12572 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12575:12576 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12583:12594 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12586:12590 Proc.headers.fintype <> shift def
+R12572:12572 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12575:12576 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12583:12594 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12586:12590 Proc.headers.fintype <> shift def
+R12757:12760 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R12757:12760 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R12853:12855 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R12853:12855 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R12935:12938 Proc.headers.fintype <> :::x_'>>'_x not
+R12930:12934 Proc.headers.fintype <> idren def
+R12935:12938 Proc.headers.fintype <> :::x_'>>'_x not
+R12930:12934 Proc.headers.fintype <> idren def
+R13008:13011 Proc.headers.fintype <> :::x_'>>'_x not
+R13012:13016 Proc.headers.fintype <> idren def
+R13008:13011 Proc.headers.fintype <> :::x_'>>'_x not
+R13012:13016 Proc.headers.fintype <> idren def
+R13084:13088 Proc.headers.fintype <> :::x_'>>'_x not
+R13097:13097 Proc.headers.fintype <> :::x_'>>'_x not
+R13091:13094 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R13084:13088 Proc.headers.fintype <> :::x_'>>'_x not
+R13097:13097 Proc.headers.fintype <> :::x_'>>'_x not
+R13091:13094 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R13180:13183 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R13189:13192 Proc.headers.fintype <> :::x_'>>'_x not
+R13184:13188 Proc.headers.fintype <> shift def
+R13180:13183 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R13189:13192 Proc.headers.fintype <> :::x_'>>'_x not
+R13184:13188 Proc.headers.fintype <> shift def
+R13316:13319 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R13308:13315 Proc.headers.fintype <> var_zero def
+R13316:13319 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R13308:13315 Proc.headers.fintype <> var_zero def
+R13440:13449 Proc.headers.fintype <> scons_comp thm
+R13477:13488 Proc.headers.fintype <> scons_eta_id thm
+R13363:13366 Proc.headers.fintype <> :::x_'>>'_x not
+R13358:13362 Proc.headers.fintype <> shift def
+R13384:13392 Proc.headers.fintype <> scons_eta thm
+R13234:13241 Proc.headers.fintype <> var_zero def
+R13260:13268 Proc.headers.fintype <> scons_eta thm
+R13128:13132 Proc.headers.fintype <> :::x_'>>'_x not
+R13139:13139 Proc.headers.fintype <> :::x_'>>'_x not
+R13134:13137 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R13128:13132 Proc.headers.fintype <> :::x_'>>'_x not
+R13139:13139 Proc.headers.fintype <> :::x_'>>'_x not
+R13134:13137 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R13036:13039 Proc.headers.fintype <> :::x_'>>'_x not
+R13040:13044 Proc.headers.fintype <> idren def
+R13036:13039 Proc.headers.fintype <> :::x_'>>'_x not
+R13040:13044 Proc.headers.fintype <> idren def
+R12964:12967 Proc.headers.fintype <> :::x_'>>'_x not
+R12959:12963 Proc.headers.fintype <> idren def
+R12964:12967 Proc.headers.fintype <> :::x_'>>'_x not
+R12959:12963 Proc.headers.fintype <> idren def
+R12890:12890 Proc.headers.fintype <> :::x_'>>'_x not
+R12892:12895 Proc.headers.fintype <> :::x_'>>'_x not
+R12897:12899 Proc.headers.fintype <> :::x_'>>'_x not
+R12804:12804 Proc.headers.fintype <> :::x_'>>'_x not
+R12806:12809 Proc.headers.fintype <> :::x_'>>'_x not
+R12811:12813 Proc.headers.fintype <> :::x_'>>'_x not
+R12613:12613 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12615:12616 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12622:12632 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12625:12629 Proc.headers.fintype <> shift def
+R12613:12613 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12615:12616 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12622:12632 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12625:12629 Proc.headers.fintype <> shift def
+R12516:12516 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12518:12519 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12525:12534 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12527:12534 Proc.headers.fintype <> var_zero def
+R12516:12516 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12518:12519 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12525:12534 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12527:12534 Proc.headers.fintype <> var_zero def
+R12421:12421 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12423:12424 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12430:12439 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12432:12439 Proc.headers.fintype <> var_zero def
+R12421:12421 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12423:12424 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12430:12439 Proc.headers.fintype <> ::subst_scope:x_'.:'_x not
+R12432:12439 Proc.headers.fintype <> var_zero def
+R12301:12301 Proc.headers.fintype <> :::x_'>>'_x not
+R12308:12312 Proc.headers.fintype <> :::x_'>>'_x not
+R12303:12306 Proc.headers.fintype <> :::x_'>>'_x not
+R12301:12301 Proc.headers.fintype <> :::x_'>>'_x not
+R12308:12312 Proc.headers.fintype <> :::x_'>>'_x not
+R12303:12306 Proc.headers.fintype <> :::x_'>>'_x not
+R12323:12327 Proc.headers.fintype <> :::x_'>>'_x not
+R12334:12334 Proc.headers.fintype <> :::x_'>>'_x not
+R12329:12332 Proc.headers.fintype <> :::x_'>>'_x not
+R12184:12187 Proc.headers.fintype <> comp def
+R12184:12187 Proc.headers.fintype <> comp def
+R12201:12204 Proc.headers.fintype <> :::x_'>>'_x not
+R12115:12116 Proc.headers.fintype <> id def
+R12115:12116 Proc.headers.fintype <> id def
+R12029:12032 Proc.headers.fintype <> :::x_'>>'_x not
+R12033:12034 Proc.headers.fintype <> id def
+R12029:12032 Proc.headers.fintype <> :::x_'>>'_x not
+R12033:12034 Proc.headers.fintype <> id def
+R11941:11944 Proc.headers.fintype <> :::x_'>>'_x not
+R11939:11940 Proc.headers.fintype <> id def
+R11941:11944 Proc.headers.fintype <> :::x_'>>'_x not
+R11939:11940 Proc.headers.fintype <> id def
+R13796:13798 Proc.headers.fintype <> fin def
+binder 13792:13792 <> i:226
+R13796:13798 Proc.headers.fintype <> fin def
+binder 13792:13792 <> i:227
+R13884:13886 Proc.headers.fintype <> fin def
+R13889:13889 Corelib.Init.Datatypes <> S constr
+R13892:13892 Corelib.Init.Datatypes <> S constr
+R13895:13895 Corelib.Init.Datatypes <> S constr
+R13898:13898 Corelib.Init.Datatypes <> S constr
+binder 13880:13880 <> i:228
+R13884:13886 Proc.headers.fintype <> fin def
+R13889:13889 Corelib.Init.Datatypes <> S constr
+R13892:13892 Corelib.Init.Datatypes <> S constr
+R13895:13895 Corelib.Init.Datatypes <> S constr
+R13898:13898 Corelib.Init.Datatypes <> S constr
+binder 13880:13880 <> i:229
+R13998:14000 Proc.headers.fintype <> fin def
+R14003:14003 Corelib.Init.Datatypes <> S constr
+R14006:14006 Corelib.Init.Datatypes <> S constr
+R14009:14009 Corelib.Init.Datatypes <> S constr
+binder 13994:13994 <> i:230
+R13998:14000 Proc.headers.fintype <> fin def
+R14003:14003 Corelib.Init.Datatypes <> S constr
+R14006:14006 Corelib.Init.Datatypes <> S constr
+R14009:14009 Corelib.Init.Datatypes <> S constr
+binder 13994:13994 <> i:231
+R14105:14107 Proc.headers.fintype <> fin def
+R14110:14110 Corelib.Init.Datatypes <> S constr
+R14113:14113 Corelib.Init.Datatypes <> S constr
+binder 14101:14101 <> i:232
+R14105:14107 Proc.headers.fintype <> fin def
+R14110:14110 Corelib.Init.Datatypes <> S constr
+R14113:14113 Corelib.Init.Datatypes <> S constr
+binder 14101:14101 <> i:233
+R14206:14208 Proc.headers.fintype <> fin def
+R14211:14211 Corelib.Init.Datatypes <> S constr
+binder 14202:14202 <> i:234
+R14206:14208 Proc.headers.fintype <> fin def
+R14211:14211 Corelib.Init.Datatypes <> S constr
+binder 14202:14202 <> i:235
+R14360:14371 Proc.headers.fintype <> scons_p_comp thm
+R14373:14384 Proc.headers.fintype <> scons_p_head thm
+R14386:14397 Proc.headers.fintype <> scons_p_tail thm
+R14400:14412 Proc.headers.fintype <> scons_p_head' thm
+R14415:14427 Proc.headers.fintype <> scons_p_tail' thm

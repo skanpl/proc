@@ -12,5 +12,5 @@ CoqMakefile: _CoqProject
 cleanaux:
 	rm theories/.*.aux  theories/syntax/.*.aux 
 
-clean: cleanaux
+clean: #cleanaux
 	make clean -f CoqMakefile 
