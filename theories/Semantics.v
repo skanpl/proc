@@ -8,12 +8,23 @@ Require Import Coq.Logic.FunctionalExtensionality.
 
 
 
+
+
+
+
+
+
+
+
+
+
+ 
 (* the assumed setting  (Bi denotes a binder):
             
                 _______ <-- current location
  nu nu  (B1...Bn    i  )
-        
-*)
+ 
+ today i discovered that "-" is actually a cutoff  so it actually doesn't work !*)
 Definition swap_aux n i := 
  match i-n with
  | 0 => var_chan (1+n)
@@ -40,10 +51,18 @@ Fixpoint swap n P := match P with
      Rcv x (swap (n+1) P)
  end.
 
-
- 
   
-Definition shiftn_pr n (P:proc) := P [fun x => var_chan (x+n)].  
+
+
+
+Definition swapp (P:proc) := P [(var_chan 1) .: ( (var_chan 0) .:(fun (x:nat) => x __chan) )  ].
+
+
+
+
+(*==================================*)
+
+Definition shiftn_pr n (P:proc) := P [fun x => var_chan (n+x)].  
 Definition shift_pr (P:proc) := shiftn_pr 1 P.
 
 
@@ -110,14 +129,6 @@ Inductive red: proc -> proc -> Prop :=
 | Red_comm: forall x y P P', red (Par (Send x y P) (Rcv x P')) (Par P (P' [y..]) )
 | Red_nu: forall P Q,    red P Q -> red (Nu P) (Nu Q)
 .
-
-(*
-
-        P --> Q
-  ----------------------
-    (nux) P --> (nux) Q
-
-*)
 
  
 Hint Constructors congb proc conga cong lab lt red: picalc. 

@@ -1,9 +1,9 @@
 -R theories Proc
 -arg "-w none"
 
-
-theories/syntax/core.v	
-theories/syntax/ProcSyn.v  
-theories/syntax/unscoped.v
-theories/Semantics.v
-theories/Normal.v
+theories
+#theories/syntax/core.v	
+#theories/syntax/ProcSyn.v  
+#theories/syntax/unscoped.v
+#theories/Semantics.v
+#theories/Normal.v
