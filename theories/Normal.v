@@ -21,7 +21,7 @@ Qed.
 
 
 
-
+(*
  
 Lemma iter_nu_cong: forall P Q R n,
   cong P (iter_nu n Q) -> cong (Par P R) (Par (iter_nu n Q) R).  
@@ -30,7 +30,7 @@ intros.
 induction n; unfold iter_nu; eauto with picalc.
 Qed.
  
-
+*)
 
 
 
@@ -52,33 +52,40 @@ intro.
 econstructor.
 eauto using conga_resp_sub.
 intro.
-
+   
 inversion H; eauto with picalc. 
-subst.    
+subst.     
 eapply Cg_cgb.
-asimpl.
+cbn.  
+case Q0; intros; cbn; eauto with picalc.
+*)
 
 
-rewrite bind_simpl.
-eapply Cgb_nuPar.
+
+ 
+
+
+
+
+
+Lemma sc_extr_extd: forall x P R Q1 Q2, 
+  cong P (iter_nu x (Par Q1 Q2)) -> 
+  cong (Par P R) (iter_nu x (Par Q1 (Par Q2 (shiftn_pr x R))) ). 
+Proof.
+intros.
+eapply Cg_trans.
+
+eapply Cg_ctxParL.
+apply H.
+
+eapply Cg_trans.
+eapply Cg_sym.
+
 eauto with picalc.
 
 
 
-eapply Cg_cgb.
-eauto with picalc.
-
-
-
-
-
-
-
-
-
-
-
-
+(*
 Lemma red_normal: forall P Q ,
   red P Q -> exists n S x y R1 R2 , 
      cong P  (iter_nu n  (Par  (Par (Send x y R1) (Rcv x R2))    S) ) 
@@ -89,38 +96,5 @@ intros.
 induction H.   
 firstorder. 
 exists x. 
-
-
-(*
-generalize dependent x.
-intro. induction x.
-firstorder.
-simpl in *. 
-repeat eexists.
-eauto with picalc. eauto with picalc.
-firstorder. simpl in *.
-set (lem:= IHx H0 H1).
-*)
-
-
-repeat eexists.
-apply Cg_ctxParL with (Q:=R) in H0.
-induction x.  
-simpl in *. 
-eauto with picalc.
-simpl in *. 
-
-econstructor in  H0. eapply Cga_nuPar in H0. 
-
-
-
-eapply Cg_sym in .
-
-
-
-set (lem:= IHx  H1 H0).
-eauto with picalc.
-
-eapply Cg_ctxParL in H1.
-
+repeat eexists. 
 *)

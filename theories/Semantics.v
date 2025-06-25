@@ -12,58 +12,46 @@ Require Import Coq.Logic.FunctionalExtensionality.
 
 
 
-
-
-
+Notation ch := var_chan.
+Notation up := up_chan_chan.
 
 
 
  
-(* the assumed setting  (Bi denotes a binder):
-            
-                _______ <-- current location
- nu nu  (B1...Bn    i  )
- 
- today i discovered that "-" is actually a cutoff  so it actually doesn't work !*)
-Definition swap_aux n i := 
- match i-n with
- | 0 => var_chan (1+n)
- | 1 => var_chan (0+n)
- | _ => var_chan i
- end.
-
- 
-(*should initially called with n=0.
-n is the number of binder we have traversed 
-from "Nu Nu"
-up to the current point in the AST.
+(* the assumed setting:
+            Nu
+            |
+            Nu
+            |
+           /P\
 *)
-Fixpoint swap n P := match P with
- | Zero         => Zero 
- | Par P Q      => Par (swap n P) (swap n Q)
- | Nu P         => Nu (swap (n+1) P)
- | Send (var_chan i) (var_chan j) P   =>
-     let x:= (swap_aux n i) in
-     let y:= (swap_aux n j) in 
-     Send x y (swap n P)
- | Rcv (var_chan i) P    =>
-     let x:= (swap_aux n i) in  
-     Rcv x (swap (n+1) P)
- end.
-
-  
 
 
-
-Definition swapp (P:proc) := P [(var_chan 1) .: ( (var_chan 0) .:(fun (x:nat) => x __chan) )  ].
-
-
+Definition swap (P:proc) := P [(ch 1) .: ( (ch 0) .:ids )  ].
 
 
 (*==================================*)
 
-Definition shiftn_pr n (P:proc) := P [fun x => var_chan (n+x)].  
-Definition shift_pr (P:proc) := shiftn_pr 1 P.
+Print proc.
+
+ 
+Definition shiftn_sb n := fun x => ch (n+x). 
+Definition shift_sb := shiftn_sb 1. 
+
+
+(*
+Definition emb (f:nat->nat) := fun x => ch (f x).
+
+
+Fixpoint shiftn_pr n:= match n with
+ | 0   => (fun x => ch x)
+ | S n => S >>  (shiftn_pr n)
+end.
+*)
+
+
+
+
 
 
 Inductive conga: proc -> proc -> Prop :=
@@ -75,8 +63,8 @@ Inductive conga: proc -> proc -> Prop :=
 
 Inductive congb: proc -> proc -> Prop :=
 | Cgb_nuZero: congb (Nu Zero) Zero
-| Cgb_nuPar: forall P Q,  congb (Par (Nu P) Q)   (Nu (Par P (shift_pr Q) ))
-| Cgb_nuSwap: forall P, congb (Nu (Nu P))  (Nu (Nu (swap 0 P)))
+| Cgb_nuPar: forall P Q,  congb (Par (Nu P) Q)   (Nu (Par P (Q [shift_sb]) ))
+| Cgb_nuSwap: forall P, congb (Nu (Nu P))  (Nu (Nu (swap P)))
 .
 
 
@@ -98,8 +86,7 @@ Inductive cong: proc -> proc -> Prop :=
 | Cg_ctxNu: forall P Q,    cong P Q -> cong (Nu P) (Nu Q)
 .
 
-(* =====================INCOMPLET=========================================
-==============================================================*)
+(*===== peut etre temporaire ???  ======*)
 
 Inductive lab :=
 | Lsend (x y: chan)
@@ -108,18 +95,62 @@ Inductive lab :=
 | Ltau 
 .
 
+
+Definition not_bdsend a := 
+  exists x y, a = Lsend x y \/
+  exists x y, a = Lrcv x y  \/
+  a = Ltau
+.
+
+Definition notinlab a u := 
+  (exists x y, a = Lsend x y -> ~(u = x) /\ ~(u = y) ) \/
+  (exists x y, a = Lrcv x y -> ~(u = x) /\ ~(u = y) ) \/
+  (exists x y, a = LbdSend x y -> ~(u = x) /\ ~(u = y) ) .
+
+
+
+
 Inductive lt: proc -> lab -> proc -> Prop :=
 | Lt_send: forall x y P, lt (Send x y P) (Lsend x y) P 
-| Lt_rcv: forall x P y, lt (Rcv x P) (Lrcv x y) (P [y ..]) 
-| Lt_parL: forall Q P P' a, lt P a P' -> lt (Par P Q) a (Par P' Q) 
-| Lt_parR: forall P Q Q' a, lt Q a Q' -> lt (Par P Q) a (Par P Q')
+| Lt_rcv: forall x P y, lt (Rcv x P) (Lrcv x y) (P [y ..])
+ 
+| Lt_parL: forall Q P P' a,  
+  lt P a P' -> not_bdsend a -> 
+    lt (Par P Q) a (Par P' Q) 
+| Lt_parR: forall P Q Q' a,  
+  lt Q a Q' -> not_bdsend a -> 
+    lt (Par P Q) a (Par P Q')
+| Lt_parL_bs: forall Q P P' x,  
+  lt P (LbdSend x (ch 0)) P' -> 
+    lt (Par P Q) (LbdSend x (ch 0)) (Par P' (Q[shift_sb] ) ) 
+| Lt_parR_bs: forall P Q Q' x,  
+  lt Q (LbdSend x (ch 0)) Q' -> 
+    lt (Par P Q) (LbdSend x (ch 0)) (Par (P[shift_sb]) Q')
+
 | Lt_commL: forall P Q P' Q' x y, 
-    lt P (Lsend x y) P' -> lt Q (Lrcv x y) Q' -> lt (Par P Q) Ltau (Par P' Q')
+  lt P (Lsend x y) P' -> lt Q (Lrcv x y) Q' -> 
+    lt (Par P Q) Ltau (Par P' Q')
 | Lt_commR: forall P Q P' Q' x y, 
-    lt P (Lrcv x y) P' -> lt Q (Lsend x y) Q' -> lt (Par P Q) Ltau (Par P' Q')
+  lt P (Lrcv x y) P' -> lt Q (Lsend x y) Q' -> 
+    lt (Par P Q) Ltau (Par P' Q')
+
+
+| Lt_open: forall P P' x, 
+  lt P (Lsend (ch x) (ch 0)) P' ->  x>0  -> 
+     lt (Nu P) (LbdSend (ch x) (ch 0)) P'
+| Lt_res: forall P P' a,  
+   lt P a P' -> notinlab a u -> 
+     lt (Nu P) a (Nu P')
+
+| Lt_closeL: forall P P' Q Q' x, 
+  lt P (Lbdsend x (ch0)) P' -> lt (Q[shift_sb]) (Rcv x (ch 0)) Q' -> 
+    lt (Par P Q) Ltau (Nu (Par P' Q'))
+    
+| Lt_closeR: forall P P' Q Q' x, 
+  lt (P[shift_sb]) (Lrcv x (ch 0)) P' -> lt Q (Lbdsend x (ch0)) Q' ->
+    lt (Par P Q) Ltau (Nu (Par P' Q'))  
 .
-(*=============================================================
-==============================================================*)
+(*========================*)
 
 
 
@@ -131,7 +162,7 @@ Inductive red: proc -> proc -> Prop :=
 .
 
  
-Hint Constructors congb proc conga cong lab lt red: picalc. 
+Hint Constructors congb chan proc conga cong lab lt red: picalc. 
 
 
 Fixpoint iter_nu n P := match n with
@@ -142,3 +173,18 @@ Fixpoint iter_nu n P := match n with
 
 
 
+
+
+(* lt before:
+
+Inductive lt: proc -> lab -> proc -> Prop :=
+| Lt_send: forall x y P, lt (Send x y P) (Lsend x y) P 
+| Lt_rcv: forall x P y, lt (Rcv x P) (Lrcv x y) (P [y ..]) 
+| Lt_parL: forall Q P P' a, lt P a P' -> lt (Par P Q) a (Par P' Q) 
+| Lt_parR: forall P Q Q' a, lt Q a Q' -> lt (Par P Q) a (Par P Q')
+| Lt_commL: forall P Q P' Q' x y, 
+    lt P (Lsend x y) P' -> lt Q (Lrcv x y) Q' -> lt (Par P Q) Ltau (Par P' Q')
+| Lt_commR: forall P Q P' Q' x y, 
+    lt P (Lrcv x y) P' -> lt Q (Lsend x y) Q' -> lt (Par P Q) Ltau (Par P' Q')
+.
+*)

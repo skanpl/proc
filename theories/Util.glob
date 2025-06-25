@@ -1,0 +1,111 @@
+DIGEST b4183f112e35a5ee6171481cfef724ed
+FProc.Util
+R15:21 Proc.syntax.ProcSyn <> <> lib
+R39:47 Proc.Semantics <> <> lib
+R65:72 Proc.syntax.unscoped <> <> lib
+R90:93 Proc.syntax.core <> <> lib
+R103:114 Proc.syntax.ProcSyn Core <> mod
+R124:149 Proc.syntax.unscoped UnscopedNotations <> mod
+R167:200 Stdlib.Logic.FunctionalExtensionality <> <> lib
+R218:234 Stdlib.micromega.Lia <> <> lib
+R255:279 Stdlib.Logic.FunctionalExtensionality <> functional_extensionality thm
+prf 555:569 <> shift_succ_comp
+binder 579:579 <> P:1
+binder 581:581 <> n:2
+R587:587 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R606:609 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R588:596 Proc.Semantics <> shiftn_pr def
+R600:600 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R599:599 Proc.Util <> n:2 var
+R605:605 Proc.Util <> P:1 var
+R610:618 Proc.Semantics <> shiftn_pr def
+R620:620 Proc.Util <> n:2 var
+R623:630 Proc.Semantics <> shift_pr def
+R632:632 Proc.Util <> P:1 var
+R795:795 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R796:796 Corelib.Init.Datatypes <> S constr
+R811:811 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R809:809 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R795:795 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R796:796 Corelib.Init.Datatypes <> S constr
+R811:811 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R809:809 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R842:849 Proc.Semantics <> shift_pr def
+R919:920 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R921:921 Corelib.Init.Datatypes <> S constr
+R935:935 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R933:933 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R919:920 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R921:921 Corelib.Init.Datatypes <> S constr
+R935:935 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R933:933 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R960:961 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R962:962 Corelib.Init.Datatypes <> S constr
+R976:976 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R974:974 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R960:961 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R962:962 Corelib.Init.Datatypes <> S constr
+R976:976 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R974:974 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+prf 1032:1041 <> shift_zero
+binder 1051:1051 <> P:3
+R1067:1069 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1054:1062 Proc.Semantics <> shiftn_pr def
+R1066:1066 Proc.Util <> P:3 var
+R1070:1070 Proc.Util <> P:3 var
+prf 1279:1296 <> iter_nu_scope_extr
+binder 1306:1306 <> n:4
+binder 1308:1308 <> P:5
+binder 1310:1310 <> Q:6
+R1315:1318 Proc.Semantics <> cong ind
+R1321:1323 Proc.syntax.ProcSyn Core Par constr
+R1326:1332 Proc.Semantics <> iter_nu def
+R1334:1334 Proc.Util <> n:4 var
+R1336:1336 Proc.Util <> P:5 var
+R1339:1339 Proc.Util <> Q:6 var
+R1345:1351 Proc.Semantics <> iter_nu def
+R1353:1353 Proc.Util <> n:4 var
+R1356:1358 Proc.syntax.ProcSyn Core Par constr
+R1360:1360 Proc.Util <> P:5 var
+R1363:1371 Proc.Semantics <> shiftn_pr def
+R1373:1373 Proc.Util <> n:4 var
+R1375:1375 Proc.Util <> Q:6 var
+R1506:1515 Proc.Util <> shift_zero thm
+R1506:1515 Proc.Util <> shift_zero thm
+R1506:1515 Proc.Util <> shift_zero thm
+R1506:1515 Proc.Util <> shift_zero thm
+R1506:1515 Proc.Util <> shift_zero thm
+R1506:1515 Proc.Util <> shift_zero thm
+R1506:1515 Proc.Util <> shift_zero thm
+R1506:1515 Proc.Util <> shift_zero thm
+R1506:1515 Proc.Util <> shift_zero thm
+R1527:1536 Proc.Util <> shift_zero thm
+R1527:1536 Proc.Util <> shift_zero thm
+R1527:1536 Proc.Util <> shift_zero thm
+R1662:1669 Proc.Semantics <> Cg_trans constr
+R1662:1669 Proc.Semantics <> Cg_trans constr
+R1679:1684 Proc.Semantics <> Cg_cgb constr
+R1679:1684 Proc.Semantics <> Cg_cgb constr
+R1694:1702 Proc.Semantics <> Cgb_nuPar constr
+R1694:1702 Proc.Semantics <> Cgb_nuPar constr
+R1712:1719 Proc.Semantics <> Cg_ctxNu constr
+R1712:1719 Proc.Semantics <> Cg_ctxNu constr
+R1731:1731 Corelib.Init.Datatypes <> S constr
+R1743:1743 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R1731:1731 Corelib.Init.Datatypes <> S constr
+R1743:1743 Corelib.Init.Peano <> ::nat_scope:x_'+'_x not
+R1766:1780 Proc.Util <> shift_succ_comp thm
+R1766:1780 Proc.Util <> shift_succ_comp thm
+R1766:1780 Proc.Util <> shift_succ_comp thm
+prf 1808:1819 <> iter_nu_succ
+binder 1829:1829 <> x:7
+binder 1831:1831 <> P:8
+R1853:1855 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1837:1838 Proc.syntax.ProcSyn Core Nu constr
+R1841:1847 Proc.Semantics <> iter_nu def
+R1849:1849 Proc.Util <> x:7 var
+R1851:1851 Proc.Util <> P:8 var
+R1856:1862 Proc.Semantics <> iter_nu def
+R1865:1865 Corelib.Init.Datatypes <> S constr
+R1867:1867 Proc.Util <> x:7 var
+R1870:1870 Proc.Util <> P:8 var

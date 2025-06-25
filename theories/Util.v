@@ -11,174 +11,11 @@ Ltac fe := apply functional_extensionality.
 
 
 
-Locate "↑__proc".
-Locate "↑__chan".
-Print up_chan_chan.
-
-
-
-
-(*
-Definition up (sigma: nat-> nat) := 
-  0 .: (sigma >> shift).
-
- 
-Lemma bind_simpl: forall sigma,
- shift >> (up sigma) = sigma >> shift .
-Proof.
-intro. symmetry.
-unfold funcomp, up.
-fe.
-intro.
-unfold shift, funcomp.
-auto.
-Qed.
-*)
-
-
-
-(*--------- shifts (maybe useless) ------------*)
-
-
-Lemma shift0: forall P,  shiftn_pr 0 P = P.
-Proof.
-intros.  
-case P; intros; asimpl; auto.    
-Qed.
-
- 
-
-Lemma double_sub_par: forall P Q sigma1 sigma2,
-  (Par P Q) [sigma1][sigma2] = Par (P[sigma1][sigma2]) (Q[sigma1][sigma2]). 
-Proof. 
-asimpl. auto.
-Qed.
-
-Lemma sub_par: forall P Q sigma, 
-  (Par P Q)[sigma] = Par (P[sigma]) (Q[sigma]). 
-Proof.
-asimpl. auto.
-Qed.
-
-Lemma shift_pr_def: forall P, P [fun x => (1+x)__chan] = shift_pr P.
-Proof.
-auto. 
-Qed.
-
-Lemma shift_succ: forall P n, 
-  P [fun x => ((S n) +x)__chan] = shiftn_pr (n+1) P.
-Proof.
-intros.
-asimpl.
-unfold shiftn_pr.
-asimpl.
-replace (S n) with (n+1).
-auto. 
-lia.
-Qed.
-
-
-Lemma succ_bindsub: forall n,
- ( fun x => ((S n)+x) ) = (fun x => n+x)>> S.
-Proof.
-intro. fe. intro.
-asimpl.
-unfold funcomp.
-auto.
-Qed.
- 
-Print up_chan_chan.
-Print up_proc.
-
-(*
-Definition coerce (sigma: nat-> chan) := fun x =>
-  match (sigma x) with
-  | var_chan x => x
-  end.
-
-
-Lemma up_chan_comp_chan: forall (x:chan) (sigma1 sigma2: nat -> chan),
-  x [up_chan_chan sigma1] [up_chan_chan sigma2] =
-  x [up_chan_chan ( (coerce sigma1) >> sigma2)].
-Proof.
-intros.
-asimpl.
-case x. intro.
-cbv.
-case n.
-auto.
-intro.
-case (sigma1 n0). intro.
-case (sigma2 n1). intro.
-auto.
-Qed.
-
-
-Lemma up_chan_comp_pr: forall (P:proc) (sigma1 sigma2: nat -> chan),
-  P [up_chan_chan sigma1] [up_chan_chan sigma2] =
-  P [up_chan_chan ( (coerce sigma1) >> sigma2)].
-Proof.
-intros.
-induction  P.
-auto.
-
-cbn.
-erewrite IHP1, IHP2.
-auto.
-(*TODO*)
-
-
-
-Lemma rcv_sub_shiftn: forall x P n,
-  (Rcv x P)[fun x=> ((S n) +x)__chan] = 
-  (Rcv x P)[fun x => (n+x)__chan] [fun x => (1+x)__chan].
-Proof.
-intros.
-cbn.
-
-asimpl.
-(*TODO*)
-
-
-Lemma sub_shiftn: forall (P:proc) n, 
-  P[fun x => ((S n) +x)__chan] = P[fun x => (n+x)__chan][fun x => (1+x)__chan].
-Proof.
-intros.
-case P.
-auto.
-
-intros. 
-asimpl.
-auto.
- 
-intros. 
-
-asimpl.
-auto.
-*)
-
-
-Lemma shift_chan: forall (a:chan) n,   
-  a[fun x : nat => (S x)__chan] [fun x : nat => (n + x)__chan] = 
-  a[fun x : nat => (n + 1 + x)__chan].
-Proof.
-intros.
-asimpl. 
-case a. intro.
-asimpl.
-unfold funcomp.
-replace (n + S n0) with (n+1+n0).
-auto. lia.
-Qed.
-
-
-
-
-(* autosubst problem:
+(* autosubst problem (or maybe not):
 induction htpotheses are too weak
 and doesn't take into acount that 
 a term is bellow a binder in the IH
-*)
+
 Goal forall P:proc, P=P.
 intro.
 induction P.
@@ -188,75 +25,51 @@ reflexivity.
 reflexivity.
 reflexivity.
 Qed.
-
+*) 
 
 
 Lemma shift_succ_comp: forall P n, 
-  shiftn_pr n (shift_pr P) = (shiftn_pr (n+1)  P) .
+  (shiftn_pr (n+1)  P) = shiftn_pr n (shift_pr P).
 Proof.
-intros.
+intros. symmetry.
 generalize dependent n.
-induction P.
+induction P; intro; auto; simpl.
 
-intro. auto.
+erewrite IHP1, IHP2. 
+auto.
 
-intro. 
-unfold shift_pr, shiftn_pr in *.
-cbn.
-erewrite IHP1, IHP2. auto.
-
-intro.
-unfold shift_pr, shiftn_pr in *.
-cbn.
-erewrite shift_chan. 
-replace (fun x => (S x)__chan) with (fun x => (1+x)__chan).
-set (lem:= IHP n).
-(*check the remark above to understand the prob*)
-
-
-
-
-
-(*
-Lemma shift_succ_comp: forall P n, 
-  shiftn_pr n (shift_pr P) = (shiftn_pr (n+1)  P) .
-Proof.
-intros. 
-generalize dependent P.
-induction n. intro. 
-case P; intros; asimpl; auto.
-
-intro.
-simpl.
-case P.
-cbn.
+case c. intro.
+simpl. 
+erewrite IHP.
+replace (n+S n0) with (n+1+n0); try lia.
 auto.
  
-intros. 
-unfold shift_pr, shiftn_pr in *.
-replace (S n) with (n+1); try lia.
-set (lem:= IHn ((Par p p0) [fun x : nat => (1 + x)__chan])). 
-symmetry in lem. 
-try erewrite lem.
 
+unfold shift_pr.
+simpl.
+case c. intro.
+case c0. intro.
+cbn.
+erewrite IHP.
+replace (n+ S n0)with (n+1+n0) ;try lia.
+replace (n+ S n1)with (n+1+n1) ;try lia.
+auto.
 
-erewrite double_sub_par.
-erewrite sub_par.
-
-erewrite sub_par.
-
-
-erewrite shift_pr_def.
-rewrite (shift_pr_def p0).
-*)
+erewrite IHP.
+auto.
+Qed.
 
 
 
-
-
-(*TODO*) 
-(*--------------------------------------------*)
-
+Lemma shift_zero: forall P, shiftn_pr 0 P = P.
+Proof.
+intro. 
+induction P; intros ;cbn; eauto with picalc.
+erewrite IHP1, IHP2. auto.
+case c. intro. erewrite IHP. auto.
+case c. intro. case c0. intro. erewrite IHP. auto.
+erewrite IHP. auto.
+Qed.
 
 
 Lemma iter_nu_scope_extr: forall n P Q,
@@ -264,16 +77,26 @@ Lemma iter_nu_scope_extr: forall n P Q,
 Proof. 
 intros.
 generalize dependent Q. 
-induction n. intro.
-unfold shiftn_pr. simpl.   
-rewrite iden_ren in *.
-asimpl.   
-eauto with picalc.
-    
-intro. 
-simpl.
+induction n; intro; simpl.    
+case Q;intros; cbn; eauto with picalc; try erewrite shift_zero.
+erewrite shift_zero.
+eauto with picalc.  
+case c. eauto with picalc. 
+case c. intro. case c0. eauto with picalc.
+eauto with picalc.    
+
 eapply Cg_trans.
 eapply Cg_cgb. eapply Cgb_nuPar.
 eapply Cg_ctxNu.
-eapply (IHn (shift_pr Q )).
-(*TODO*)
+replace (S n) with (n+1); try lia.
+erewrite shift_succ_comp.
+eapply IHn.
+Qed.
+
+
+Lemma iter_nu_succ: forall x P, 
+  Nu (iter_nu x P) = iter_nu (S x) P.
+Proof.
+intros.
+induction x; auto.
+Qed.
