@@ -58,20 +58,20 @@ Inductive conga: proc -> proc -> Prop :=
 | Cga_parCom: forall P Q,     conga (Par P Q)  (Par Q P)
 | Cga_parAssoc: forall P Q R, conga (Par (Par P Q) R)    (Par P (Par Q R))
 | Cga_parNeut: forall P,      conga (Par P Zero) P
-
-| Cgb_nuZero: conga (Nu Zero) Zero
-| Cgb_nuPar: forall P Q,  conga (Par (Nu P) Q)   (Nu (Par P (Q [shift_sb]) ))
-| Cgb_nuSwap: forall P, conga (Nu (Nu P))  (Nu (Nu (swap P)))
 .
 
-
-
+Inductive congb: proc -> proc -> Prop :=
+| Cgb_nuZero: congb (Nu Zero) Zero
+| Cgb_nuPar: forall P Q,  congb (Par (Nu P) Q)   (Nu (Par P (Q [shift_sb]) ))
+| Cgb_nuSwap: forall P, congb (Nu (Nu P))  (Nu (Nu (swap P)))
+.
 
 
 
 (*  cong = conga + equivrel + ctxrules *)
 Inductive cong: proc -> proc -> Prop :=
 | Cg_cga: forall P Q,     conga P Q -> cong P Q
+| Cg_cgb: forall P Q,     congb P Q -> cong P Q
 | Cg_refl: forall P,       cong P P
 | Cg_sym: forall P Q,     cong Q P -> cong P Q
 | Cg_trans: forall P Q R, cong P Q -> cong Q R -> cong P R
@@ -163,7 +163,7 @@ Inductive red: proc -> proc -> Prop :=
 .
 
  
-Hint Constructors chan proc conga cong lab lt red: picalc. 
+Hint Constructors congb chan proc conga cong lab lt red: picalc. 
 
 Fixpoint iter_nu n P := match n with
  | 0   => P
@@ -191,6 +191,45 @@ Qed.
 
  
 Hint Resolve not_bdsend_rcv not_bdsend_send not_bdsend_tau: picalc. 
+
+
+(*
+Lemma Lconga_resp_lt: forall P Q P' a, 
+  lt P a P'-> conga P Q -> exists Q', lt Q a Q' /\ conga P' Q'.
+Proof.
+intros. 
+inversion H.  (*caseAn on lt derivation*)
+(*====== base cases ======*)  
+inversion H0; subst; inversion H0.
+inversion H0; subst; inversion H0.
+(*====== free parL ======*)
+inversion H0. (*caseAn on conga*)
+
+(*subcase com*)
+subst.
+inversion H6; eexists; split; subst; 
+eauto with picalc.
+(*subcase assoc*)  
+
+subst.  
+inversion H6. 
+subst.   
+inversion H1; eauto with picalc. (*caseAn on P1|Q1 ->a P'0*)
+subst.  
+firstorder; inversion H2.
+
+subst.   
+firstorder; inversion H2.
+
+subst.
+eexists. split.
+eapply Lt_closeL.
+eauto with picalc.
+cbn.
+eauto with picalc.
+(* .... *)
+
+
 
 
 
@@ -223,7 +262,7 @@ firstorder; inversion H2.
 eexists. split. eauto with picalc. 
 subst. 
 firstorder; inversion H2.   
- 
+  
 subst.    
 eexists. split. 
 eapply Lt_closeL. eauto with picalc.
@@ -242,7 +281,7 @@ the reasonable way would be to do "sc_extr+assoc"
 
 
 
-
+*)
 
 
 
