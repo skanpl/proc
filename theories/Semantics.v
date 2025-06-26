@@ -53,25 +53,15 @@ end.
 
 
 
-
-Inductive conga: proc -> proc -> Prop :=
-| Cga_parCom: forall P Q,     conga (Par P Q)  (Par Q P)
-| Cga_parAssoc: forall P Q R, conga (Par (Par P Q) R)    (Par P (Par Q R))
-| Cga_parNeut: forall P,      conga (Par P Zero) P
-.
-
-Inductive congb: proc -> proc -> Prop :=
-| Cgb_nuZero: congb (Nu Zero) Zero
-| Cgb_nuPar: forall P Q,  congb (Par (Nu P) Q)   (Nu (Par P (Q [shift_sb]) ))
-| Cgb_nuSwap: forall P, congb (Nu (Nu P))  (Nu (Nu (swap P)))
-.
-
-
-
-(*  cong = conga + equivrel + ctxrules *)
 Inductive cong: proc -> proc -> Prop :=
-| Cg_cga: forall P Q,     conga P Q -> cong P Q
-| Cg_cgb: forall P Q,     congb P Q -> cong P Q
+| Cg_parCom: forall P Q,     cong (Par P Q)  (Par Q P)
+| Cg_parAssoc: forall P Q R, cong (Par (Par P Q) R)    (Par P (Par Q R))
+| Cg_parNeut: forall P,      cong (Par P Zero) P
+
+| Cg_nuZero: cong (Nu Zero) Zero
+| Cg_nuPar: forall P Q,  cong (Par (Nu P) Q)   (Nu (Par P (Q [shift_sb]) ))
+| Cg_nuSwap: forall P, cong (Nu (Nu P))  (Nu (Nu (swap P)))
+
 | Cg_refl: forall P,       cong P P
 | Cg_sym: forall P Q,     cong Q P -> cong P Q
 | Cg_trans: forall P Q R, cong P Q -> cong Q R -> cong P R
@@ -163,7 +153,7 @@ Inductive red: proc -> proc -> Prop :=
 .
 
  
-Hint Constructors congb chan proc conga cong lab lt red: picalc. 
+Hint Constructors chan proc cong lab lt red: picalc. 
 
 Fixpoint iter_nu n P := match n with
  | 0   => P
@@ -191,6 +181,326 @@ Qed.
 
  
 Hint Resolve not_bdsend_rcv not_bdsend_send not_bdsend_tau: picalc. 
+
+
+Ltac derivtreenu := 
+  eapply Cg_sym;
+
+  eapply Cg_trans;
+
+  eapply Cg_trans;
+  eapply Cg_parCom;
+  eapply Cg_nuPar;
+
+  eapply Cg_ctxNu;
+  eapply Cg_trans;
+  eapply Cg_parCom;
+  eapply Cg_sym; 
+  eapply Cg_parAssoc.
+
+
+
+
+
+
+
+Lemma cong_resp_lt: forall P Q P' Q' a, 
+  cong P Q -> 
+     (lt P a P'  -> exists Q0, lt Q a Q0 /\ cong P' Q0)  /\
+      (lt Q a Q' -> exists P0, lt P a P0 /\ cong P0 Q').
+Proof.
+intros. 
+generalize dependent P'.
+generalize dependent Q'.
+generalize dependent a. 
+induction H.      
+ 
+(*=========case commutative par ===================*)
+firstorder.
+inversion H; eauto with picalc.
+inversion H; eauto with picalc.
+(*========== case  assoc par LHS   ==============================*)
+firstorder.    
+inversion H; try eauto with picalc. (*caseAn on (P|Q)|R-->a ...*)
+subst.
+   
+(**) 
+inversion H2; subst; eauto with picalc. (*caseAn on P|Q -->a ...*)
+
+firstorder; inversion H0.
+
+eexists. split.
+eapply Lt_closeL.
+eauto with picalc.
+cbn. 
+eauto with picalc.
+eauto with picalc.
+ 
+eexists. split.
+eauto with picalc.
+eauto with picalc.
+(**)
+       
+(**)
+inversion H4; subst. (*caseAn P|Q -->a ...*)
+firstorder; inversion H0.
+firstorder; inversion H0.
+
+eauto with picalc.
+eauto with picalc.
+(**)
+
+eexists; split; eauto with picalc.
+ 
+inversion H2; eauto with picalc.
+ 
+inversion H2; eauto with picalc.
+
+(*******)
+inversion H2; eauto with picalc. (*casAn P|Q -->a ...*)
+subst; firstorder; inversion H0.
+subst; firstorder; inversion H0.
+
+subst.
+eexists. split.
+eapply Lt_closeL.
+eauto with picalc. 
+cbn. eauto with picalc.
+eauto with picalc.
+
+subst. 
+eexists. split.
+eauto with picalc.
+eauto with picalc.
+
+(*a derivation tree*)
+eapply Cg_sym.
+
+eapply Cg_trans.
+
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_nuPar.
+ 
+eapply Cg_ctxNu.
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_sym.
+eapply Cg_parAssoc.
+(******)
+   
+subst.
+cbn in *.
+inversion H2; subst.
+eexists. split. 
+eapply Lt_closeR.
+eauto with picalc.
+eauto with picalc.
+eauto with picalc.
+
+eexists. split. 
+eauto with picalc.
+
+(******)
+(*tenta derivtree*)
+eapply Cg_sym.
+ 
+eapply Cg_trans.
+ 
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_nuPar.
+
+eapply Cg_ctxNu.
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_sym.
+eapply Cg_parAssoc.
+(******)
+  
+(* assoc RHS *)  
+inversion H; eauto with picalc. (*caseAn P|(Q|R) --->a ...*)
+subst.
+  
+    
+(*___*)
+inversion H2; eauto with picalc. (*caseAn Q|R --->a ...*) (*gen 4 new goals *)
+
+subst; eauto with picalc.
+  
+subst; firstorder; inversion H0.
+
+subst.
+eexists. split. 
+eapply Lt_closeL.
+eauto with picalc. 
+eauto with picalc. 
+eauto with picalc. 
+(*tenta derivtree*)
+eapply Cg_sym.
+
+eapply Cg_trans.
+
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_nuPar.
+
+eapply Cg_ctxNu.
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_sym.
+eapply Cg_parAssoc.
+
+subst.
+eexists. split.
+eapply Lt_closeR.
+cbn. 
+eauto with picalc. 
+eauto with picalc. 
+(*tenta derivtree*)
+eapply Cg_sym.
+
+eapply Cg_trans.
+
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_nuPar.
+
+eapply Cg_ctxNu.
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_sym. 
+eapply Cg_parAssoc.
+(*__________*)
+
+(*___*)  
+subst.    
+inversion H4; eauto with picalc.  (*caseAn Q|R  -->a ...*)
+subst.     
+firstorder; inversion H0.
+subst.
+  
+eexists. split.
+eauto with picalc. 
+cbn.
+eauto with picalc.
+(*___*)
+
+    
+inversion H5; eauto with picalc.
+
+inversion H5; eauto with picalc.
+
+(*__*)
+subst. cbn in *.   
+inversion H5; eauto with picalc. (*caseAn Q[shift]|R[shift] -->? ...*) 
+subst.
+eexists; split; eauto with picalc. 
+eexists; split; eauto with picalc.
+(*__*)
+
+
+(*__*)
+subst.
+inversion H5; eauto with picalc. (*caseAn Q|R -->b! ...*)
+firstorder; inversion H7.
+firstorder; inversion H7.
+
+subst.
+eexists; split; eauto with picalc. 
+
+subst.
+eexists. split. 
+eapply Lt_closeR.
+cbn.
+eauto with picalc.
+eauto with picalc.
+eauto with picalc.
+(*==============  case neut    ======================================*)
+(*LHS*)
+firstorder. 
+inversion H; eauto with picalc.
+inversion H2. inversion H4.
+inversion H5. inversion H5.
+cbn in *. inversion H5. 
+inversion H5. 
+  
+(*RHS*)
+inversion H; eauto with picalc.
+subst.
+(*___*) 
+inversion H1; subst. (*caseAn 0\notin n(a) *)
+ 
+eauto with picalc. (*case a = Ltau*)
+
+case a; subst. (*caseAn on a*)
+firstorder.
+eexists. split.
+eapply Lt_parL.
+
+
+eauto with picalc.
+(*___*)  
+
+
+
+
+
+| Lt_parL_bs: forall Q P P' x,  
+  lt P (LbdSend x (ch 0)) P' -> 
+    lt (Par P Q) (LbdSend x (ch 0)) (Par P' (Q[shift_sb] ) ) 
+
+
+
+
+| Cg_parNeut: forall P,      cong (Par P Zero) P
+
+| Cg_nuZero: cong (Nu Zero) Zero
+| Cg_nuPar: forall P Q,  cong (Par (Nu P) Q)   (Nu (Par P (Q [shift_sb]) ))
+| Cg_nuSwap: forall P, cong (Nu (Nu P))  (Nu (Nu (swap P)))
+
+
+
+
+
+
+
+
+
+(*
+ this tree apeared quite often in the proof:
+
+
+
+
+commMonoid
+-----------------------------------------------                                 sc_extr
+P| ( Nu (Q'1| Q'0) )  cong ( Nu (Q'1| Q'0) )| P_______________________________________
+                                          ( Nu (Q'1| Q'0) )| P  cong  Nu ((Q'1| Q'0) | P[shift])  
+------------------------------------------------------------------------------------------trans
+P| ( Nu (Q'1| Q'0) )        cong     Nu ((Q'1| Q'0) | P[shift])
+
+
+                                                                
+                                                                 --------------------------------------Assoc
+                                                                (P[shift]|Q'1)| Q'0 cong P[shift]|(Q'1| Q'0)
+             -----------------------------------------commMono  -----------------------------------------sym
+              (Q'1| Q'0) | P[shift]  cong P[shift]|(Q'1| Q'0)   P[shift]|(Q'1| Q'0) cong (P[shift]|Q'1)| Q'0
+            ----------------------------------------------------------------------------------trans        
+                                     (Q'1| Q'0) | P[shift] cong  ( P[shift] |Q'1) | Q'0     
+                            Nuctx ----------------------------------------------------------     
+                                Nu ((Q'1| Q'0) | P[shift]) cong Nu( ( P[shift] |Q'1) | Q'0 )      
+ =============================================================================================trans           
+
+    P| ( Nu (Q'1| Q'0) )
+
+     cong
+
+     Nu  (      ( P[shift] |Q'1) | Q'0           )
+              
+*)
+
+
 
 
 (*
