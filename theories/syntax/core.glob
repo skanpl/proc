@@ -1,0 +1,474 @@
+DIGEST b05df14fda39ac6e79f83dc6e1802598
+FProc.syntax.core
+def 39:45 <> funcomp
+binder 48:48 <> X:1
+binder 50:50 <> Y:2
+binder 52:52 <> Z:3
+R61:64 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R60:60 Proc.syntax.core <> Y:2 var
+R65:65 Proc.syntax.core <> Z:3 var
+binder 56:56 <> g:4
+R74:77 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R73:73 Proc.syntax.core <> X:1 var
+R78:78 Proc.syntax.core <> Y:2 var
+binder 69:69 <> f:5
+binder 91:91 <> x:6
+R96:96 Proc.syntax.core <> g:4 var
+R99:99 Proc.syntax.core <> f:5 var
+R101:101 Proc.syntax.core <> x:6 var
+prf 112:124 <> funcomp_assoc
+binder 127:127 <> W:7
+binder 129:129 <> X:8
+binder 131:131 <> Y:9
+binder 133:133 <> Z:10
+R141:144 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R140:140 Proc.syntax.core <> Y:9 var
+R145:145 Proc.syntax.core <> Z:10 var
+binder 137:137 <> g:11
+R153:156 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R152:152 Proc.syntax.core <> X:8 var
+R157:157 Proc.syntax.core <> Y:9 var
+binder 149:149 <> f:12
+R165:168 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R164:164 Proc.syntax.core <> W:7 var
+R169:169 Proc.syntax.core <> X:8 var
+binder 161:161 <> h:13
+R199:202 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R226:226 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R176:182 Proc.syntax.core <> funcomp def
+R187:193 Proc.syntax.core <> funcomp def
+R197:197 Proc.syntax.core <> h:13 var
+R195:195 Proc.syntax.core <> f:12 var
+R184:184 Proc.syntax.core <> g:11 var
+R203:209 Proc.syntax.core <> funcomp def
+R225:225 Proc.syntax.core <> h:13 var
+R212:218 Proc.syntax.core <> funcomp def
+R222:222 Proc.syntax.core <> f:12 var
+R220:220 Proc.syntax.core <> g:11 var
+R561:564 Stdlib.Lists.List <> <> lib
+R593:595 Corelib.Lists.ListDef <> map def
+not 577:577 <> :::'list_map'
+def 610:617 <> list_ext
+binder 620:620 <> A:14
+binder 622:622 <> B:15
+R633:636 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R632:632 Proc.syntax.core <> A:14 var
+R637:637 Proc.syntax.core <> B:15 var
+binder 626:626 <> f:16
+binder 628:628 <> g:17
+R644:644 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R664:668 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 652:652 <> x:18
+R658:660 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R655:655 Proc.syntax.core <> f:16 var
+R657:657 Proc.syntax.core <> x:18 var
+R661:661 Proc.syntax.core <> g:17 var
+R663:663 Proc.syntax.core <> x:18 var
+binder 676:677 <> xs:19
+R693:695 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R680:692 Proc.syntax.core <> :::'list_map' not
+R691:692 Proc.syntax.core <> xs:19 var
+R689:689 Proc.syntax.core <> f:16 var
+R696:708 Proc.syntax.core <> :::'list_map' not
+R707:708 Proc.syntax.core <> xs:19 var
+R705:705 Proc.syntax.core <> g:17 var
+def 808:814 <> list_id
+binder 817:817 <> A:20
+R828:831 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R827:827 Proc.syntax.core <> A:20 var
+R832:832 Proc.syntax.core <> A:20 var
+binder 823:823 <> f:21
+R839:839 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R857:861 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 847:847 <> x:22
+R853:855 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R850:850 Proc.syntax.core <> f:21 var
+R852:852 Proc.syntax.core <> x:22 var
+R856:856 Proc.syntax.core <> x:22 var
+binder 869:870 <> xs:23
+R886:888 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R873:885 Proc.syntax.core <> :::'list_map' not
+R884:885 Proc.syntax.core <> xs:23 var
+R882:882 Proc.syntax.core <> f:21 var
+R889:890 Proc.syntax.core <> xs:23 var
+def 999:1007 <> list_comp
+binder 1010:1010 <> A:24
+binder 1012:1012 <> B:25
+binder 1014:1014 <> C:26
+R1022:1025 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1021:1021 Proc.syntax.core <> A:24 var
+R1026:1026 Proc.syntax.core <> B:25 var
+binder 1018:1018 <> f:27
+R1034:1037 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1033:1033 Proc.syntax.core <> B:25 var
+R1038:1038 Proc.syntax.core <> C:26 var
+binder 1030:1030 <> g:28
+binder 1042:1042 <> h:29
+R1049:1049 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1082:1086 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 1057:1057 <> x:30
+R1076:1078 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1061:1067 Proc.syntax.core <> funcomp def
+R1072:1072 Proc.syntax.core <> f:27 var
+R1070:1070 Proc.syntax.core <> g:28 var
+R1075:1075 Proc.syntax.core <> x:30 var
+R1079:1079 Proc.syntax.core <> h:29 var
+R1081:1081 Proc.syntax.core <> x:30 var
+binder 1094:1095 <> xs:31
+R1114:1116 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1098:1100 Corelib.Lists.ListDef <> map def
+R1105:1107 Corelib.Lists.ListDef <> map def
+R1111:1112 Proc.syntax.core <> xs:31 var
+R1109:1109 Proc.syntax.core <> f:27 var
+R1102:1102 Proc.syntax.core <> g:28 var
+R1117:1119 Corelib.Lists.ListDef <> map def
+R1123:1124 Proc.syntax.core <> xs:31 var
+R1121:1121 Proc.syntax.core <> h:29 var
+def 1252:1259 <> prod_map
+binder 1262:1262 <> A:32
+binder 1264:1264 <> B:33
+binder 1266:1266 <> C:34
+binder 1268:1268 <> D:35
+R1277:1280 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1276:1276 Proc.syntax.core <> A:32 var
+R1281:1281 Proc.syntax.core <> C:34 var
+binder 1272:1272 <> f:36
+R1290:1293 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1289:1289 Proc.syntax.core <> B:33 var
+R1294:1294 Proc.syntax.core <> D:35 var
+binder 1285:1285 <> g:37
+R1303:1305 Corelib.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1302:1302 Proc.syntax.core <> A:32 var
+R1306:1306 Proc.syntax.core <> B:33 var
+binder 1298:1298 <> p:38
+R1314:1316 Corelib.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1313:1313 Proc.syntax.core <> C:34 var
+R1317:1317 Proc.syntax.core <> D:35 var
+def 1406:1412 <> prod_id
+binder 1415:1415 <> A:39
+binder 1417:1417 <> B:40
+R1426:1429 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1425:1425 Proc.syntax.core <> A:39 var
+R1430:1430 Proc.syntax.core <> A:39 var
+binder 1421:1421 <> f:41
+R1439:1442 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1438:1438 Proc.syntax.core <> B:40 var
+R1443:1443 Proc.syntax.core <> B:40 var
+binder 1434:1434 <> g:42
+R1450:1450 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1468:1472 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 1458:1458 <> x:43
+R1464:1466 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1461:1461 Proc.syntax.core <> f:41 var
+R1463:1463 Proc.syntax.core <> x:43 var
+R1467:1467 Proc.syntax.core <> x:43 var
+R1473:1473 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1491:1495 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 1481:1481 <> x:44
+R1487:1489 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1484:1484 Proc.syntax.core <> g:42 var
+R1486:1486 Proc.syntax.core <> x:44 var
+R1490:1490 Proc.syntax.core <> x:44 var
+binder 1503:1503 <> p:45
+R1520:1522 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1506:1513 Proc.syntax.core <> prod_map def
+R1519:1519 Proc.syntax.core <> p:45 var
+R1517:1517 Proc.syntax.core <> g:42 var
+R1515:1515 Proc.syntax.core <> f:41 var
+R1523:1523 Proc.syntax.core <> p:45 var
+def 1621:1628 <> prod_ext
+binder 1631:1631 <> A:46
+binder 1633:1633 <> B:47
+binder 1635:1635 <> C:48
+binder 1637:1637 <> D:49
+R1649:1652 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1648:1648 Proc.syntax.core <> A:46 var
+R1653:1653 Proc.syntax.core <> C:48 var
+binder 1641:1641 <> f:50
+binder 1643:1644 <> f':51
+R1664:1667 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1663:1663 Proc.syntax.core <> B:47 var
+R1668:1668 Proc.syntax.core <> D:49 var
+binder 1657:1657 <> g:52
+binder 1659:1660 <> g':53
+R1675:1675 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1696:1700 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 1683:1683 <> x:54
+R1689:1691 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1686:1686 Proc.syntax.core <> f:50 var
+R1688:1688 Proc.syntax.core <> x:54 var
+R1692:1693 Proc.syntax.core <> f':51 var
+R1695:1695 Proc.syntax.core <> x:54 var
+R1701:1701 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1722:1726 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 1709:1709 <> x:55
+R1715:1717 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1712:1712 Proc.syntax.core <> g:52 var
+R1714:1714 Proc.syntax.core <> x:55 var
+R1718:1719 Proc.syntax.core <> g':53 var
+R1721:1721 Proc.syntax.core <> x:55 var
+binder 1734:1734 <> p:56
+R1751:1753 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1737:1744 Proc.syntax.core <> prod_map def
+R1750:1750 Proc.syntax.core <> p:56 var
+R1748:1748 Proc.syntax.core <> g:52 var
+R1746:1746 Proc.syntax.core <> f:50 var
+R1754:1761 Proc.syntax.core <> prod_map def
+R1769:1769 Proc.syntax.core <> p:56 var
+R1766:1767 Proc.syntax.core <> g':53 var
+R1763:1764 Proc.syntax.core <> f':51 var
+def 1876:1884 <> prod_comp
+binder 1887:1887 <> A:57
+binder 1889:1889 <> B:58
+binder 1891:1891 <> C:59
+binder 1893:1893 <> D:60
+binder 1895:1895 <> E:61
+binder 1897:1897 <> F:62
+R1907:1910 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1906:1906 Proc.syntax.core <> A:57 var
+R1911:1911 Proc.syntax.core <> C:59 var
+binder 1901:1902 <> f1:63
+R1921:1924 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1920:1920 Proc.syntax.core <> C:59 var
+R1925:1925 Proc.syntax.core <> E:61 var
+binder 1915:1916 <> g1:64
+R1935:1938 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1934:1934 Proc.syntax.core <> A:57 var
+R1939:1939 Proc.syntax.core <> E:61 var
+binder 1929:1930 <> h1:65
+R1948:1951 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1947:1947 Proc.syntax.core <> B:58 var
+R1952:1952 Proc.syntax.core <> D:60 var
+binder 1943:1944 <> f2:66
+R1961:1964 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1960:1960 Proc.syntax.core <> D:60 var
+R1965:1965 Proc.syntax.core <> F:62 var
+binder 1956:1957 <> g2:67
+R1975:1978 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R1974:1974 Proc.syntax.core <> B:58 var
+R1979:1979 Proc.syntax.core <> F:62 var
+binder 1969:1970 <> h2:68
+R1985:1985 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2021:2025 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 1993:1993 <> x:69
+R2014:2016 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R1997:2003 Proc.syntax.core <> funcomp def
+R2009:2010 Proc.syntax.core <> f1:63 var
+R2006:2007 Proc.syntax.core <> g1:64 var
+R2013:2013 Proc.syntax.core <> x:69 var
+R2017:2018 Proc.syntax.core <> h1:65 var
+R2020:2020 Proc.syntax.core <> x:69 var
+R2026:2026 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2061:2065 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 2034:2034 <> x:70
+R2054:2056 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2038:2044 Proc.syntax.core <> funcomp def
+R2049:2050 Proc.syntax.core <> f2:66 var
+R2046:2047 Proc.syntax.core <> g2:67 var
+R2053:2053 Proc.syntax.core <> x:70 var
+R2057:2058 Proc.syntax.core <> h2:68 var
+R2060:2060 Proc.syntax.core <> x:70 var
+binder 2073:2073 <> p:71
+R2109:2111 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2076:2083 Proc.syntax.core <> prod_map def
+R2092:2099 Proc.syntax.core <> prod_map def
+R2107:2107 Proc.syntax.core <> p:71 var
+R2104:2105 Proc.syntax.core <> f2:66 var
+R2101:2102 Proc.syntax.core <> f1:63 var
+R2088:2089 Proc.syntax.core <> g2:67 var
+R2085:2086 Proc.syntax.core <> g1:64 var
+R2112:2119 Proc.syntax.core <> prod_map def
+R2127:2127 Proc.syntax.core <> p:71 var
+R2124:2125 Proc.syntax.core <> h2:68 var
+R2121:2122 Proc.syntax.core <> h1:65 var
+def 2262:2271 <> option_map
+binder 2274:2274 <> A:72
+binder 2276:2276 <> B:73
+R2285:2288 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2284:2284 Proc.syntax.core <> A:72 var
+R2289:2289 Proc.syntax.core <> B:73 var
+binder 2280:2280 <> f:74
+R2297:2302 Corelib.Init.Datatypes <> option ind
+R2304:2304 Proc.syntax.core <> A:72 var
+binder 2293:2293 <> p:75
+R2311:2316 Corelib.Init.Datatypes <> option ind
+R2318:2318 Proc.syntax.core <> B:73 var
+R2329:2329 Proc.syntax.core <> p:75 var
+R2340:2343 Corelib.Init.Datatypes <> Some constr
+R2350:2353 Corelib.Init.Datatypes <> Some constr
+R2356:2356 Proc.syntax.core <> f:74 var
+R2365:2368 Corelib.Init.Datatypes <> None constr
+R2373:2376 Corelib.Init.Datatypes <> None constr
+def 2395:2403 <> option_id
+binder 2406:2406 <> A:77
+R2415:2418 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2414:2414 Proc.syntax.core <> A:77 var
+R2419:2419 Proc.syntax.core <> A:77 var
+binder 2410:2410 <> f:78
+R2426:2426 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2444:2448 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 2434:2434 <> x:79
+R2440:2442 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2437:2437 Proc.syntax.core <> f:78 var
+R2439:2439 Proc.syntax.core <> x:79 var
+R2443:2443 Proc.syntax.core <> x:79 var
+binder 2456:2456 <> p:80
+R2473:2475 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2459:2468 Proc.syntax.core <> option_map def
+R2472:2472 Proc.syntax.core <> p:80 var
+R2470:2470 Proc.syntax.core <> f:78 var
+R2476:2476 Proc.syntax.core <> p:80 var
+def 2576:2585 <> option_ext
+binder 2588:2588 <> A:81
+binder 2590:2590 <> B:82
+R2602:2605 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2601:2601 Proc.syntax.core <> A:81 var
+R2606:2606 Proc.syntax.core <> B:82 var
+binder 2594:2594 <> f:83
+binder 2596:2597 <> f':84
+R2613:2613 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2634:2638 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 2621:2621 <> x:85
+R2627:2629 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2624:2624 Proc.syntax.core <> f:83 var
+R2626:2626 Proc.syntax.core <> x:85 var
+R2630:2631 Proc.syntax.core <> f':84 var
+R2633:2633 Proc.syntax.core <> x:85 var
+binder 2646:2646 <> p:86
+R2663:2665 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2649:2658 Proc.syntax.core <> option_map def
+R2662:2662 Proc.syntax.core <> p:86 var
+R2660:2660 Proc.syntax.core <> f:83 var
+R2666:2675 Proc.syntax.core <> option_map def
+R2680:2680 Proc.syntax.core <> p:86 var
+R2677:2678 Proc.syntax.core <> f':84 var
+def 2788:2798 <> option_comp
+binder 2801:2801 <> A:87
+binder 2803:2803 <> B:88
+binder 2805:2805 <> C:89
+R2814:2817 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2813:2813 Proc.syntax.core <> A:87 var
+R2818:2818 Proc.syntax.core <> B:88 var
+binder 2809:2809 <> f:90
+R2827:2830 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2826:2826 Proc.syntax.core <> B:88 var
+R2831:2831 Proc.syntax.core <> C:89 var
+binder 2822:2822 <> g:91
+R2840:2843 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2839:2839 Proc.syntax.core <> A:87 var
+R2844:2844 Proc.syntax.core <> C:89 var
+binder 2835:2835 <> h:92
+R2850:2850 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R2883:2889 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+binder 2858:2858 <> x:93
+R2877:2879 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2862:2868 Proc.syntax.core <> funcomp def
+R2873:2873 Proc.syntax.core <> f:90 var
+R2871:2871 Proc.syntax.core <> g:91 var
+R2876:2876 Proc.syntax.core <> x:93 var
+R2880:2880 Proc.syntax.core <> h:92 var
+R2882:2882 Proc.syntax.core <> x:93 var
+binder 2897:2897 <> p:94
+R2929:2931 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R2900:2909 Proc.syntax.core <> option_map def
+R2914:2923 Proc.syntax.core <> option_map def
+R2927:2927 Proc.syntax.core <> p:94 var
+R2925:2925 Proc.syntax.core <> f:90 var
+R2911:2911 Proc.syntax.core <> g:91 var
+R2932:2941 Proc.syntax.core <> option_map def
+R2945:2945 Proc.syntax.core <> p:94 var
+R2943:2943 Proc.syntax.core <> h:92 var
+R3064:3073 Stdlib.Lists.List <> in_map_iff thm
+binder 3280:3280 <> x:95
+R3288:3288 Proc.syntax.core <> x:95 var
+binder 3280:3280 <> x:96
+R3288:3288 Proc.syntax.core <> x:96 var
+binder 3307:3307 <> x:97
+R3314:3314 Proc.syntax.core <> x:97 var
+binder 3307:3307 <> x:98
+R3314:3314 Proc.syntax.core <> x:98 var
+binder 3428:3428 <> x:99
+R3436:3436 Proc.syntax.core <> x:99 var
+binder 3428:3428 <> x:100
+R3436:3436 Proc.syntax.core <> x:100 var
+binder 3519:3519 <> x:101
+R3531:3531 Proc.syntax.core <> x:101 var
+binder 3519:3519 <> x:102
+R3531:3531 Proc.syntax.core <> x:102 var
+binder 3551:3551 <> x:103
+R3561:3561 Proc.syntax.core <> x:103 var
+binder 3551:3551 <> x:104
+R3561:3561 Proc.syntax.core <> x:104 var
+R3571:3577 Proc.syntax.core <> funcomp def
+binder 3455:3455 <> x:105
+R3462:3462 Proc.syntax.core <> x:105 var
+binder 3455:3455 <> x:106
+R3462:3462 Proc.syntax.core <> x:106 var
+R3878:3883 Corelib.Setoids.Setoid <> <> lib
+R3885:3893 Corelib.Classes.Morphisms <> <> lib
+prf 3903:3918 <> pointwise_forall
+binder 3921:3921 <> X:107
+binder 3923:3923 <> Y:108
+R3938:3941 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3937:3937 Proc.syntax.core <> X:107 var
+R3942:3942 Proc.syntax.core <> Y:108 var
+binder 3932:3932 <> f:109
+binder 3934:3934 <> g:110
+R3949:3949 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3977:3981 Corelib.Init.Logic <> ::type_scope:x_'->'_x not
+R3950:3967 Corelib.Classes.Morphisms <> pointwise_relation def
+R3976:3976 Proc.syntax.core <> g:110 var
+R3974:3974 Proc.syntax.core <> f:109 var
+R3971:3972 Corelib.Init.Logic <> eq ind
+binder 3989:3989 <> x:111
+R3995:3997 Corelib.Init.Logic <> ::type_scope:x_'='_x not
+R3992:3992 Proc.syntax.core <> f:109 var
+R3994:3994 Proc.syntax.core <> x:111 var
+R3998:3998 Proc.syntax.core <> g:110 var
+R4000:4000 Proc.syntax.core <> x:111 var
+inst 4046:4061 <> funcomp_morphism
+binder 4064:4064 <> X:112
+binder 4066:4066 <> Y:113
+binder 4068:4068 <> Z:114
+R4075:4080 Corelib.Classes.Morphisms <> Proper class
+R4173:4179 Proc.syntax.core <> funcomp def
+R4109:4113 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R4084:4101 Corelib.Classes.Morphisms <> pointwise_relation def
+R4103:4103 Proc.syntax.core <> Y:113 var
+R4105:4105 Proc.syntax.core <> Z:114 var
+R4107:4108 Corelib.Init.Logic <> eq ind
+R4140:4144 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R4115:4132 Corelib.Classes.Morphisms <> pointwise_relation def
+R4134:4134 Proc.syntax.core <> X:112 var
+R4136:4136 Proc.syntax.core <> Y:113 var
+R4138:4139 Corelib.Init.Logic <> eq ind
+R4146:4163 Corelib.Classes.Morphisms <> pointwise_relation def
+R4165:4165 Proc.syntax.core <> X:112 var
+R4167:4167 Proc.syntax.core <> Z:114 var
+R4169:4170 Corelib.Init.Logic <> eq ind
+R4198:4204 Proc.syntax.core <> funcomp def
+R4247:4253 Proc.syntax.core <> funcomp def
+inst 4312:4328 <> funcomp_morphism2
+binder 4331:4331 <> X:115
+binder 4333:4333 <> Y:116
+binder 4335:4335 <> Z:117
+R4342:4347 Corelib.Classes.Morphisms <> Proper class
+R4423:4429 Proc.syntax.core <> funcomp def
+R4376:4380 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R4351:4368 Corelib.Classes.Morphisms <> pointwise_relation def
+R4370:4370 Proc.syntax.core <> Y:116 var
+R4372:4372 Proc.syntax.core <> Z:117 var
+R4374:4375 Corelib.Init.Logic <> eq ind
+R4407:4411 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R4382:4399 Corelib.Classes.Morphisms <> pointwise_relation def
+R4401:4401 Proc.syntax.core <> X:115 var
+R4403:4403 Proc.syntax.core <> Y:116 var
+R4405:4406 Corelib.Init.Logic <> eq ind
+R4414:4418 Corelib.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R4412:4413 Corelib.Init.Logic <> eq ind
+R4419:4420 Corelib.Init.Logic <> eq ind
+R4483:4489 Proc.syntax.core <> funcomp def
+R4610:4616 Proc.syntax.core <> funcomp def
+R4610:4616 Proc.syntax.core <> funcomp def
+R4641:4647 Proc.syntax.core <> funcomp def
+R4641:4647 Proc.syntax.core <> funcomp def

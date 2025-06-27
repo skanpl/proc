@@ -228,6 +228,23 @@ Qed.*)
 
 
 
+(*
+Lemma lt_preserve_sub: forall P P' a sigma, 
+  lt P a P' -> lt P[sigma] a[sigma] P'[sigma].
+Proof.
+intros.
+induction H.
+cbn.
+eauto with picalc.
+*)
+
+
+
+
+
+
+
+
 
  
 Lemma cong_resp_lt: forall P Q P' Q' a, 
@@ -425,7 +442,17 @@ eexists. split.
 eapply Lt_res. 
 eapply Lt_parR.
 (*found a problematic situation, 
-which we dont find on paper*)
+which we dont find on paper.
+
+One way to correct this would be to have 
+a "lt preserves substitution" lemma which would
+be just a renaming lemma of course, 
+but a problem arise i guess in that if we rename the processes of
+a transition, we must also rename the label accordingly but the current goal
+doesn't require the label to be shifted ===> i think it's time to modify the
+Lt-rules to make the shifts on labels also. aha???
+
+*)
 
 
 
