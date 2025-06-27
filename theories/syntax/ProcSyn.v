@@ -132,6 +132,123 @@ Proof.
 exact (fun x => eq_refl).
 Qed.
 
+Inductive lab : Type :=
+  | Lsend : chan -> chan -> lab
+  | Lrcv : chan -> chan -> lab
+  | LbdSend : chan -> lab
+  | Ltau : lab.
+
+Lemma congr_Lsend {s0 : chan} {s1 : chan} {t0 : chan} {t1 : chan}
+  (H0 : s0 = t0) (H1 : s1 = t1) : Lsend s0 s1 = Lsend t0 t1.
+Proof.
+exact (eq_trans (eq_trans eq_refl (ap (fun x => Lsend x s1) H0))
+         (ap (fun x => Lsend t0 x) H1)).
+Qed.
+
+Lemma congr_Lrcv {s0 : chan} {s1 : chan} {t0 : chan} {t1 : chan}
+  (H0 : s0 = t0) (H1 : s1 = t1) : Lrcv s0 s1 = Lrcv t0 t1.
+Proof.
+exact (eq_trans (eq_trans eq_refl (ap (fun x => Lrcv x s1) H0))
+         (ap (fun x => Lrcv t0 x) H1)).
+Qed.
+
+Lemma congr_LbdSend {s0 : chan} {t0 : chan} (H0 : s0 = t0) :
+  LbdSend s0 = LbdSend t0.
+Proof.
+exact (eq_trans eq_refl (ap (fun x => LbdSend x) H0)).
+Qed.
+
+Lemma congr_Ltau : Ltau = Ltau.
+Proof.
+exact (eq_refl).
+Qed.
+
+Definition subst_lab (sigma_chan : nat -> chan) (s : lab) : lab :=
+  match s with
+  | Lsend s0 s1 =>
+      Lsend (subst_chan sigma_chan s0) (subst_chan sigma_chan s1)
+  | Lrcv s0 s1 => Lrcv (subst_chan sigma_chan s0) (subst_chan sigma_chan s1)
+  | LbdSend s0 => LbdSend (subst_chan sigma_chan s0)
+  | Ltau => Ltau
+  end.
+
+Definition idSubst_lab (sigma_chan : nat -> chan)
+  (Eq_chan : forall x, sigma_chan x = var_chan x) (s : lab) :
+  subst_lab sigma_chan s = s :=
+  match s with
+  | Lsend s0 s1 =>
+      congr_Lsend (idSubst_chan sigma_chan Eq_chan s0)
+        (idSubst_chan sigma_chan Eq_chan s1)
+  | Lrcv s0 s1 =>
+      congr_Lrcv (idSubst_chan sigma_chan Eq_chan s0)
+        (idSubst_chan sigma_chan Eq_chan s1)
+  | LbdSend s0 => congr_LbdSend (idSubst_chan sigma_chan Eq_chan s0)
+  | Ltau => congr_Ltau
+  end.
+
+Definition ext_lab (sigma_chan : nat -> chan) (tau_chan : nat -> chan)
+  (Eq_chan : forall x, sigma_chan x = tau_chan x) (s : lab) :
+  subst_lab sigma_chan s = subst_lab tau_chan s :=
+  match s with
+  | Lsend s0 s1 =>
+      congr_Lsend (ext_chan sigma_chan tau_chan Eq_chan s0)
+        (ext_chan sigma_chan tau_chan Eq_chan s1)
+  | Lrcv s0 s1 =>
+      congr_Lrcv (ext_chan sigma_chan tau_chan Eq_chan s0)
+        (ext_chan sigma_chan tau_chan Eq_chan s1)
+  | LbdSend s0 => congr_LbdSend (ext_chan sigma_chan tau_chan Eq_chan s0)
+  | Ltau => congr_Ltau
+  end.
+
+Definition compSubstSubst_lab (sigma_chan : nat -> chan)
+  (tau_chan : nat -> chan) (theta_chan : nat -> chan)
+  (Eq_chan : forall x,
+             funcomp (subst_chan tau_chan) sigma_chan x = theta_chan x)
+  (s : lab) :
+  subst_lab tau_chan (subst_lab sigma_chan s) = subst_lab theta_chan s :=
+  match s with
+  | Lsend s0 s1 =>
+      congr_Lsend
+        (compSubstSubst_chan sigma_chan tau_chan theta_chan Eq_chan s0)
+        (compSubstSubst_chan sigma_chan tau_chan theta_chan Eq_chan s1)
+  | Lrcv s0 s1 =>
+      congr_Lrcv
+        (compSubstSubst_chan sigma_chan tau_chan theta_chan Eq_chan s0)
+        (compSubstSubst_chan sigma_chan tau_chan theta_chan Eq_chan s1)
+  | LbdSend s0 =>
+      congr_LbdSend
+        (compSubstSubst_chan sigma_chan tau_chan theta_chan Eq_chan s0)
+  | Ltau => congr_Ltau
+  end.
+
+Lemma substSubst_lab (sigma_chan : nat -> chan) (tau_chan : nat -> chan)
+  (s : lab) :
+  subst_lab tau_chan (subst_lab sigma_chan s) =
+  subst_lab (funcomp (subst_chan tau_chan) sigma_chan) s.
+Proof.
+exact (compSubstSubst_lab sigma_chan tau_chan _ (fun n => eq_refl) s).
+Qed.
+
+Lemma substSubst_lab_pointwise (sigma_chan : nat -> chan)
+  (tau_chan : nat -> chan) :
+  pointwise_relation _ eq
+    (funcomp (subst_lab tau_chan) (subst_lab sigma_chan))
+    (subst_lab (funcomp (subst_chan tau_chan) sigma_chan)).
+Proof.
+exact (fun s => compSubstSubst_lab sigma_chan tau_chan _ (fun n => eq_refl) s).
+Qed.
+
+Lemma instId'_lab (s : lab) : subst_lab (var_chan) s = s.
+Proof.
+exact (idSubst_lab (var_chan) (fun n => eq_refl) s).
+Qed.
+
+Lemma instId'_lab_pointwise :
+  pointwise_relation _ eq (subst_lab (var_chan)) id.
+Proof.
+exact (fun s => idSubst_lab (var_chan) (fun n => eq_refl) s).
+Qed.
+
 Inductive proc : Type :=
   | Zero : proc
   | Par : proc -> proc -> proc
@@ -291,10 +408,15 @@ Qed.
 Class Up_proc X Y :=
     up_proc : X -> Y.
 
+Class Up_lab X Y :=
+    up_lab : X -> Y.
+
 Class Up_chan X Y :=
     up_chan : X -> Y.
 
 #[global] Instance Subst_proc : (Subst1 _ _ _) := @subst_proc.
+
+#[global] Instance Subst_lab : (Subst1 _ _ _) := @subst_lab.
 
 #[global] Instance Up_chan_chan : (Up_chan _ _) := @up_chan_chan.
 
@@ -307,6 +429,11 @@ Notation "s [ sigma_chan ]" := (subst_proc sigma_chan s)
 ( at level 7, left associativity, only printing)  : subst_scope.
 (*
 Notation "↑__proc" := up_proc (only printing)  : subst_scope.
+*)
+Notation "s [ sigma_chan ]" := (subst_lab sigma_chan s)
+( at level 7, left associativity, only printing)  : subst_scope.
+(*
+Notation "↑__lab" := up_lab (only printing)  : subst_scope.
 
 Notation "↑__chan" := up_chan_chan (only printing)  : subst_scope.
 *)
@@ -342,6 +469,24 @@ exact (fun f_chan g_chan Eq_chan s => ext_proc f_chan g_chan Eq_chan s).
 Qed.
 
 #[global]
+Instance subst_lab_morphism :
+ (Proper (respectful (pointwise_relation _ eq) (respectful eq eq))
+    (@subst_lab)).
+Proof.
+exact (fun f_chan g_chan Eq_chan s t Eq_st =>
+       eq_ind s (fun t' => subst_lab f_chan s = subst_lab g_chan t')
+         (ext_lab f_chan g_chan Eq_chan s) t Eq_st).
+Qed.
+
+#[global]
+Instance subst_lab_morphism2 :
+ (Proper (respectful (pointwise_relation _ eq) (pointwise_relation _ eq))
+    (@subst_lab)).
+Proof.
+exact (fun f_chan g_chan Eq_chan s => ext_lab f_chan g_chan Eq_chan s).
+Qed.
+
+#[global]
 Instance subst_chan_morphism :
  (Proper (respectful (pointwise_relation _ eq) (respectful eq eq))
     (@subst_chan)).
@@ -361,36 +506,41 @@ Qed.
 
 Ltac auto_unfold := repeat
                      unfold VarInstance_chan, Var, ids, Subst_chan, Subst1,
-                      subst1, Up_chan_chan, Up_chan, up_chan, Subst_proc,
-                      Subst1, subst1.
+                      subst1, Up_chan_chan, Up_chan, up_chan, Subst_lab,
+                      Subst1, subst1, Subst_proc, Subst1, subst1.
 
 Tactic Notation "auto_unfold" "in" "*" := repeat
                                            unfold VarInstance_chan, Var, ids,
                                             Subst_chan, Subst1, subst1,
                                             Up_chan_chan, Up_chan, up_chan,
+                                            Subst_lab, Subst1, subst1,
                                             Subst_proc, Subst1, subst1 
                                             in *.
 
 Ltac asimpl' := repeat (first
                  [ progress setoid_rewrite substSubst_proc_pointwise
                  | progress setoid_rewrite substSubst_proc
+                 | progress setoid_rewrite substSubst_lab_pointwise
+                 | progress setoid_rewrite substSubst_lab
                  | progress setoid_rewrite substSubst_chan_pointwise
                  | progress setoid_rewrite substSubst_chan
                  | progress setoid_rewrite instId'_proc_pointwise
                  | progress setoid_rewrite instId'_proc
+                 | progress setoid_rewrite instId'_lab_pointwise
+                 | progress setoid_rewrite instId'_lab
                  | progress setoid_rewrite varL'_chan_pointwise
                  | progress setoid_rewrite varL'_chan
                  | progress setoid_rewrite instId'_chan_pointwise
                  | progress setoid_rewrite instId'_chan
                  | progress unfold up_chan_chan, up_ren
-                 | progress cbn[subst_proc subst_chan]
+                 | progress cbn[subst_proc subst_lab subst_chan]
                  | progress fsimpl ]).
 
 Ltac asimpl := check_no_evars;
                 repeat
                  unfold VarInstance_chan, Var, ids, Subst_chan, Subst1,
-                  subst1, Up_chan_chan, Up_chan, up_chan, Subst_proc, Subst1,
-                  subst1 in *;
+                  subst1, Up_chan_chan, Up_chan, up_chan, Subst_lab, Subst1,
+                  subst1, Subst_proc, Subst1, subst1 in *;
                 asimpl'; minimize.
 
 Tactic Notation "asimpl" "in" hyp(J) := revert J; asimpl; intros J.
@@ -408,6 +558,8 @@ Module Extra.
 Import Core.
 
 #[global] Hint Opaque subst_proc: rewrite.
+
+#[global] Hint Opaque subst_lab: rewrite.
 
 #[global] Hint Opaque subst_chan: rewrite.
 

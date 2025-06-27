@@ -72,15 +72,15 @@ Inductive cong: proc -> proc -> Prop :=
 | Cg_ctxNu: forall P Q,    cong P Q -> cong (Nu P) (Nu Q)
 .
 
-(*===== peut etre temporaire ???  ======*)
 
+(*
 Inductive lab :=
 | Lsend (x y: chan)
 | Lrcv (x y: chan)
 | LbdSend (x: chan)
 | Ltau 
 .
-
+*)
 
 
 Definition not_bdsend a :=
@@ -184,7 +184,7 @@ Qed.
 
  
 Hint Resolve not_bdsend_rcv not_bdsend_send not_bdsend_tau: picalc. 
-
+ 
 
 
 
