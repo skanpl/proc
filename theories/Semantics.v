@@ -95,7 +95,7 @@ Definition not_bdsend a :=
 Definition notinlab a u := match a with
  | Ltau => Ltau = Ltau 
  | Lsend x y | Lrcv x y   => ~(u = x) /\ ~(u = y)
- | LbdSend x  => ~(u = x)
+ | LbdSend x  => ~(u = x) /\ ~(u = ch 0)  (*this subtilety is needed i think...*)
  end. 
 
  
@@ -115,11 +115,11 @@ Inductive lt: proc -> lab -> proc -> Prop :=
   lt Q a Q' -> not_bdsend a -> 
     lt (Par P Q) a (Par P Q')
 | Lt_parL_bs: forall Q P P' x,  
-  lt P (LbdSend x (ch 0)) P' -> 
-    lt (Par P Q) (LbdSend x (ch 0)) (Par P' (Q[shift_sb] ) ) 
+  lt P (LbdSend x) P' -> 
+    lt (Par P Q) (LbdSend x) (Par P' (Q[shift_sb] ) ) 
 | Lt_parR_bs: forall P Q Q' x,  
-  lt Q (LbdSend x (ch 0)) Q' -> 
-    lt (Par P Q) (LbdSend x (ch 0)) (Par (P[shift_sb]) Q')
+  lt Q (LbdSend x) Q' -> 
+    lt (Par P Q) (LbdSend x) (Par (P[shift_sb]) Q')
 
 | Lt_commL: forall P Q P' Q' x y, 
   lt P (Lsend x y) P' -> lt Q (Lrcv x y) Q' -> 
@@ -131,17 +131,17 @@ Inductive lt: proc -> lab -> proc -> Prop :=
 
 | Lt_open: forall P P' x, 
   lt P (Lsend (ch x) (ch 0)) P' ->  x>0  -> 
-     lt (Nu P) (LbdSend (ch x) (ch 0)) P'
+     lt (Nu P) (LbdSend (ch x)) P'
 | Lt_res: forall P P' a,  
    lt P a P' -> notinlab a (ch 0) -> 
      lt (Nu P) a (Nu P')
 
 | Lt_closeL: forall P P' Q Q' x, 
-  lt P (LbdSend x (ch 0)) P' -> lt (Q[shift_sb]) (Lrcv x (ch 0)) Q' -> 
+  lt P (LbdSend x) P' -> lt (Q[shift_sb]) (Lrcv x (ch 0)) Q' -> 
     lt (Par P Q) Ltau (Nu (Par P' Q'))
     
 | Lt_closeR: forall P P' Q Q' x, 
-  lt (P[shift_sb]) (Lrcv x (ch 0)) P' -> lt Q (LbdSend x (ch 0)) Q' ->
+  lt (P[shift_sb]) (Lrcv x (ch 0)) P' -> lt Q (LbdSend x) Q' ->
     lt (Par P Q) Ltau (Nu (Par P' Q'))  
 .
 (*========================*)
@@ -186,27 +186,50 @@ Qed.
 Hint Resolve not_bdsend_rcv not_bdsend_send not_bdsend_tau: picalc. 
 
 
-Ltac derivtreenu := 
-  eapply Cg_sym;
-
-  eapply Cg_trans;
-
-  eapply Cg_trans;
-  eapply Cg_parCom;
-  eapply Cg_nuPar;
-
-  eapply Cg_ctxNu;
-  eapply Cg_trans;
-  eapply Cg_parCom;
-  eapply Cg_sym; 
-  eapply Cg_parAssoc.
 
 
 
 
 
 
+Lemma extr_rl_assoc: forall P Q R, 
+  cong (Nu (Par (Par P[shift_sb] Q)  R) )  (Par P (Nu (Par Q R))).
+Proof.
+intros.
+eapply Cg_sym.
+eapply Cg_trans.
 
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_nuPar.
+
+eapply Cg_ctxNu.
+eapply Cg_trans.
+eapply Cg_parCom.
+eapply Cg_sym.
+eapply Cg_parAssoc.
+Qed.
+
+
+ (*
+Lemma lt_assocR: forall P Q R P0 a, 
+  lt (Par P Q) a P0 -> 
+  exists Q0, lt (Par P (Par Q R)) a Q0.
+Proof.
+intros.  
+inversion H; eauto with picalc.
+subst. 
+eexists.
+eapply Lt_closeL.
+eauto with picalc.
+cbn. (*why does this work but not asimpl ????*)
+eauto with picalc.
+Qed.*)
+
+
+
+
+ 
 Lemma cong_resp_lt: forall P Q P' Q' a, 
   cong P Q -> 
      (lt P a P'  -> exists Q0, lt Q a Q0 /\ cong P' Q0)  /\
@@ -222,12 +245,13 @@ induction H.
 firstorder.
 inversion H; eauto with picalc.
 inversion H; eauto with picalc.
-(*========== case  assoc par LHS   ==============================*)
+(*========== case  assoc par  ==============================*)
+(* LHS *)
 firstorder.    
 inversion H; try eauto with picalc. (*caseAn on (P|Q)|R-->a ...*)
 subst.
    
-(**) 
+(**)  
 inversion H2; subst; eauto with picalc. (*caseAn on P|Q -->a ...*)
 
 firstorder; inversion H0.
@@ -243,7 +267,7 @@ eexists. split.
 eauto with picalc.
 eauto with picalc.
 (**)
-       
+        
 (**)
 inversion H4; subst. (*caseAn P|Q -->a ...*)
 firstorder; inversion H0.
@@ -275,21 +299,7 @@ subst.
 eexists. split.
 eauto with picalc.
 eauto with picalc.
-
-(*a derivation tree*)
-eapply Cg_sym.
-
-eapply Cg_trans.
-
-eapply Cg_trans.
-eapply Cg_parCom.
-eapply Cg_nuPar.
- 
-eapply Cg_ctxNu.
-eapply Cg_trans.
-eapply Cg_parCom.
-eapply Cg_sym.
-eapply Cg_parAssoc.
+eapply extr_rl_assoc.
 (******)
    
 subst.
@@ -302,25 +312,8 @@ eauto with picalc.
 eauto with picalc.
 
 eexists. split. 
-eauto with picalc.
-
-(******)
-(*tenta derivtree*)
-eapply Cg_sym.
- 
-eapply Cg_trans.
- 
-eapply Cg_trans.
-eapply Cg_parCom.
-eapply Cg_nuPar.
-
-eapply Cg_ctxNu.
-eapply Cg_trans.
-eapply Cg_parCom.
-eapply Cg_sym.
-eapply Cg_parAssoc.
-(******)
-  
+eauto with picalc. 
+eapply extr_rl_assoc.  
 (* assoc RHS *)  
 inversion H; eauto with picalc. (*caseAn P|(Q|R) --->a ...*)
 subst.
@@ -336,44 +329,17 @@ subst; firstorder; inversion H0.
 subst.
 eexists. split. 
 eapply Lt_closeL.
+eauto with picalc.  
 eauto with picalc. 
-eauto with picalc. 
-eauto with picalc. 
-(*tenta derivtree*)
-eapply Cg_sym.
-
-eapply Cg_trans.
-
-eapply Cg_trans.
-eapply Cg_parCom.
-eapply Cg_nuPar.
-
-eapply Cg_ctxNu.
-eapply Cg_trans.
-eapply Cg_parCom.
-eapply Cg_sym.
-eapply Cg_parAssoc.
+eapply extr_rl_assoc.
 
 subst.
 eexists. split.
 eapply Lt_closeR.
 cbn. 
 eauto with picalc. 
-eauto with picalc. 
-(*tenta derivtree*)
-eapply Cg_sym.
-
-eapply Cg_trans.
-
-eapply Cg_trans.
-eapply Cg_parCom.
-eapply Cg_nuPar.
-
-eapply Cg_ctxNu.
-eapply Cg_trans.
-eapply Cg_parCom.
-eapply Cg_sym. 
-eapply Cg_parAssoc.
+eauto with picalc.
+eapply extr_rl_assoc. 
 (*__________*)
 
 (*___*)  
@@ -427,156 +393,40 @@ inversion H2. inversion H4.
 inversion H5. inversion H5.
 cbn in *. inversion H5. 
 inversion H5. 
-  
-(*RHS*)
+    
+(*RHS*) 
 inversion H; eauto with picalc.
 subst.
 induction a; cbn in *; eauto with picalc.
- 
-eexists. split.
-eapply Lt_parL_bs.
-eauto with picalc.
-
-(*___*)   
-(*___*)  
-
-
-
-
-
-
-
-
-
-
-
-
-
-(*
- this tree apeared quite often in the proof:
-
-
-
-
-commMonoid
------------------------------------------------                                 sc_extr
-P| ( Nu (Q'1| Q'0) )  cong ( Nu (Q'1| Q'0) )| P_______________________________________
-                                          ( Nu (Q'1| Q'0) )| P  cong  Nu ((Q'1| Q'0) | P[shift])  
-------------------------------------------------------------------------------------------trans
-P| ( Nu (Q'1| Q'0) )        cong     Nu ((Q'1| Q'0) | P[shift])
-
-
-                                                                
-                                                                 --------------------------------------Assoc
-                                                                (P[shift]|Q'1)| Q'0 cong P[shift]|(Q'1| Q'0)
-             -----------------------------------------commMono  -----------------------------------------sym
-              (Q'1| Q'0) | P[shift]  cong P[shift]|(Q'1| Q'0)   P[shift]|(Q'1| Q'0) cong (P[shift]|Q'1)| Q'0
-            ----------------------------------------------------------------------------------trans        
-                                     (Q'1| Q'0) | P[shift] cong  ( P[shift] |Q'1) | Q'0     
-                            Nuctx ----------------------------------------------------------     
-                                Nu ((Q'1| Q'0) | P[shift]) cong Nu( ( P[shift] |Q'1) | Q'0 )      
- =============================================================================================trans           
-
-    P| ( Nu (Q'1| Q'0) )
-
-     cong
-
-     Nu  (      ( P[shift] |Q'1) | Q'0           )
-              
-*)
-
-
-
-
-(*
-Lemma Lconga_resp_lt: forall P Q P' a, 
-  lt P a P'-> conga P Q -> exists Q', lt Q a Q' /\ conga P' Q'.
-Proof.
-intros. 
-inversion H.  (*caseAn on lt derivation*)
-(*====== base cases ======*)  
-inversion H0; subst; inversion H0.
-inversion H0; subst; inversion H0.
-(*====== free parL ======*)
-inversion H0. (*caseAn on conga*)
-
-(*subcase com*)
-subst.
-inversion H6; eexists; split; subst; 
-eauto with picalc.
-(*subcase assoc*)  
-
-subst.  
-inversion H6. 
+(*==============  case NuZero    ======================================*)  
+firstorder; inversion H; inversion H1.
+(*==============  case NuPar    ======================================*) 
+firstorder.    
+inversion H; eauto with picalc. (*caseAn (Nu P)|Q -->a ... *)
 subst.   
-inversion H1; eauto with picalc. (*caseAn on P1|Q1 ->a P'0*)
-subst.  
-firstorder; inversion H2.
-
-subst.   
-firstorder; inversion H2.
-
-subst.
-eexists. split.
-eapply Lt_closeL.
-eauto with picalc.
-cbn.
-eauto with picalc.
-(* .... *)
-
-
-
-
-
-
-Lemma Lconga_resp_lt: forall P Q P' a, 
-  lt P a P'-> conga P Q -> exists Q', lt Q a Q' /\ conga P' Q'.
-Proof.
-intros. 
-inversion H. (*caseAn on P -->a  P' *)
-(*====== base cases ======*)  
-subst. inversion H0.
-subst. inversion H0.
-(*====== free parL ======*)
-subst. 
-inversion H0. (*caseAn on conga*)
-
-(* case commut*)
-subst.
-eexists. split.
-eauto with picalc.
-eauto with picalc.
-
-(*case assoc*)
-subst.     
-inversion H1; eauto with picalc. (* caseAn on P|Q1 -->a P'0 *) 
-eexists. split. eauto with picalc.
-subst.  
-firstorder; inversion H2.
- 
-eexists. split. eauto with picalc. 
-subst. 
-firstorder; inversion H2.   
+(*____ freeParL____*) 
+inversion H2. (*caseAn Nu P -->a ... *)
+   
+subst. (*case Lt_open*)
+firstorder; inversion H0. 
   
-subst.    
-eexists. split. 
-eapply Lt_closeL. eauto with picalc.
-cbn.  
+subst. (*case Lt_res*)
+eexists. split.
+eapply Lt_res.
 eapply Lt_parL.
-eauto with picalc. 
 eauto with picalc.
 eauto with picalc.
+eauto with picalc.
+eauto with picalc.
+(*_____freeParR____*)
+ 
+subst. 
+eexists. split. 
+eapply Lt_res. 
+eapply Lt_parR.
+(*found a problematic situation, 
+which we dont find on paper*)
 
-(* goal: (seems impossible without transitivvity ...)
-the reasonable way would be to do "sc_extr+assoc"
-     (Nu (P'|Q')) | Q0
-       conga
-     Nu (  P'| (Q'|Q0[shift])   )
-*)
-
-
-
-*)
 
 
 
