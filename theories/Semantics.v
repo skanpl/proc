@@ -77,7 +77,7 @@ Inductive cong: proc -> proc -> Prop :=
 Inductive lab :=
 | Lsend (x y: chan)
 | Lrcv (x y: chan)
-| LbdSend (x y: chan)
+| LbdSend (x: chan)
 | Ltau 
 .
 
@@ -89,13 +89,16 @@ Definition not_bdsend a :=
   (exists x y, a = Lrcv x y)  
 .
 
-Definition notinlab a u := 
-  a = Ltau \/
-  forall x y, 
-  (a = Lsend x y -> ~(u = x) /\ ~(u = y) )   /\
-  (a = Lrcv x y -> ~(u = x) /\ ~(u = y) )    /\
-  (a = LbdSend x y -> ~(u = x) /\ ~(u = y) ) .
 
+
+
+Definition notinlab a u := match a with
+ | Ltau => Ltau = Ltau 
+ | Lsend x y | Lrcv x y   => ~(u = x) /\ ~(u = y)
+ | LbdSend x  => ~(u = x)
+ end. 
+
+ 
 
 
 (*
@@ -428,36 +431,18 @@ inversion H5.
 (*RHS*)
 inversion H; eauto with picalc.
 subst.
-(*___*) 
-inversion H1; subst. (*caseAn 0\notin n(a) *)
+induction a; cbn in *; eauto with picalc.
  
-eauto with picalc. (*case a = Ltau*)
-
-case a; subst. (*caseAn on a*)
-firstorder.
 eexists. split.
-eapply Lt_parL.
-
-
+eapply Lt_parL_bs.
 eauto with picalc.
+
+(*___*)   
 (*___*)  
 
 
 
 
-
-| Lt_parL_bs: forall Q P P' x,  
-  lt P (LbdSend x (ch 0)) P' -> 
-    lt (Par P Q) (LbdSend x (ch 0)) (Par P' (Q[shift_sb] ) ) 
-
-
-
-
-| Cg_parNeut: forall P,      cong (Par P Zero) P
-
-| Cg_nuZero: cong (Nu Zero) Zero
-| Cg_nuPar: forall P Q,  cong (Par (Nu P) Q)   (Nu (Par P (Q [shift_sb]) ))
-| Cg_nuSwap: forall P, cong (Nu (Nu P))  (Nu (Nu (swap P)))
 
 
 
