@@ -4,11 +4,12 @@ Require Import core.
 Import ProcSyn.Core.
 Import unscoped.UnscopedNotations.
 Require Import Coq.Logic.FunctionalExtensionality.
-
+Require Import Coq.micromega.Lia.
 
 
  
 
+Ltac fe := eapply functional_extensionality.
 
 
 Notation ch := var_chan.
@@ -71,15 +72,6 @@ Inductive cong: proc -> proc -> Prop :=
 | Cg_ctxNu: forall P Q,    cong P Q -> cong (Nu P) (Nu Q)
 .
 
-(*===== peut etre temporaire ???  ======*)
-
-Inductive lab :=
-| Lsend (x y: chan)
-| Lrcv (x y: chan)
-| LbdSend (x: chan)
-| Ltau 
-.
-
 
 
 Definition not_bdsend a :=
@@ -98,9 +90,13 @@ Definition notinlab a u := match a with
  end. 
 
 
+Definition down a := match a with
+ | Ltau                => Ltau
+ | Lsend (ch x) (ch y) => Lsend (ch (x-1)) (ch (y-1))
+ | Lrcv (ch x) (ch y)  => Lrcv (ch (x-1)) (ch (y-1))
+ | LbdSend (ch x)      => LbdSend (ch (x-1))
+ end.
 
-Print up_chan_chan. 
-Print up_chan.
 
 (*
 maybe the Lt_res rule should be modified later?
@@ -129,13 +125,17 @@ Inductive lt: proc -> lab -> proc -> Prop :=
   lt P (Lrcv x y) P' -> lt Q (Lsend x y) Q' -> 
     lt (Par P Q) Ltau (Par P' Q')
 
-
+(*
 | Lt_open: forall P P' x, 
   lt P (Lsend (ch x) (ch 0)) P' ->  x>0  -> 
      lt (Nu P) (LbdSend (ch x)) P'
-| Lt_res: forall P P' a,  
-   lt P a P' -> notinlab a (ch 0) -> 
-     lt (Nu P) a (Nu P')
+*)
+| Lt_open: forall P P' ad x, 
+  lt P (Lsend (ch x) (ch 0)) P' ->  x>0  -> ad = LbdSend (ch (x-1))  -> 
+     lt (Nu P) ad P'
+| Lt_res: forall P P' a ad,  
+   lt P a P' -> notinlab a (ch 0) -> ad = down a -> 
+     lt (Nu P) ad (Nu P')
 
 | Lt_closeL: forall P P' Q Q' x, 
   lt P (LbdSend x) P' -> lt (Q[shift_sb]) (Lrcv x (ch 0)) Q' -> 
@@ -226,6 +226,249 @@ eauto with picalc.
 cbn. (*why does this work but not asimpl ????*)
 eauto with picalc.
 Qed.*)
+
+
+
+
+Lemma not_bdsend_sub: forall a sigma,
+  not_bdsend a -> not_bdsend (a[sigma]). 
+Proof.
+intros. 
+induction a; cbn; eauto with picalc.
+firstorder; inversion H.
+Qed.
+
+Lemma down_tau: forall a, down a = Ltau -> a = Ltau.
+Proof.
+intros. 
+destruct a; intros; cbn in *; try destruct c0, c; intros; inversion H.
+destruct c. intros. inversion H.
+auto.
+Qed.
+
+
+(*
+Lemma down_send_specific: forall a x y, x<>0 -> y<>0 -> down a = Lsend (ch x) (ch y) -> 
+  a = Lsend (ch (1+x)) (ch (1+y)).
+Proof. 
+intros.   
+destruct a.  
+cbn in * ; case c,c0.
+inversion H1. 
+try rewrite H3, H4 in *.
+replace n with (S x); try lia.
+replace n0 with (S y); try lia.
+auto.
+
+try (inversion H1; case c,c0 in *; inversion H1).
+inversion H1. case c in *. inversion H1.
+inversion H1; case c,c0 in *; inversion H1.
+Qed.
+*)
+
+Lemma down_send: forall a x y , down a = Lsend x y -> 
+  exists x' y', a = Lsend x' y'.
+Proof. 
+intros.
+destruct a; inversion H; try case c,c0; inversion H1.
+eauto with picalc.
+case c in *. inversion H2.
+Qed.
+
+Lemma down_rcv: forall a x y , down a = Lrcv x y -> 
+  exists x' y', a = Lrcv x' y'.
+Proof. 
+intros.
+destruct a; inversion H; try case c,c0; inversion H1.
+eauto with picalc.
+case c in *. inversion H2.
+Qed.
+
+
+
+
+Lemma not_bdsend_down: forall a,
+  not_bdsend (down a) -> not_bdsend a.
+Proof.
+intros.
+inversion H. 
+eapply down_tau in H0.
+rewrite H0.
+eauto with picalc.
+do 3 destruct H0.
+set (lem:= down_send a x x0 H0).
+firstorder.
+
+inversion H0.
+set (lem:= down_rcv a x x0 H0).
+firstorder.
+Qed.
+
+
+Definition extr c := match c with
+ | ch x => x
+ end.
+
+
+Lemma sub_com_ch: forall c:chan, forall y z sigma, z = sigma (extr y) ->
+  c[y..][sigma] = c[up sigma][z..].
+Proof.
+intros.
+asimpl.
+destruct y.
+simpl in *.
+rewrite H.
+auto.
+Qed.
+
+
+Definition coerce sigma := fun (x:nat) =>
+ match sigma x with
+ | ch y => y
+ end.
+
+
+Lemma sub_comp_ch: forall (c:chan) (sigma1 sigma2: nat -> chan), 
+  c[sigma1 >> subst_chan sigma2] = c[sigma1][sigma2]  .
+Proof. 
+asimpl.
+auto.
+Qed.
+
+Lemma sub_comp_pr: forall (P:proc) (sigma1 sigma2: nat -> chan), 
+  P[sigma1][sigma2] = P [sigma1 >> subst_chan sigma2].
+Proof. 
+asimpl.
+auto.
+Qed.
+
+
+
+Lemma sub_com_ch_2: forall c:chan, forall y sigma, 
+  c[y..][sigma] = c[up sigma][(y[sigma])..].
+Proof.
+intros.
+asimpl.
+auto.
+Qed.
+
+
+
+(* attemps at proving the renaming lemma
+Lemma up_exch: forall y:chan, forall sigma, 
+  (y[up sigma]).. = up (y[sigma] ..).
+Proof.
+intros.
+asimpl.
+unfold funcomp.
+asimpl.
+unfold scons.
+fe. intro.
+case x.
+cbv.
+case y. intro.
+case n. auto.
+intro. case (sigma n0).
+intro.
+
+
+Lemma sub_com_pr_2: forall P:proc, forall y sigma, 
+  P[y..][sigma] = P[up sigma][(y[sigma])..].
+Proof.
+intros. 
+generalize dependent sigma.
+generalize dependent y.
+induction P; intros; cbn.
+auto. 
+erewrite IHP1, IHP2; auto. 
+
+   
+erewrite sub_com_ch.
+do 2 erewrite sub_comp_pr. 
+set (lem:= IHP y (up sigma)).
+do 2 erewrite sub_comp_pr in lem.
+try erewrite
+symmetry in lem.
+unfold subst_chan.
+
+case c. intro. case (up sigma n).
+unfold funcomp in *.
+intro.
+
+
+
+Lemma lt_sub: forall P Q a sigma, 
+  lt P a Q -> lt P[sigma] a[sigma] Q[sigma].
+Proof.
+intros.
+generalize dependent sigma.
+induction H; intros; cbn; eauto with picalc.
+asimpl.
+eauto with picalc.
+
+
+*)
+
+(*tentative*)
+
+
+Lemma sb_ch_canon: forall (sigma:nat->chan) x, exists y, sigma x = ch y.
+Proof.
+intros.
+case (sigma x).
+firstorder. 
+exists n. auto.
+Qed.
+
+
+Lemma lt_sub: forall P Q a sigma, 
+  lt P a Q -> exists Q', lt P[sigma] a[sigma] Q'.
+Proof.
+intros.
+generalize dependent sigma.
+induction H; intros; cbn in *.
+eauto with picalc.
+eauto with picalc.
+
+destruct (IHlt sigma).
+eexists.
+eapply Lt_parL.
+eauto with picalc. 
+eauto using not_bdsend_sub.
+
+
+destruct (IHlt sigma).
+eexists.
+eapply Lt_parR.
+eauto with picalc.
+eauto using not_bdsend_sub.
+
+
+destruct (IHlt sigma). 
+eauto with picalc.
+
+destruct (IHlt sigma).
+eauto with picalc.
+
+
+destruct (IHlt1 sigma).
+destruct (IHlt2 sigma).
+eauto with picalc.
+
+destruct (IHlt1 sigma).
+destruct (IHlt2 sigma).
+eauto with picalc.
+
+destruct (IHlt (up sigma)).
+eexists. 
+set (lem:= sb_ch_canon sigma x).
+destruct lem.     
+ 
+eapply Lt_open. 
+cbn in H2.  
+replace var_zero with 0 in *; eauto with picalc. 
+symmetry in H2; rewrite H2.
+eauto with picalc.
 
 
 
@@ -387,18 +630,19 @@ eauto with picalc.
 eauto with picalc.
 eauto with picalc.
 (*==============  case neut    ======================================*)
-(*LHS*)
+(*LHS*) 
 - firstorder. 
 inversion H; eauto with picalc.
 inversion H2. inversion H4.
 inversion H5. inversion H5.
-cbn in *. inversion H5. 
+cbn in *. inversion H5.  
 inversion H5. 
-    
+     
 (*RHS*) 
 inversion H; eauto with picalc.
-subst.
-induction a; cbn in *; eauto with picalc.
+subst.    
+induction a0; cbn in *; try destruct c, c0; eauto with picalc.
+destruct c. eauto with picalc. 
 (*==============  case NuZero    ======================================*)  
 - firstorder; inversion H; inversion H1.
 (*==============  case NuPar    ======================================*) 
@@ -407,7 +651,7 @@ induction a; cbn in *; eauto with picalc.
   * 
 (*____ freeParL____*) 
 inversion H2. (*caseAn Nu P -->a ... *)
-   
+    
 subst. (*case Lt_open*)
 firstorder; inversion H0. 
   
@@ -415,7 +659,9 @@ subst. (*case Lt_res*)
 eexists. split.
 eapply Lt_res.
 eapply Lt_parL.
-eauto with picalc.
+eauto with picalc.   
+
+eauto using not_bdsend_down. 
 eauto with picalc.
 eauto with picalc.
 eauto with picalc.
@@ -425,8 +671,6 @@ eauto with picalc.
 eexists. split. 
 eapply Lt_res. 
 eapply Lt_parR.
-
-
 
 
 
