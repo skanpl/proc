@@ -100,11 +100,56 @@ Inductive red: proc -> proc -> Prop :=
 
 
 
+Inductive lt: proc -> lab -> proc -> Prop :=
+| Lt_send: forall x y P, lt (Send x y P) (Lsend x y) P 
+| Lt_rcv: forall x P y, lt (Rcv x P) (Lrcv x y) (P [y ..])
+ 
+| Lt_parL: forall Q P P' a,  
+  lt P a P' -> not_bdsend a -> 
+    lt (Par P Q) a (Par P' Q) 
+| Lt_parR: forall P Q Q' a,  
+  lt Q a Q' -> not_bdsend a -> 
+    lt (Par P Q) a (Par P Q')
+| Lt_parL_bs: forall Q P P' Q' x,  
+  lt P (LbdSend x) P' -> Q'= Q[shift_sb] ->
+    lt (Par P Q) (LbdSend x) (Par P' Q' ) 
+| Lt_parR_bs: forall P Q Q' P' x,  
+  lt Q (LbdSend x) Q' -> P'= P[shift_sb] ->
+    lt (Par P Q) (LbdSend x) (Par P' Q')
+
+| Lt_commL: forall P Q P' Q' x y, 
+  lt P (Lsend x y) P' -> lt Q (Lrcv x y) Q' -> 
+    lt (Par P Q) Ltau (Par P' Q')
+| Lt_commR: forall P Q P' Q' x y, 
+  lt P (Lrcv x y) P' -> lt Q (Lsend x y) Q' -> 
+    lt (Par P Q) Ltau (Par P' Q')
+
+
+| Lt_open: forall P P' x, 
+  lt P (Lsend (ch x) (ch 0)) P' ->  x>0  -> 
+     lt (Nu P) (LbdSend (ch x)) P'
+(*
+| Lt_open: forall P P' ad x, 
+  lt P (Lsend (ch x) (ch 0)) P' ->  x>0  -> ad = down (LbdSend (ch x))  -> 
+     lt (Nu P) ad P'
+*)
+| Lt_res: forall P P' a ad,  
+   lt P a P' -> notinlab a (ch 0) -> ad = down a -> 
+     lt (Nu P) ad (Nu P')
+
+| Lt_closeL: forall P P' Q Q' x, 
+  lt P (LbdSend x) P' -> lt (Q[shift_sb]) (Lrcv x (ch 0)) Q' -> 
+    lt (Par P Q) Ltau (Nu (Par P' Q'))
+    
+| Lt_closeR: forall P P' Q Q' x, 
+  lt (P[shift_sb]) (Lrcv x (ch 0)) P' -> lt Q (LbdSend x) Q' ->
+    lt (Par P Q) Ltau (Nu (Par P' Q'))  
+.
 
 
 (*
 maybe the Lt_res rule should be modified later?
-*)
+
 Inductive lt: proc -> lab -> proc -> Prop :=
 | Lt_send: forall x y P, lt (Send x y P) (Lsend x y) P 
 | Lt_rcv: forall x P y, lt (Rcv x P) (Lrcv x y) (P [y ..])
@@ -149,7 +194,7 @@ Inductive lt: proc -> lab -> proc -> Prop :=
 | Lt_closeR: forall P P' Q Q' x, 
   lt (P[shift_sb]) (Lrcv x (ch 0)) P' -> lt Q (LbdSend x) Q' ->
     lt (Par P Q) Ltau (Nu (Par P' Q'))  
-.
+.*)
 
 
  
