@@ -6,16 +6,47 @@ Import ProcSyn.Core.
 Import unscoped.UnscopedNotations.
 
 
+(*            The problems in this file:
+ i tried to prove the renaming lemma for the LTS (lt_sub) but i'm
+ stuck on the bounded send cases. 
+ In Sangiorgi's book (lemma 1.4.8), there's a side condition for bounded sends actions
+ in the renaming lemma which i don't really see how we can express it here in a
+ way that would make the proof work.  
 
+ Given those technicalities, i guess proving a weaker version (lt_sub_weak) would
+ probabilly be sufficient for proving that congruence is a bismulation so i don't 
+ think that the actual renaming lemma is necessary for now.
+ But in that lt_sub_weak lemma i tried to prove, i'm stuck on the Lt_open rule because
+ of the side condition of the Lt_open rule. 
 
-(* Si on a deux substitutions sigma1,sigma2: nat ->chan
-pour faire la substi sigma1 puis la substi sigma2,
-on aurait envie d'écrire :
-  sigma1 >> sigma2  
-mais en réalité il faut écrire:
-  sigma1 >> (subst_chan sigma2)
 *)
 
+
+
+
+
+
+
+
+
+
+
+(* If we have substitutions sigma1,sigma2: nat ->chan
+and if we want to do the substitution sigma1 and then substitution sigma2,
+we might want to write:
+     sigma1 >> sigma2  
+but that's actually wrong, and the correct way to write it is:
+     sigma1 >> (subst_chan sigma2)
+*)
+
+
+
+
+
+(*autosubst generates 2 notations for the "channel of index x": "var_chan x" and
+"x __chan". I don't like these notations, so i use the notation "ch x" instead.
+*)
+Notation ch x := x __chan.
 
 
 
@@ -85,6 +116,57 @@ Qed.
 
 
 
+
+
+
+Lemma lt_sub_weak: forall P Q a sigma, 
+  lt P a Q -> exists Q', lt P[sigma] a[sigma] Q'.
+Proof.
+intros. 
+generalize dependent sigma.
+induction H; intros; cbn in *.
+eauto with picalc.
+eauto with picalc.
+
+destruct (IHlt sigma).
+eexists.
+eapply Lt_parL.
+eauto with picalc. 
+eauto using not_bdsend_sub.
+
+
+destruct (IHlt sigma).
+eexists.
+eapply Lt_parR.
+eauto with picalc.
+eauto using not_bdsend_sub.
+
+ 
+destruct (IHlt sigma). 
+eauto with picalc.
+
+destruct (IHlt sigma).
+eauto with picalc.
+
+
+destruct (IHlt1 sigma).
+destruct (IHlt2 sigma).
+eauto with picalc.
+
+destruct (IHlt1 sigma).
+destruct (IHlt2 sigma).
+eauto with picalc.
+ 
+(*------- stuck -------------------*)  
+destruct (IHlt (up sigma)).
+destruct (sb_ch_canon (up sigma) x).
+cbn in *.    
+replace var_zero with 0 in *; auto.
+(*------------------------*)
+
+
+
+
 Lemma lt_sub: forall P Q a sigma, 
   lt P a Q -> lt P[sigma] a[sigma] Q[sigma].
 Proof.
@@ -102,11 +184,14 @@ induction H; intros; cbn in *; eauto with picalc.
   eauto with picalc.
   eauto using not_bdsend_sub.
   
+(*------- stuck -------------------*)
 - eapply Lt_parL_bs. 
   eauto with picalc. 
   rewrite H0.  
   erewrite shift_permute_pr.
-(*TODO/TOFINISH*)
+(*-------------------------------*)
+
+
 
 
 
@@ -194,7 +279,38 @@ cbn in *.
 replace var_zero with 0 in *; auto.
 (*!!!!!!!!!!!!!!!!!!!!!!!*)
 
+
+
+
 *)
 
 
 
+
+(* failed attempt:
+Lemma lt_sub_bdsend: forall P Q a x sigma, 
+  lt P a Q -> a=LbdSend x -> lt P[sigma][shift_sb] a[sigma] Q[sigma].
+Proof.
+intros.
+generalize dependent sigma. 
+induction H; inversion H0; cbn in *; intros.
+rewrite H0 in H1. firstorder; inversion H1.
+rewrite H0 in H1. firstorder; inversion H1.
+
+firstorder.
+rewrite H3 in *.
+eapply Lt_parL_bs.
+auto.
+rewrite H1.    
+erewrite shift_permute_pr.
+do 3 erewrite sub_comp_pr.
+assert (shift_sb >> subst_chan sigma = 
+  sigma >> subst_chan (shift_sb >> subst_chan (up shift_sb))
+).
+unfold shift_sb, shiftn_sb.
+unfold funcomp. fe. intro.
+asimpl. 
+unfold funcomp.
+cbv. 
+case (sigma x1). intro.
+*)

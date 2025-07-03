@@ -7,6 +7,11 @@ Import unscoped.UnscopedNotations.
 
 
 
+(*     problem in this file:
+   it seems like we need a renaming lemma to complete
+   the proof that congruence is a bisimulation (cong_resp_lt).
+*)
+
 
 
 
@@ -63,7 +68,7 @@ generalize dependent P'.
 generalize dependent Q'.
 generalize dependent a. 
 induction H.      
-  
+   
 (*=========case commutative par ===================*)
 - firstorder.
 inversion H; eauto with picalc.
@@ -76,10 +81,10 @@ subst.
    
 (**)  
 inversion H2; subst; eauto with picalc. (*caseAn on P|Q -->a ...*)
-
+ 
 firstorder; inversion H0.
 
-eexists. split.
+eexists. split. 
 eapply Lt_closeL.
 eauto with picalc.
 cbn. 
@@ -91,22 +96,23 @@ eauto with picalc.
 eauto with picalc.
 (**)
         
-(**)
-inversion H4; subst. (*caseAn P|Q -->a ...*)
+(**)  
+inversion H2; subst. (*caseAn P|Q -->a ...*)
 firstorder; inversion H0.
 firstorder; inversion H0.
-
+ 
 eauto with picalc.
 eauto with picalc.
 (**)
-
+ 
+cbn in *. rewrite H5 in *. 
 eexists; split; eauto with picalc.
- 
+  
 inversion H2; eauto with picalc.
  
 inversion H2; eauto with picalc.
 
-(*******)
+(*******) 
 inversion H2; eauto with picalc. (*casAn P|Q -->a ...*)
 subst; firstorder; inversion H0.
 subst; firstorder; inversion H0.
@@ -137,11 +143,11 @@ eauto with picalc.
 eexists. split. 
 eauto with picalc. 
 eapply extr_rl_assoc.  
-(* assoc RHS *)  
+(* assoc RHS *)   
 inversion H; eauto with picalc. (*caseAn P|(Q|R) --->a ...*)
 subst.
   
-    
+     
 (*___*)
 inversion H2; eauto with picalc. (*caseAn Q|R --->a ...*) (*gen 4 new goals *)
 
@@ -164,11 +170,12 @@ eauto with picalc.
 eauto with picalc.
 eapply extr_rl_assoc. 
 (*__________*)
+ 
+subst. eauto with picalc.
 
 (*___*)  
-subst.    
-inversion H4; eauto with picalc.  (*caseAn Q|R  -->a ...*)
-subst.     
+inversion H2; eauto with picalc.  (*caseAn Q|R  -->a ...*)
+subst.      
 firstorder; inversion H0.
 subst.
   
@@ -178,45 +185,44 @@ cbn.
 eauto with picalc.
 (*___*)
 
-    
+     
 inversion H5; eauto with picalc.
 
 inversion H5; eauto with picalc.
-
+ 
 (*__*)
-subst. cbn in *.   
+subst. cbn in *.     
 inversion H5; eauto with picalc. (*caseAn Q[shift]|R[shift] -->? ...*) 
-subst.
-eexists; split; eauto with picalc. 
-eexists; split; eauto with picalc.
+subst; eexists; split; eauto with picalc. 
+subst; eexists; split; eauto with picalc.
 (*__*)
 
 
 (*__*)
-subst.
+subst. 
 inversion H5; eauto with picalc. (*caseAn Q|R -->b! ...*)
 firstorder; inversion H7.
 firstorder; inversion H7.
 
-subst.
-eexists; split; eauto with picalc. 
+subst; eexists; split; eauto with picalc. 
 
-subst.
-eexists. split. 
+subst. eexists. split. 
 eapply Lt_closeR.
 cbn.
 eauto with picalc.
 eauto with picalc. 
 eauto with picalc.
 (*==============  case neut    ======================================*)
-(*LHS*) 
-- firstorder. 
+(*LHS*)   
+- firstorder.  
 inversion H; eauto with picalc.
-inversion H2. inversion H4.
-inversion H5. inversion H5.
-cbn in *. inversion H5.  
-inversion H5. 
-       
+inversion H2. 
+subst. eauto with picalc.
+inversion H2. inversion H5.
+inversion H5.   
+cbn in *. inversion H5. 
+inversion H5.          
+
 (*RHS*)  
 destruct a; cbn in *; try destruct c, c0; eauto with picalc.
 (*destruct c. eauto with picalc.*) 
@@ -225,7 +231,7 @@ destruct a; cbn in *; try destruct c, c0; eauto with picalc.
 (*==============  case NuPar    ======================================*) 
 - firstorder.    
  + inversion H;  eauto with picalc; subst. (*caseAn (Nu P)|Q -->a ... *)
-  * 
+  *  
 (*____ freeParL____*) 
 inversion H2. (*caseAn Nu P -->a ... *)
     
@@ -241,10 +247,10 @@ eauto with picalc.
 eauto using not_bdsend_down. 
 eauto with picalc.
 eauto with picalc.
-eauto with picalc.
+auto with picalc.
 (*_____freeParR____*)
  
- *
+ * 
 eexists. split. 
 eapply Lt_res. 
 eapply Lt_parR.
