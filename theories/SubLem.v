@@ -233,56 +233,6 @@ Qed.
 
 
 
-(*
-Lemma lt_sub: forall P Q a sigma, 
-  lt P a Q -> exists Q', lt P[sigma] a[sigma] Q'.
-Proof.
-intros. 
-generalize dependent sigma.
-induction H; intros; cbn in *.
-eauto with picalc.
-eauto with picalc.
-
-destruct (IHlt sigma).
-eexists.
-eapply Lt_parL.
-eauto with picalc. 
-eauto using not_bdsend_sub.
-
-
-destruct (IHlt sigma).
-eexists.
-eapply Lt_parR.
-eauto with picalc.
-eauto using not_bdsend_sub.
-
-
-destruct (IHlt sigma). 
-eauto with picalc.
-
-destruct (IHlt sigma).
-eauto with picalc.
-
-
-destruct (IHlt1 sigma).
-destruct (IHlt2 sigma).
-eauto with picalc.
-
-destruct (IHlt1 sigma).
-destruct (IHlt2 sigma).
-eauto with picalc.
- 
-(*!!!!!TODO/TOFINISH!!!!!!!*)  
-destruct (IHlt (up sigma)).
-destruct (sb_ch_canon (up sigma) x).
-cbn in *.    
-replace var_zero with 0 in *; auto.
-(*!!!!!!!!!!!!!!!!!!!!!!!*)
-
-
-
-
-*)
 
 
 
