@@ -7,7 +7,6 @@ Require Import Coq.Logic.FunctionalExtensionality.
 Require Import Coq.micromega.Lia.
 
 
- 
 
 Ltac fe := eapply functional_extensionality.
 
@@ -59,9 +58,9 @@ Definition not_bdsend a :=
 
 
 Definition notinlab a u := match a with
- | Ltau => Ltau = Ltau 
+ | Ltau => True
  | Lsend x y | Lrcv x y   => ~(u = x) /\ ~(u = y)
- | LbdSend x  => ~(u = x) /\ ~(u = ch 0) 
+ | LbdSend x  => ~(u = x)
  end. 
 
 
@@ -124,7 +123,7 @@ Inductive lt: proc -> lab -> proc -> Prop :=
     lt (Par P Q) Ltau (Par P' Q')
 
 
-
+(*
 | Lt_open: forall P P' x, 
   lt P (Lsend x (ch 0)) P'-> 
      lt (Nu P) (LbdSend x) P'
@@ -132,17 +131,22 @@ Inductive lt: proc -> lab -> proc -> Prop :=
 | Lt_res: forall P P' a,  
    lt P a[shift_sb] P' -> not_bdsend a -> 
      lt (Nu P) a (Nu P')
+*)
 
 
-(*
 | Lt_open: forall P P' x ad, 
-  lt P (Lsend (ch x) (ch 0)) P' -> x>0 -> ad = down (LbdSend (ch x)) ->
+  lt P (Lsend x (ch 0)) P' -> x <> ch 0 -> ad = down (LbdSend x) ->
      lt (Nu P) ad P'
 
+(* distinguer 2 cas, suivant émission liée ou pas, ajouter le swap dans le cas d'une émission liée *)
+
 | Lt_res: forall P P' a ad,  
-   lt P a P' -> notinlab a (ch 0) -> ad = down a -> 
+   lt P a P' -> notinlab a (ch 0) -> not_bdsend a -> ad = down a -> 
      lt (Nu P) ad (Nu P')
-*)
+
+| Lt_res_bd: forall P P' x ad,  
+   lt P (LbdSend x) P' -> x <> ch 0 -> ad = down (LbdSend x) -> 
+     lt (Nu P) ad (Nu P'[swap_sb])
 
 
 | Lt_closeL: forall P P' Q Q' x, 

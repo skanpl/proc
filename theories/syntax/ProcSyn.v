@@ -441,9 +441,9 @@ Notation "s [ sigma_chan ]" := (subst_chan sigma_chan s)
 ( at level 7, left associativity, only printing)  : subst_scope.
 (*
 Notation "↑__chan" := up_chan (only printing)  : subst_scope.
-*)
-Notation "'var'" := var_chan ( at level 1, only printing)  : subst_scope.
 
+Notation "'var'" := var_chan ( at level 1, only printing)  : subst_scope.
+*)
 Notation "x '__chan'" := (@ids _ _ VarInstance_chan x)
 ( at level 5, format "x __chan", only printing)  : subst_scope.
 
