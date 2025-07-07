@@ -4,13 +4,8 @@ Require Import unscoped.
 Require Import core.
 Import ProcSyn.Core.
 Import unscoped.UnscopedNotations.
+Require Import SubLem.
 
-
-
-(*     problem in this file:
-   it seems like we need a renaming lemma to complete
-   the proof that congruence is a bisimulation (cong_resp_lt).
-*)
 
 
 
@@ -57,7 +52,221 @@ Qed.
 
 
 
+
+
  
+Lemma cong_resp_lt: forall P Q P' Q' a, 
+  cong P Q -> 
+     (lt P a P'  -> exists Q0, lt Q a Q0 /\ cong P' Q0)  /\
+      (lt Q a Q' -> exists P0, lt P a P0 /\ cong P0 Q').
+Proof.
+intros. 
+generalize dependent P'.
+generalize dependent Q'.
+generalize dependent a. 
+induction H.      
+   
+(*=========case commutative par ===================*)
+- firstorder.
+inversion H; eauto with picalc.
+inversion H; eauto with picalc.
+(*========== case  assoc par  ==============================*)
+(* LHS *)
+- firstorder.    
+inversion H; try eauto with picalc. (*caseAn on (P|Q)|R-->a ...*)
+subst.
+   
+(**)  
+inversion H2; subst; eauto with picalc. (*caseAn on P|Q -->a ...*)
+ 
+firstorder; inversion H0.
+
+eexists. split. 
+eapply Lt_closeL.
+eauto with picalc.
+cbn. 
+eauto with picalc.
+eauto with picalc.
+ 
+eexists. split.
+eauto with picalc.
+eauto with picalc.
+(**)
+        
+(**)  
+inversion H2; subst. (*caseAn P|Q -->a ...*)
+firstorder; inversion H0.
+firstorder; inversion H0.
+ 
+eauto with picalc.
+eauto with picalc.
+(**)
+ 
+cbn in *. rewrite H5 in *. 
+eexists; split; eauto with picalc.
+  
+inversion H2; eauto with picalc.
+ 
+inversion H2; eauto with picalc.
+
+(*******) 
+inversion H2; eauto with picalc. (*casAn P|Q -->a ...*)
+subst; firstorder; inversion H0.
+subst; firstorder; inversion H0.
+
+subst.
+eexists. split.
+eapply Lt_closeL.
+eauto with picalc. 
+cbn. eauto with picalc.
+eauto with picalc.
+
+subst. 
+eexists. split.
+eauto with picalc.
+eauto with picalc.
+eapply extr_rl_assoc.
+(******)
+   
+subst.
+cbn in *.
+inversion H2; subst.
+eexists. split. 
+eapply Lt_closeR.
+eauto with picalc.
+eauto with picalc.
+eauto with picalc.
+
+eexists. split. 
+eauto with picalc. 
+eapply extr_rl_assoc.  
+(* assoc RHS *)   
+inversion H; eauto with picalc. (*caseAn P|(Q|R) --->a ...*)
+subst.
+  
+     
+(*___*)
+inversion H2; eauto with picalc. (*caseAn Q|R --->a ...*) (*gen 4 new goals *)
+
+subst; eauto with picalc.
+  
+subst; firstorder; inversion H0.
+
+subst.
+eexists. split. 
+eapply Lt_closeL.
+eauto with picalc.  
+eauto with picalc. 
+eapply extr_rl_assoc.
+
+subst.
+eexists. split.
+eapply Lt_closeR.
+cbn. 
+eauto with picalc. 
+eauto with picalc.
+eapply extr_rl_assoc. 
+(*__________*)
+ 
+subst. eauto with picalc.
+
+(*___*)  
+inversion H2; eauto with picalc.  (*caseAn Q|R  -->a ...*)
+subst.      
+firstorder; inversion H0.
+subst.
+  
+eexists. split.
+eauto with picalc. 
+cbn.
+eauto with picalc.
+(*___*)
+
+     
+inversion H5; eauto with picalc.
+
+inversion H5; eauto with picalc.
+ 
+(*__*)
+subst. cbn in *.     
+inversion H5; eauto with picalc. (*caseAn Q[shift]|R[shift] -->? ...*) 
+subst; eexists; split; eauto with picalc. 
+subst; eexists; split; eauto with picalc.
+(*__*)
+
+
+(*__*)
+subst. 
+inversion H5; eauto with picalc. (*caseAn Q|R -->b! ...*)
+firstorder; inversion H7.
+firstorder; inversion H7.
+
+subst; eexists; split; eauto with picalc. 
+
+subst. eexists. split. 
+eapply Lt_closeR.
+cbn.
+eauto with picalc.
+eauto with picalc. 
+eauto with picalc.
+(*==============  case neut    ======================================*)
+(*LHS*)   
+- firstorder.  
+inversion H; eauto with picalc.
+inversion H2. 
+subst. eauto with picalc.
+inversion H2. inversion H5.
+inversion H5.   
+cbn in *. inversion H5. 
+inversion H5.          
+
+(*RHS*)  
+destruct a; cbn in *; try destruct c, c0; eauto with picalc.
+(*destruct c. eauto with picalc.*) 
+(*==============  case NuZero    ======================================*)  
+- firstorder; inversion H; inversion H1.
+(*==============  case NuPar    ======================================*) 
+- firstorder.     
+ + inversion H;  eauto with picalc; subst. (*caseAn (Nu P)|Q -->a ... *)
+    
+   * (*____ freeParL____*) 
+    inversion H2. (*caseAn Nu P -->a ... *)
+    
+    subst. (*case Lt_open*)
+    firstorder; inversion H0. 
+  
+    subst. (*case Lt_res*)
+    eexists. split.
+    eapply Lt_res.
+    eapply Lt_parL.
+    eauto with picalc.   
+    eauto using not_bdsend_sub. auto. 
+    eauto with picalc.
+   * (*_____freeParR____*) 
+    eexists. split. 
+    eapply Lt_res. 
+    eapply Lt_parR.
+    destruct (lt_sub Q Q'0 a shift_sb H2). auto.
+    eapply not_bdsend_sub. auto. auto.
+    eauto with picalc.
+
+  * (*_____bdParL____*)
+   inversion H2; subst.
+   eauto with picalc.
+   firstorder;  inversion H0.
+ 
+  * (*_____bdParR____*)
+   eexists. split.
+   eapply Lt_open.  
+   eapply Lt_parR. 
+   
+
+
+
+
+
+
+(* 
 Lemma cong_resp_lt: forall P Q P' Q' a, 
   cong P Q -> 
      (lt P a P'  -> exists Q0, lt Q a Q0 /\ cong P' Q0)  /\
@@ -255,7 +464,7 @@ eexists. split.
 eapply Lt_res. 
 eapply Lt_parR.
 
-
+*)
 
 
 
