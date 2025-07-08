@@ -38,13 +38,6 @@ Notation ch x := x __chan.
 
 
 
-Lemma not_bdsend_sub: forall a sigma,
-  not_bdsend a -> not_bdsend (a[sigma]). 
-Proof.
-intros. 
-induction a; cbn; eauto with picalc.
-firstorder; inversion H.
-Qed.
 
 
 
@@ -71,6 +64,27 @@ fe. intro.
 unfold shift_sb, shiftn_sb.
 auto.
 Qed.
+
+
+Lemma swap_up_up: forall sigma, 
+  swap_sb >> subst_chan (up (up sigma)) = up (up sigma) >> subst_chan swap_sb.
+Proof.
+intros. unfold swap_sb, funcomp.
+fe. intro. destruct x. auto.
+cbn. asimpl. cbv. destruct x; auto. 
+destruct (sigma x); auto.
+Qed.
+
+
+Lemma shift_succ: forall n, 
+  shift_sb >> subst_chan (shiftn_sb n) = shiftn_sb (S n).
+Proof.
+intros.
+unfold shift_sb, shiftn_sb.
+unfold funcomp. cbn. fe. intro.
+replace (n+ S x) with (S(n+x)); try lia; auto.
+Qed.
+
 (*---------- substitution lemma with processes  --------------------*)
 
 Lemma sub_comp_pr: forall (P:proc) (sigma1 sigma2: nat -> chan), 
@@ -99,6 +113,23 @@ auto.
 Qed.
 
 
+Lemma shift_succ_pr: forall n (P:proc), 
+  P [shift_sb][shiftn_sb n] = P[shiftn_sb (S n)].
+Proof.
+intros. asimpl. auto. erewrite shift_succ. auto.
+Qed.
+
+
+Lemma swap_up_up_pr: forall (P:proc) sigma, 
+  P[swap_sb][up (up sigma)] = P [up (up sigma)][swap_sb].
+Proof.  
+intros.
+do 2 (erewrite sub_comp_pr).
+erewrite swap_up_up. auto.
+Qed.
+
+
+(*-------- substitution lemma with labels and channels  ---------*)
 Lemma shift_permute_lab: forall (sigma: nat->chan) (a:lab),
   a[sigma][shift_sb] = a[shift_sb][up sigma].
 Proof.
@@ -113,10 +144,15 @@ intros.
 asimpl. auto.
 Qed.
 
+Lemma not_bdsend_sub: forall a sigma,
+  not_bdsend a -> not_bdsend (a[sigma]). 
+Proof.
+intros. 
+induction a; cbn; eauto with picalc.
+firstorder; inversion H.
+Qed.
 
-
-(*-----------------------------------------------------------*)
-
+(*----------------- misc   ------------------------------------------*)
 
  
 Lemma not_bdsend_impl_down_too: forall ad a, ad = down a -> 
@@ -126,8 +162,6 @@ intros.
 rewrite H. unfold down.
 eapply not_bdsend_sub. auto.
 Qed.
-
-
 
 
 Lemma simpl_down: forall (c:chan) sigma, c <> ch 0 ->
@@ -179,33 +213,15 @@ Proof.
 firstorder; inversion H.
 Qed.
 
+(*-----------------------------------------------------------*)
 
 
 
 
 
-(*------------------ a modulariser----------------*)
-Lemma swap_up_up: forall sigma, 
-  swap_sb >> subst_chan (up (up sigma)) = up (up sigma) >> subst_chan swap_sb.
-Proof.
-intros. unfold swap_sb, funcomp.
-fe. intro. destruct x. auto.
-cbn. asimpl. cbv. destruct x; auto. 
-destruct (sigma x); auto.
-Qed.
 
 
-
-Lemma swap_up_up_pr: forall (P:proc) sigma, 
-  P[swap_sb][up (up sigma)] = P [up (up sigma)][swap_sb].
-Proof.  
-intros.
-do 2 (erewrite sub_comp_pr).
-erewrite swap_up_up. auto.
-Qed.
-(*------------------------------------------------*)
-
-
+(* the renaming lemma for label transitions  *)
 Lemma lt_sub: forall P Q a sigma, lt P a Q -> 
   (not_bdsend a -> lt P[sigma] a[sigma] Q[sigma]) /\
   ( forall x0, a = LbdSend x0 -> lt P[sigma] a[sigma] Q[up sigma] ).
@@ -343,6 +359,21 @@ induction H; intros; cbn in *; split; intros; eauto with picalc.
 -  inversion H1.
 Qed.
 
+
+
+
+
+
+(* the renaming lemma for congruence  *)
+Lemma cong_sb: forall P Q sigma,
+  cong P Q -> cong P[sigma] Q[sigma].
+Proof.
+intros. generalize dependent sigma.
+induction H; intros; cbn in *; eauto with picalc.
+set (lem := shift_permute_pr). symmetry in lem.
+erewrite lem. eauto with picalc.
+erewrite swap_up_up_pr. eauto with picalc.
+Qed.
 
 
 
