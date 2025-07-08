@@ -69,8 +69,6 @@ Definition swap_sb2 x := match x with
  | _ => ch x
 end.
 
-Axiom skip: forall A, A.
-
 
 Lemma sub_comp_pr: forall (P:proc) (sigma1 sigma2: nat -> chan), 
   P[sigma1][sigma2] = P [sigma1 >> subst_chan sigma2].
