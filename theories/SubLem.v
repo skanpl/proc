@@ -106,6 +106,14 @@ intros.
 asimpl. auto.
 Qed.
 
+Lemma shift_permute_ch: forall (sigma: nat->chan) (c:chan),
+  c[sigma][shift_sb] = c[shift_sb][up sigma].
+Proof.
+intros.
+asimpl. auto.
+Qed.
+
+
 
 (*-----------------------------------------------------------*)
 
@@ -321,18 +329,18 @@ induction H; intros; cbn in *; split; intros; eauto with picalc.
   eapply Lt_closeL.
   eapply H3. auto.
   cbn in *; replace var_zero with 0 in *; auto.
-  erewrite shift_permute_pr.
+  erewrite shift_permute_pr. erewrite shift_permute_ch.
   eauto with picalc.
-  inversion H1.
+- inversion H1.
   
 
+
 - destruct (IHlt1 (up sigma)), (IHlt2 sigma).
-  eapply Lt_closeR.
-  erewrite shift_permute_pr.
-  eapply H2.
-  eauto with picalc.
-  eauto with picalc.
-  inversion H1.
+  eapply Lt_closeR. cbn in*.  
+  cbn in *; replace var_zero with 0 in *; auto.
+  erewrite shift_permute_pr. erewrite shift_permute_ch.
+  eauto with picalc. eauto with picalc.
+-  inversion H1.
 Qed.
 
 

@@ -149,6 +149,16 @@ Inductive lt: proc -> lab -> proc -> Prop :=
      lt (Nu P) ad (Nu P'[swap_sb])
 
 
+
+
+| Lt_closeL: forall P P' Q Q' x, 
+  lt P (LbdSend x) P' -> lt (Q[shift_sb]) (Lrcv x[shift_sb] (ch 0)) Q' -> 
+    lt (Par P Q) Ltau (Nu (Par P' Q'))
+    
+| Lt_closeR: forall P P' Q Q' x, 
+  lt (P[shift_sb]) (Lrcv x[shift_sb] (ch 0)) P' -> lt Q (LbdSend x) Q' ->
+    lt (Par P Q) Ltau (Nu (Par P' Q'))  
+(* 
 | Lt_closeL: forall P P' Q Q' x, 
   lt P (LbdSend x) P' -> lt (Q[shift_sb]) (Lrcv x (ch 0)) Q' -> 
     lt (Par P Q) Ltau (Nu (Par P' Q'))
@@ -156,6 +166,7 @@ Inductive lt: proc -> lab -> proc -> Prop :=
 | Lt_closeR: forall P P' Q Q' x, 
   lt (P[shift_sb]) (Lrcv x (ch 0)) P' -> lt Q (LbdSend x) Q' ->
     lt (Par P Q) Ltau (Nu (Par P' Q'))  
+*)
 .
 
 
