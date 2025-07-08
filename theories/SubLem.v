@@ -130,8 +130,21 @@ destruct c,n. exfalso. apply H. auto.
 cbn. replace (n-0) with n; try lia; auto.
 Qed.
 
-
-
+Lemma simpl_down_bdsend: forall x sigma, x <> ch 0 ->
+ (LbdSend x[fun x1 : nat => ch (x1 - 1)])[sigma] = down (LbdSend x[up sigma]).
+Proof.
+intros.
+destruct x,n. exfalso. apply H. auto.
+cbn. replace (n-0) with n; try lia; auto.
+asimpl. unfold funcomp.  destruct (sigma n).
+assert(
+(fun x : nat => ch (↑ x - 1))
+= fun x:nat => ch x
+). fe. intro. 
+replace ↑ with S; auto.
+replace (S x - 1) with x; try lia; auto.
+rewrite H0. auto.
+Qed.
 
 
 Lemma zero_notin_lab_sb: forall a sigma,
@@ -157,6 +170,9 @@ Lemma not_bdsend_exfalso: forall x, not_bdsend (LbdSend x) -> False.
 Proof.
 firstorder; inversion H.
 Qed.
+
+
+
 
 
 
@@ -296,16 +312,11 @@ induction H; intros; cbn in *; split; intros; eauto with picalc.
   subst. erewrite swap_up_up_pr.
   eapply Lt_res_bd.
   eauto with picalc.
-  
-
-(*----------- tentative pour simplifier le swap  ----------------------*)
-assert(
-swap_sb >> subst_chan (up (up sigma)) = up (up sigma)
-) . unfold swap_sb, shiftn_sb. unfold funcomp. fe. intro.
-destruct x. cbv. destruct x1.
-(*----------------------------------------------------------------*)
-
-
+  asimpl. unfold scons, funcomp. intro. 
+  cbv in H1. destruct x. destruct n. apply H0. auto.
+  destruct (sigma n). inversion H1.  
+  erewrite simpl_down_bdsend. auto. auto.
+ 
 - destruct (IHlt1 sigma), (IHlt2 (up sigma)).
   eapply Lt_closeL.
   eapply H3. auto.
