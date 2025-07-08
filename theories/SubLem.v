@@ -377,6 +377,20 @@ Qed.
 
 
 
+(* the renaming lemma for reduction  *)
+Lemma red_sb: forall P Q sigma,
+  red P Q -> red P[sigma] Q[sigma].
+Proof.
+intros.
+generalize dependent sigma.
+induction H; cbn in *; intros; eauto with picalc.
+apply (cong_sb P P' sigma) in H.
+apply (cong_sb Q Q' sigma) in H1.
+eauto with picalc.
+erewrite up_beta_simpl_pr.
+eauto with picalc.
+Qed.
+
 
 
 
