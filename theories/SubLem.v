@@ -160,8 +160,26 @@ Qed.
 
 
 
+(*------------------ a modulariser----------------*)
+Lemma swap_up_up: forall sigma, 
+  swap_sb >> subst_chan (up (up sigma)) = up (up sigma) >> subst_chan swap_sb.
+Proof.
+intros. unfold swap_sb, funcomp.
+fe. intro. destruct x. auto.
+cbn. asimpl. cbv. destruct x; auto. 
+destruct (sigma x); auto.
+Qed.
 
 
+
+Lemma swap_up_up_pr: forall (P:proc) sigma, 
+  P[swap_sb][up (up sigma)] = P [up (up sigma)][swap_sb].
+Proof.  
+intros.
+do 2 (erewrite sub_comp_pr).
+erewrite swap_up_up. auto.
+Qed.
+(*------------------------------------------------*)
 
 
 Lemma lt_sub: forall P Q a sigma, lt P a Q -> 
@@ -275,9 +293,11 @@ induction H; intros; cbn in *; split; intros; eauto with picalc.
   exfalso. eapply not_bdsend_exfalso. apply H2.
 
 - destruct (IHlt (up sigma)).
-  subst.
-  (*eapply Lt_res_bd.*)
+  subst. erewrite swap_up_up_pr.
+  eapply Lt_res_bd.
+  eauto with picalc.
   
+
 (*----------- tentative pour simplifier le swap  ----------------------*)
 assert(
 swap_sb >> subst_chan (up (up sigma)) = up (up sigma)
