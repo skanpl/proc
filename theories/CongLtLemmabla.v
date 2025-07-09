@@ -123,6 +123,32 @@ Proof.
 intros. unfold down in *.
 destruct a; cbn in H; inversion H; eauto with picalc.
 Qed.
+
+(*
+Lemma shift_snd_notzero : forall P a P', lt P[shift_sb] a P' -> 
+  (forall x y, a = (Lsend x y) -> x <> ch 0 /\ y <> ch 0).
+Proof.
+  intros. remember P[shift_sb] as Ps. generalize dependent P.
+   generalize dependent x.  generalize dependent y.
+  induction H;  intros; cbn; subst; eauto with picalc.
+  - destruct P0; inversion HeqPs.
+    subst. inversion H0; subst. split. 
+    destruct c. destruct n; cbv; intuition; inversion H.
+    destruct c0. destruct n; cbv; intuition; inversion H.
+  - destruct P0; inversion HeqPs. subst. inversion H0.
+  - try (destruct P0; inversion HeqPs; subst; eapply IHlt; eauto).
+  - try (destruct P0; inversion HeqPs; subst; eapply IHlt; eauto).
+  - inversion H1.
+  - inversion H1.
+  - cbn in H1. inversion H1.
+  - cbn in H1. inversion H1.
+  - cbn in H2. inversion H2.
+  - destruct a; cbn in H3; inversion H3.
+    cbn in H0. split. destruct c; cbn; intuition. cbn in H4.
+    destruct n; intuition. replace (S n - 1) with n in H2 by auto with arith.
+    
+*)
+
  
 Lemma cong_resp_lt: forall P Q P' Q' a, 
   cong P Q -> 
@@ -395,13 +421,104 @@ destruct a; cbn in *; try destruct c, c0; eauto with picalc.
     cbn. replace (Q'0[shift_sb][swap_sb][swap_sb]) with (Q'0[shift_sb]); auto.
     asimpl. replace (shift_sb >> subst_chan (swap_sb >> subst_chan swap_sb)) with shift_sb; auto.
     fe. auto_case. (*facile*)
-    
+
   * (*_____closeR_______*)
     inversion H2; subst. 
     simpl in H4. inversion H4.
     apply down_rcv_notzero in H6; auto; subst.
+    destruct (lt_sub _ _ _ swap_sb H1).
+    clear H6. apply H0 in H4 as H12. clear H0.
+    assert (Lrcv x[shift_sb][shift_sb][swap_sb] (ch 0) = Lrcv x[shift_sb][shift_sb] (ch 0)).
+    asimpl. auto. (*facile*)
+    cbn in H12. replace (subst_chan swap_sb (subst1 shift_sb (subst1 shift_sb x)))
+    with (subst1 swap_sb (subst1 shift_sb (subst1 shift_sb x))) in H12 by auto. (*WTF???*)
+    rewrite H0 in H12. clear H0.
+    replace (subst1 swap_sb (Subst_proc (up_chan_chan shift_sb) P)) with (Subst_proc shift_sb P) in H12.
+    destruct (lt_sub _ _ _ shift_sb H5).
+    clear H0. specialize (H6 x). assert (lt Q[shift_sb] (LbdSend x)[shift_sb] Q'0[up shift_sb]) by auto.
+    clear H6.
+    eexists; split.
+    eapply Lt_res with (a:= Ltau); simpl; eauto with picalc.
+    eapply Cg_trans. apply Cg_ctxNu. apply Cg_nuPar.
+    eapply Cg_trans. apply Cg_nuSwap. cbn.
+    replace (Q'0[up shift_sb]) with (Q'0[shift_sb][swap_sb]); eauto with picalc.
+    asimpl. auto. (*facile*)
+    asimpl. assert (shift_sb = swap_sb 0 .: shift_sb >> subst_chan (↑ >> swap_sb)).
+    fe. auto_case. (*facile *) rewrite <- H0; auto.
+    simpl in H4. inversion H4.
+ + (* clause inverse*)
+    inversion H; subst.
+    * (*Lt_open *)
+      inversion H1; subst.
+      -- (* parL*)
+          eexists; split.
+          eapply Lt_parL_bs; eauto with picalc. 
+          eauto with picalc.
+      -- (* parR *)
+         (* cas impossible, H4 est absurde, un processus shifté ne peut pas envoyer 0*)
+          admit.
+   * (*Lt_res*)
+      inversion H1; subst.
+      -- (*parL *)
+          eexists; split.
+          eapply Lt_parL; eauto with picalc. unfold down. apply not_bdsend_sub; auto.
+          eauto with picalc.
+      -- (* parR *)
+          eexists; split.
+          eapply Lt_parR; eauto with picalc.
+          destruct (lt_sub _ _ _ (fun x => ch (x-1)) H5).
+          clear H4. apply H0 in H8 as H12. clear H0.
+          replace (Q[shift_sb][fun x : nat => ch (x - 1)]) with Q in H12. exact H12.
+          asimpl. assert (shift_sb >> subst_chan (fun x : nat => ch (x - 1)) = fun x => ch x).
+          fe. auto_case. rewrite H0. asimpl. auto.
+          apply not_bdsend_sub; auto.
+          eapply Cg_trans. apply Cg_nuPar.
+          (* si Q' ne contient pas 0, alors Q'[fun x : nat => ch (x - 1)][shift_sb] = Q' *)
+          (* montrer que lt Q[shift_sb] a0 Q'implique Q' = Q''[shift_sb] pour un certain Q''*)
+          (* plus généralement, on a besoin de mapN_lts_rev dans la formalisation HOpi *)
+          admit.
+      -- inversion H3. inversion H0. do 3 destruct H0. inversion H0. inversion H0.
+      -- inversion H3. inversion H0. do 3 destruct H0. inversion H0. inversion H0.
+      -- (* comL *)
+          eexists; split.
+          eapply (Lt_commL _ _ _ _ (x[fun x => ch (x-1)]) (y[fun y => ch (y-1)])); eauto with picalc.
+          eapply Lt_res; eauto with picalc.
+          (* on a Q[shift] --x<y> --> ... donc x<> 0 et y <> 0 *)
+          admit.
+          destruct (lt_sub _ _ _ (fun x => ch (x-1)) H8).
+          clear H4. 
+          assert (lt Q[shift_sb][fun x : nat => ch (x - 1)] (Lrcv x y)[fun x : nat => ch (x - 1)] Q'
+              [fun x : nat => ch (x - 1)]).
+          apply H0; auto with picalc. clear H0.
+          replace (Q[shift_sb][fun x : nat => ch (x - 1)]) with Q in H4. exact H4.
+          asimpl. assert (shift_sb >> subst_chan (fun x : nat => ch (x - 1)) = fun x => ch x).
+          fe. auto_case. rewrite H0. asimpl. auto.
+          eapply Cg_trans. apply Cg_nuPar.
+          (* montrer que lt Q[shift_sb] a0 Q'implique Q' = Q''[shift_sb] pour un certain Q''*)
+          admit.
+      -- (*comR *)          
+          eexists; split.
+          eapply (Lt_commR _ _ _ _ (x[fun x => ch (x-1)]) (y[fun y => ch (y-1)])); eauto with picalc.
+          eapply Lt_res; eauto with picalc.
+          (* on a Q[shift] --x<y> --> ... donc x<> 0 et y <> 0 *)
+          admit.
+          destruct (lt_sub _ _ _ (fun x => ch (x-1)) H8).
+          clear H4. 
+          assert ( lt Q[shift_sb][fun x : nat => ch (x - 1)] (Lsend x y)[fun x : nat => ch (x - 1)] Q'
+            [fun x : nat => ch (x - 1)]).
+          apply H0; auto with picalc. clear H0.
+          replace (Q[shift_sb][fun x : nat => ch (x - 1)]) with Q in H4. exact H4.
+          asimpl. assert (shift_sb >> subst_chan (fun x : nat => ch (x - 1)) = fun x => ch x).
+          fe. auto_case. rewrite H0. asimpl. auto.
+          eapply Cg_trans. apply Cg_nuPar.
+          (* montrer que lt Q[shift_sb] a0 Q'implique Q' = Q''[shift_sb] pour un certain Q''*)
+          admit.
+       -- (* closeL *)
+           
         
-
+          
+         
+      
 
 
 

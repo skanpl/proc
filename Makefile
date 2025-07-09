@@ -2,8 +2,8 @@
 
 
 
-comp: CoqMakefile
-	make -f CoqMakefile
+comp: CoqMakefile 
+	make -f CoqMakefile 
 
 
 CoqMakefile: _CoqProject
@@ -12,5 +12,7 @@ CoqMakefile: _CoqProject
 cleanaux:
 	rm theories/.*.aux  theories/syntax/.*.aux 
 
-clean: #cleanaux
+clean: 
 	make clean -f CoqMakefile 
+
+

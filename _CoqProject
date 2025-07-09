@@ -2,8 +2,10 @@
 -arg "-w none"
 
 theories
+#theories/CongLtLemmabla.v     
 #theories/syntax/core.v	
-#theories/syntax/ProcSyn.v  
 #theories/syntax/unscoped.v
+#theories/syntax/ProcSyn.v  
 #theories/Semantics.v
+#theories/SubLem.v
 #theories/Normal.v
