@@ -136,110 +136,28 @@ induction H; firstorder.
   repeat eexists; simpl; eauto with picalc.
 Qed.
 
+ 
 
 
-
-Lemma ltsend_normal: forall Q Q' x y sigma, 
-  lt Q (Lsend x[sigma] y[sigma])  Q' -> exists n R S,  
-    cong Q (iter_nu n (Par (Send x[sigma][shiftn_sb n] y[sigma][shiftn_sb n] R) S) ) /\ 
-    cong Q' (iter_nu n (Par R S) ).
-Proof.
-intros.
-generalize dependent sigma.
-generalize dependent Q'.
-induction Q; intros.
-- inversion H.
-     
-- inversion H; subst; eauto with picalc.     
-  + destruct (IHQ1  P' sigma H2).  
-    do 3 destruct H0.    
-    do 3 eexists. split; eauto with picalc. 
-    
-  + firstorder; inversion H0.
-    destruct (IHQ2 Q'0 sigma ). auto.
-    do 3 destruct H1.
-    repeat eexists. 
-    eapply Cg_trans.  
-    eapply Cg_trans. 
-    eapply Cg_trans.
-    eapply Cg_ctxParR. apply H1.
-    eapply Cg_parCom.
-	eapply sc_extr_n. eauto with picalc.
-    
-    eapply Cg_trans.
-    eapply Cg_trans.
-    eapply Cg_trans.
-    eapply Cg_ctxParR. apply H5.
-    eapply Cg_parCom.
-	eapply sc_extr_n. eauto with picalc.
-        
-- inversion H.
-   
-- inversion H. subst.   
-  exists 0. repeat eexists; simpl. 
-  unfold shiftn_sb. cbn.
-  assert(forall z: chan, z[sigma][fun x0 : nat => x0 __chan] =
-   z[sigma]
-  ). asimpl. auto. do 2 erewrite H0.
-   eauto with picalc. eauto with picalc.
-  
-- inversion H; subst.
-  + symmetry in H3.  
-    destruct (down_send (LbdSend x0) x[sigma] y[sigma] H3).
-    destruct H0. inversion H0.
-  + set (lem:= down_send_notzero a x[sigma] y[sigma] H4 H2).
-    rewrite lem in H1. asimpl in H1.
-    destruct (IHQ P' (sigma >> subst_chan shift_sb) H1).
-    do 3 destruct H0.
-    exists (S x0). repeat eexists. simpl in *.
-	eapply Cg_ctxNu.
-    do 2 erewrite sb_ch_shift_simpl in H0.
-    do 2 erewrite sb_comp_ch in H0.
-    eauto with picalc.
-    eauto with picalc.
-  + symmetry in H3. 
-    destruct (down_send (LbdSend x0) x[sigma] y[sigma] H3).
-    destruct H0. inversion H0.    
-Qed.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(* here is why not having a renaming on the labels would get us stuck:
 Lemma ltsend_normal: forall Q Q' x y, 
   lt Q (Lsend x y)  Q' -> exists n R S,  
     cong Q (iter_nu n (Par (Send x[shiftn_sb n] y[shiftn_sb n] R) S) ) /\ 
     cong Q' (iter_nu n (Par R S) ).
 Proof.
 intros.
+generalize dependent y.
+generalize dependent x.
 generalize dependent Q'.
 induction Q; intros.
 - inversion H.
      
 - inversion H; subst; eauto with picalc.     
-  + destruct (IHQ1  P' H2).  
+  + destruct (IHQ1  P' x y H2).  
     do 3 destruct H0.    
     do 3 eexists. split; eauto with picalc. 
     
-  + firstorder; inversion H0. subst.
-    destruct (IHQ2 Q'0 ). auto.
+  + firstorder; inversion H0; subst.
+    destruct (IHQ2 Q'0 x0 x1 ). auto.
     do 3 destruct H1.
     repeat eexists. 
     eapply Cg_trans.  
@@ -271,19 +189,27 @@ induction Q; intros.
     destruct (down_send (LbdSend x0) x y H3).
     destruct H0. inversion H0.
   + set (lem:= down_send_notzero a x y H4 H2).
-    rewrite lem in H1.
-       (*the reason why we would be stuck if we didn't have the sigma*) 
-    destruct (IHQ P' (sigma >> subst_chan shift_sb) H1).
+    rewrite lem in H1. asimpl in H1. rewrite lem in *.
+    destruct (IHQ P' x[shift_sb] y[shift_sb]  H1).
     do 3 destruct H0.
     exists (S x0). repeat eexists. simpl in *.
 	eapply Cg_ctxNu.
-    do 2 erewrite sb_ch_shift_simpl in H0.
-    do 2 erewrite sb_comp_ch in H0.
+    do 2 erewrite shift_succ_ch.
     eauto with picalc.
     eauto with picalc.
   + symmetry in H3. 
-    destruct (down_send (LbdSend x0) x[sigma] y[sigma] H3).
+    destruct (down_send (LbdSend x0) x y H3).
     destruct H0. inversion H0.    
 Qed.
-*)
+
+
+
+
+
+
+
+
+
+
+
 
