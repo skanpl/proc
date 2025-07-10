@@ -68,6 +68,32 @@ destruct n; destruct n0; intuition. cbn.
 replace (n-0) with n; auto with arith. replace (n0-0) with n0; auto with arith.
 Qed.
 
+(*repris du fichier CongLtLemmabla.v, donc a facctoriser *)
+Lemma down_rcv_notzero: forall a x y , 
+  Lrcv x y = down a -> notinlab a (ch 0) ->
+  a = Lrcv x[shift_sb] y[shift_sb].
+Proof. 
+intros. unfold down in *.
+destruct a; cbn in H; inversion H; eauto with picalc.
+inversion H0. destruct c; destruct c0.
+destruct n; destruct n0; intuition. cbn.
+replace (n-0) with n; auto with arith. replace (n0-0) with n0; auto with arith.
+Qed.
+
+
+(*repris du fichier CongLtLemmabla.v, donc a facctoriser *)
+Lemma down_bs_notzero: forall x x0 , 
+  LbdSend x = down (LbdSend x0) -> x0 <> (ch 0) ->
+  x0 = x[shift_sb].
+Proof. 
+intros. unfold down in *.
+cbn in H; inversion H; eauto with picalc.
+destruct x0; destruct x. cbn.
+destruct n; destruct n0; intuition. cbn.
+replace (n-0) with n; auto with arith. replace (S n-1) with n; auto with arith.
+Qed.
+
+
 Lemma down_bdsend: forall a x , down a = LbdSend x -> 
   exists x', a = LbdSend x'.
 Proof. 
@@ -203,6 +229,64 @@ induction Q; intros.
 Qed.
 
 
+Lemma ltrcv_normal: forall Q Q' x y,
+  lt Q (Lrcv x y) Q' ->  exists n R S,
+    cong Q (iter_nu n (Par (Rcv x[shiftn_sb n] R) S) ) /\  
+    cong Q' (iter_nu n (Par (R[y[shiftn_sb n]..]) S) ).
+Proof.
+intros.
+generalize dependent y.
+generalize dependent x.
+generalize dependent Q'.
+induction Q; intros.
+
+- inversion H.
+
+- inversion H; subst; eauto with picalc.     
+  + destruct (IHQ1  P' x y H2).  
+    do 3 destruct H0.    
+    do 3 eexists. split; eauto with picalc. 
+    
+  + firstorder; inversion H0; subst.
+    destruct (IHQ2 Q'0 x0 x1 ). auto.
+    do 3 destruct H1.
+    repeat eexists. 
+    eapply Cg_trans.  
+    eapply Cg_trans. 
+    eapply Cg_trans.
+    eapply Cg_ctxParR. apply H1.
+    eapply Cg_parCom.
+	eapply sc_extr_n. eauto with picalc.
+    
+    eapply Cg_trans.
+    eapply Cg_trans.
+    eapply Cg_trans.
+    eapply Cg_ctxParR. apply H3.
+    eapply Cg_parCom.
+	eapply sc_extr_n. eauto with picalc.
+
+- inversion H. subst. exists 0. 
+  repeat eexists; unfold shiftn_sb; simpl. 
+  replace (x[fun x0 : nat => ch x0]) with x; try asimpl; eauto with picalc.
+  replace (y[fun x0 : nat => ch x0]) with y; try asimpl; eauto with picalc.
+   
+- inversion H.
+
+- inversion H; subst; simpl in *; try symmetry in H3.
+  + destruct (down_rcv (LbdSend x0) x y H3).
+    destruct H0. inversion H0.
+  + set (lem:= down_rcv_notzero a x y H4 H2).
+    rewrite lem in H1. rewrite lem in *.
+    destruct (IHQ P' x[shift_sb] y[shift_sb]  H1).
+    do 3 destruct H0.
+    exists (S x0). 
+    repeat eexists; eapply Cg_ctxNu; erewrite shift_succ_ch; eauto with picalc.
+  + destruct (down_rcv (LbdSend x0) x y H3).
+    destruct H0. inversion H0.
+Qed.
+
+
+  
 
 
 
@@ -213,3 +297,151 @@ Qed.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lemma ltbdsend_normal: forall Q Q' x, 
+  lt Q (LbdSend x)  Q' -> exists n R P,  
+  cong Q ( iter_nu (S n) (Par (Send x[shiftn_sb (S n)] (ch 0)[shiftn_sb (S n)] R) P) ) 
+    /\ 
+  cong Q' (iter_nu n (Par R P) ).
+Proof.
+intros.
+generalize dependent x.
+generalize dependent Q'.
+induction Q; intros.
+- inversion H.
+     
+- inversion H; subst. 
+ + firstorder; inversion H0.
+ + firstorder; inversion H0.
+ + 
+    destruct (IHQ1 P' x). auto. simpl in *.
+    do 3 destruct H0.
+    repeat eexists. 
+    eapply Cg_trans.  
+    eapply Cg_trans. 
+    eapply Cg_trans.
+    eapply Cg_ctxParL. apply H0.
+    (*eapply Cg_parCom.*)
+    eapply Cg_nuPar. 
+    eauto with picalc.
+    eauto with picalc. 
+    eauto with picalc.  
++   destruct (IHQ2 Q'0 x). auto.
+    do 3 destruct H0.
+    repeat eexists. 
+    eapply Cg_trans.  
+    eapply Cg_trans. 
+    eapply Cg_trans.
+    eapply Cg_ctxParR. apply H0.
+    eapply Cg_parCom.
+	eapply sc_extr_n.
+    eapply nuN_ctx.    
+    eapply Cg_parAssoc.
+ 
+    eapply Cg_trans.  
+    eapply Cg_trans. 
+    eapply Cg_trans.
+    eapply Cg_trans.
+    eapply Cg_ctxParR. apply H1.
+    eapply Cg_parCom.
+	eapply sc_extr_n.
+    erewrite shift_succ_pr. eapply Cg_refl.
+ 	eapply nuN_ctx.    
+    eapply Cg_parAssoc.      
+
+- inversion H.
+- inversion H.
+   
+- (*  bloqué  *) 
+  inversion H; subst.
+  + destruct (ltsend_normal Q Q' x0 (ch 0) H1).
+    do 3 destruct H0. admit.  
+     
+    
+  + symmetry in H4. 
+    destruct (down_bdsend a x H4). subst.
+    firstorder; inversion H0. 
+  + set (lem:= down_bs_notzero x x0 H3 H2). rewrite lem in *.  
+    destruct (IHQ P' x[shift_sb]). auto.
+    do 3 destruct H0.
+    repeat eexists. simpl in *.
+    eapply Cg_ctxNu.  
+    erewrite shift_succ_ch. admit.
+
+
+Admitted.
+
+
+   
+
+
+
+
+
+
+
+
+
+
+(*--------  reduction implies tau-tansition --------------------*)
+
+
+
+Lemma cong_resp_lt: forall P Q P' Q' a, 
+  cong P Q -> 
+     (lt P a P'  -> exists Q0, lt Q a Q0 /\ cong P' Q0)  /\
+      (lt Q a Q' -> exists P0, lt P a P0 /\ cong P0 Q').
+Proof. Admitted.
+
+
+Lemma lt_res_tau_nuN: forall P P' n, lt P Ltau P' -> 
+  lt (iter_nu n P) Ltau (iter_nu n P').
+Proof.
+intros. 
+induction n; simpl; auto.
+eapply Lt_res. apply IHn.
+unfold notinlab. auto.
+eauto with picalc.
+eauto with picalc.
+Qed.
+
+
+Theorem red_impl_lt: forall P Q, red P Q -> 
+  exists Q', lt P Ltau Q' /\ cong Q Q'.
+Proof.
+intros.
+set (lem:= red_normal P Q). 
+ 
+firstorder. 
+assert(
+lt
+ (iter_nu x (Par (Par (Send x1 x2 x3) (Rcv x1 x4)) x0))
+Ltau
+ (iter_nu x (Par (Par x3 x4[x2..]) x0))
+).
+eapply lt_res_tau_nuN.
+eapply Lt_parL.
+eapply Lt_commL.
+eapply Lt_send. 
+eapply Lt_rcv.
+eauto with picalc.
+set (lem:= 
+cong_resp_lt (iter_nu x (Par (Par (Send x1 x2 x3) (Rcv x1 x4)) x0)) P (iter_nu x (Par (Par x3 x4[x2..]) x0))  P Ltau 
+). 
+eapply Cg_sym in H0.
+firstorder.
+eexists; split; 
+eauto with picalc.
+Qed.
