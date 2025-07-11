@@ -186,6 +186,7 @@ induction Q; intros.
     destruct (IHQ2 Q'0 x0 x1 ). auto.
     do 3 destruct H1.
     repeat eexists. 
+    
     eapply Cg_trans.  
     eapply Cg_trans. 
     eapply Cg_trans.
@@ -312,7 +313,7 @@ Qed.
 
 Lemma ltbdsend_normal: forall Q Q' x, 
   lt Q (LbdSend x)  Q' -> exists n R P,  
-  cong Q ( iter_nu (S n) (Par (Send x[shiftn_sb (S n)] (ch 0)[shiftn_sb (S n)] R) P) ) 
+  cong Q ( iter_nu (S n) (Par (Send x[shiftn_sb (S n)] (ch 0)[shiftn_sb  n] R) P) ) 
     /\ 
   cong Q' (iter_nu n (Par R P) ).
 Proof.
@@ -367,9 +368,10 @@ induction Q; intros.
 - (*  bloqué  *) 
   inversion H; subst.
   + destruct (ltsend_normal Q Q' x0 (ch 0) H1).
-    do 3 destruct H0. admit.  
-     
-    
+    do 3 destruct H0. 
+    repeat eexists. simpl.
+    eapply Cg_ctxNu.    
+    admit. admit. 
   + symmetry in H4. 
     destruct (down_bdsend a x H4). subst.
     firstorder; inversion H0. 
@@ -379,15 +381,44 @@ induction Q; intros.
     repeat eexists. simpl in *.
     eapply Cg_ctxNu.  
     erewrite shift_succ_ch. admit.
-
-
 Admitted.
 
 
-   
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(*
+Theorem lttau_impl_red: forall P Q,
+  lt P Ltau Q -> red P Q.
+Proof.
+intros. 
+generalize dependent Q.
+induction P; intros.
+
+- inversion H.
+- inversion H; subst; eauto with picalc.
++
+set (rnlem := ltrcv_normal P2 Q' x y H3).
+set (snlem := ltsend_normal P1 P' x y H2).
+firstorder.
+(*the derivation tree*)
+eapply Red_struc.
+*)
 
 
 
