@@ -12,6 +12,101 @@ Require Import Coq.micromega.Lia.
 Notation ch x := x __chan.
 
 
+Lemma invert_sb_send: forall x y P Q sigma, 
+  (Send x y P) = Q[sigma] -> exists x0 y0 P0,  Q = Send x0 y0 P0.
+Proof.
+intros.
+induction Q; cbn in *; eauto with picalc; inversion H.
+Qed.
+
+Lemma invert_sb_rcv: forall x P Q sigma, 
+  (Rcv x P) = Q[sigma] -> exists x0 P0,  Q = Rcv x0 P0.
+Proof.
+intros.
+induction Q; cbn in *; eauto with picalc; inversion H.
+Qed.
+
+Lemma invert_sb_par: forall P Q R sigma, 
+  (Par P Q) = R[sigma] -> exists P0 Q0,  R = Par P0 Q0.
+Proof.
+intros.
+induction R; cbn in *; eauto with picalc; inversion H.
+Qed.
+
+
+
+
+Definition super_bij (sigma: nat -> chan) := 
+ (forall c, exists x, c = x[sigma])    /\
+ (forall x y, x[sigma] = y[sigma]  -> x = y).
+
+
+Lemma not_bdsend_sub_rev: forall a sigma,  
+  not_bdsend (a[sigma]) -> not_bdsend a.
+Proof.
+intros.
+destruct a; cbn in *; eauto with picalc.
+firstorder; inversion H.
+Qed.
+
+Lemma invert_sb_lt: forall P P0 a Q sigma, lt P a Q -> 
+  P = P0[sigma] -> super_bij sigma ->  
+  exists P' a0, Q = P'[sigma] /\  a = a0[sigma] /\  lt P0 a0 P'. 
+Proof.
+intros. 
+generalize dependent sigma.
+generalize dependent P0.
+induction H; intros.   
+- set (lem:= invert_sb_send).
+  specialize (lem _ _ _ _ _ H0).
+  destruct lem. do 2 destruct H. subst. cbn in *.
+  inversion H0. 
+  eexists. exists (Lsend x0 x1). 
+  split; eauto with picalc. 
+
+-set (lem:= invert_sb_rcv).
+  specialize (lem _ _ _ _ H0).
+  destruct lem. destruct H as [p H]. subst. cbn in *.
+  inversion H0.
+  unfold super_bij in H1. destruct H1.
+  assert (exists y0, y = y0[sigma]). eapply H.
+  destruct H4 as [y0 H4].
+  exists (p[y0 ..]). exists (Lrcv x0 y0). 
+  split; cbn; try erewrite up_beta_simpl_pr; rewrite H4; eauto with picalc.
+
+- set (lem:= invert_sb_par).
+  specialize (lem _ _ _ _ H1).
+  destruct lem as [P1 [Q1 lem]].  subst.
+  cbn in H1. inversion H1. rewrite H4 in IHlt.
+  specialize (IHlt P1 sigma eq_refl H2).
+  destruct IHlt as [P'0 [a0 IHlt]].  destruct IHlt.
+  destruct H6.  rewrite H3. 
+  exists (Par P'0 Q1). eexists. split; eauto with picalc.
+  split. apply H6. eapply Lt_parL. auto.
+  eapply (not_bdsend_sub_rev _ sigma).
+  symmetry in H6. rewrite H6. auto.
+
+- set (lem:= invert_sb_par _ _ _ _ H1).  
+  destruct lem as [p [q lem]]. subst. cbn in H1.
+  inversion H1. subst.
+  specialize (IHlt _ _ eq_refl H2).
+  destruct IHlt as [P' [a0 IHlt]].
+  destruct IHlt as [IHlt1 [IHlt2 IHlt3]].
+  rewrite IHlt1.
+  exists (Par p P'). repeat eexists. 
+  eauto with picalc. 
+  eapply Lt_parR. auto.
+  eapply (not_bdsend_sub_rev _ sigma).
+  symmetry in IHlt2. rewrite IHlt2. auto.
+
+ 
+- set (lem:= invert_sb_par _ _ _ _ H1).  
+  destruct lem as [p [q lem]]. subst. cbn in H1.
+  inversion H1. subst.
+  specialize (IHlt _ _ eq_refl H2).
+  destruct IHlt as [p' [a0 IHlt]].
+  destruct IHlt as [IHlt1 [IHlt2 IHlt3]].
+  rewrite IHlt1. Print super_bij.
 
 (*------------------ rule extensions ----------------------------------*)
 Proposition sc_extr_n: forall n P Q,
@@ -166,9 +261,9 @@ Qed.
 
 
 Lemma ltsend_normal: forall Q Q' x y, 
-  lt Q (Lsend x y)  Q' -> exists n R S,  
-    cong Q (iter_nu n (Par (Send x[shiftn_sb n] y[shiftn_sb n] R) S) ) /\ 
-    cong Q' (iter_nu n (Par R S) ).
+  lt Q (Lsend x y)  Q' -> exists n R P,  
+    cong Q (iter_nu n (Par (Send x[shiftn_sb n] y[shiftn_sb n] R) P) ) /\ 
+    cong Q' (iter_nu n (Par R P) ).
 Proof.
 intros.
 generalize dependent y.
@@ -231,9 +326,9 @@ Qed.
 
 
 Lemma ltrcv_normal: forall Q Q' x y,
-  lt Q (Lrcv x y) Q' ->  exists n R S,
-    cong Q (iter_nu n (Par (Rcv x[shiftn_sb n] R) S) ) /\  
-    cong Q' (iter_nu n (Par (R[y[shiftn_sb n]..]) S) ).
+  lt Q (Lrcv x y) Q' ->  exists n R P,
+    cong Q (iter_nu n (Par (Rcv x[shiftn_sb n] R) P) ) /\  
+    cong Q' (iter_nu n (Par (R[y[shiftn_sb n]..]) P) ).
 Proof.
 intros.
 generalize dependent y.
@@ -307,10 +402,7 @@ Qed.
 
 
 
-
-
-
-
+(* /!\  DONT DELETE THIS  /!\
 Lemma ltbdsend_normal: forall Q Q' x, 
   lt Q (LbdSend x)  Q' -> exists n R P,  
   cong Q ( iter_nu (S n) (Par (Send x[shiftn_sb (S n)] (ch 0)[shiftn_sb  n] R) P) ) 
@@ -340,7 +432,7 @@ induction Q; intros.
     eauto with picalc. 
     eauto with picalc.  
 +   destruct (IHQ2 Q'0 x). auto.
-    do 3 destruct H0.
+    do 3 destruct H0. 
     repeat eexists. 
     eapply Cg_trans.  
     eapply Cg_trans. 
@@ -364,34 +456,42 @@ induction Q; intros.
 
 - inversion H.
 - inversion H.
-   
-- (*  bloqué  *) 
-  inversion H; subst.
-  + destruct (ltsend_normal Q Q' x0 (ch 0) H1).
-    do 3 destruct H0. 
-    repeat eexists. simpl.
-    eapply Cg_ctxNu.    
-    admit. admit. 
+    
+- inversion H; subst.
+  + set (lem:= ltsend_normal Q Q' x0 (ch 0)).
+	set (lemd:= down_bs_notzero x x0 H3 H2).
+    rewrite lemd in *.
+    specialize (lem H1).
+    destruct lem as [n lem]. destruct lem as [R lem]. 
+    destruct lem as [P lem]. destruct lem.
+    set (lemm:= shift_succ_ch). symmetry in lemm.
+    erewrite lemm in H0.
+    repeat eexists; simpl; eauto with picalc. 
   + symmetry in H4. 
     destruct (down_bdsend a x H4). subst.
     firstorder; inversion H0. 
   + set (lem:= down_bs_notzero x x0 H3 H2). rewrite lem in *.  
-    destruct (IHQ P' x[shift_sb]). auto.
-    do 3 destruct H0.
-    repeat eexists. simpl in *.
-    eapply Cg_ctxNu.  
-    erewrite shift_succ_ch. admit.
-Admitted.
+    destruct (IHQ P' x[shift_sb] H1) as [n IH]. 
+    destruct IH as [R IH]. destruct IH as [P IH]. destruct IH. 
+    set (lemm:= shift_succ_ch x (S n)). symmetry in lemm.
+    erewrite lemm in H0. 
+    exists (S n). exists R. exists P. split. cbn in *.
+    eapply Cg_ctxNu.
+ 
+	admit.
+     
+    simpl. eapply Cg_ctxNu.
+    eauto with picalc.
+*)    
+   
 
-
-
-
-
-
-
-
-
-
+(*
+Definition not_nu P := 
+P = Zero \/
+(exists Q R, P = Par Q R) \/
+(exists x Q, P = Rcv x Q) \/
+(exists x y Q, P = Send x y Q). 
+*) 
 
 
 
