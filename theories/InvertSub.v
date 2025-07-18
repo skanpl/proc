@@ -351,6 +351,120 @@ induction Hlt; intros; inversion Hlsend.
 Qed.
 
 
+
+
+
+
+Lemma invert_sblt_bdsend: forall P P0 a Q sigma x, a = LbdSend x -> lt P a Q  -> 
+  P = P0[sigma] -> 
+  exists P' a0, Q = P'[up sigma] /\  a = a0[sigma] /\  lt P0 a0 P'. 
+Proof.
+intros P P0 a Q sigma x Hlbdsend Hlt Hsb.
+generalize dependent x.
+generalize dependent sigma.
+generalize dependent P0.
+induction Hlt; intros; inversion Hlbdsend.   
+- subst; firstorder; inversion H.
+- subst; firstorder; inversion H.
+
+- set (lem:= invert_sb_par _ _ _ _ Hsb).  
+  destruct lem as [p [q lem]]. subst. cbn in Hsb.
+  inversion Hsb. subst.
+  specialize (IHHlt _ _ eq_refl _ eq_refl). 
+  destruct IHHlt as [p' [a0 IHHlt]].
+  destruct IHHlt as [G1 [G2 G3]].
+  subst.
+  exists (Par p' q[shift_sb]). repeat eexists.
+  cbn. erewrite shift_permute_pr. auto.
+  apply G2. 
+  destruct (sb_bdsend _ _ _ G2). symmetry in H. subst.
+  eauto with picalc.
+
+- set (lem:= invert_sb_par _ _ _ _ Hsb).  
+  destruct lem as [p [q lem]]. subst. cbn in Hsb.
+  inversion Hsb. subst.
+  specialize (IHHlt _ _ eq_refl _ eq_refl). 
+  destruct IHHlt as [q' [a0 IHHlt]].
+  destruct IHHlt as [G1 [G2 G3]].
+  subst.
+  exists (Par p[shift_sb] q'). repeat eexists.
+  cbn. erewrite shift_permute_pr. auto.
+  apply G2. 
+  destruct (sb_bdsend _ _ _ G2). symmetry in H. subst.
+  eauto with picalc.
+
+- set (lem:= invert_sb_nu  _ _ _ Hsb).  
+  destruct lem as [p lem]. subst.  cbn in Hsb. inversion Hsb.
+ 
+   set (lem:= invert_sblt_send
+     P _ (Lsend x (ch 0)) P' (up sigma) x (ch 0) eq_refl Hlt H2).
+  destruct lem as [p' [a0 lem]].
+  destruct lem as [G1 [G2 G3]].
+  
+  set (lem:= sb_send _ _ _ _ G2).
+  destruct lem as [x' [y' lem]].
+  rewrite lem in G2. cbn in G2. inversion G2. cbn in H4.
+
+  (*__*)
+  assert (y' = ch 0). 
+  unfold up,scons,funcomp in H4. cbv in H4.
+  destruct y', (sigma n), n; auto. destruct (sigma n). inversion H4.
+  rewrite H0 in lem. rewrite lem in G3.
+  (*__*)
+
+ 
+  exists p'. repeat eexists; auto.
+  
+  Focus 2. eapply Lt_open. eauto. rewrite H3 in H. 
+  intro.  rewrite H5 in H. cbn in H. apply (H eq_refl).
+  
+  unfold down in *. 
+  replace (fun x => ch (x-1)) with down_sb in *; auto.
+  unfold down in H1. replace (fun x => ch (x-1)) with down_sb in H1; auto.
+  symmetry in H1. rewrite H1. rewrite H3.
+  erewrite down_permute_lab. auto. 
+  cbv. intro. symmetry in H5. rewrite H5 in H3. cbv in H3.
+  rewrite H3 in H. apply H. auto. 
+
+- rewrite Hlbdsend in H1.
+  unfold down in *. replace (fun x => ch (x-1)) with down_sb in *; auto.
+  set (lem:= sb_bdsend _ _ _ H1). destruct lem.
+  erewrite H3 in H0.
+  firstorder; inversion H0.
+
+- set (lem:= invert_sb_nu  _ _ _ Hsb).  
+  destruct lem as [p lem]. subst.  cbn in Hsb. inversion Hsb.
+  specialize (IHHlt _ _ H2 _ eq_refl).
+  destruct IHHlt as [p' [a0 IHHlt]].
+  destruct IHHlt as [G1 [G2 G3]].
+
+  unfold down in *. replace (fun x => ch (x-1)) with down_sb in *; auto.
+  rewrite G2 in Hlbdsend. symmetry in Hlbdsend. rewrite Hlbdsend.
+  set (lem:= sb_bdsend _ _ _ G2). destruct lem.
+  
+  exists (Nu p'[swap_sb]). exists (a0[down_sb]). repeat eexists.
+    
+  Focus 2. erewrite down_permute_lab. auto.
+  rewrite H0. cbv. intro. symmetry in H3. rewrite H3 in *.
+  rewrite H0 in G2. cbn in G2. inversion G2. 
+  subst. apply H. auto.
+  
+  Focus 2. eapply Lt_res_bd.
+  rewrite H0 in G3. apply G3. 
+  cbv. intro. symmetry in H3. rewrite H3 in *.
+  rewrite H0 in G2. cbn in G2. inversion G2. 
+  subst. apply H. auto.
+  unfold down. replace (fun x => ch (x-1)) with down_sb in *; auto.
+  rewrite H0. auto.
+ 
+  rewrite G1. cbn.
+  erewrite swap_up_up_pr. auto.
+Qed.
+
+
+
+
+
 Lemma invert_sblt_rcv: forall P P0 a Q sigma x y, a = Lrcv x y -> lt P a Q  -> 
   P = P0[sigma] -> surjective sigma  -> 
   exists P' a0, Q = P'[sigma] /\  a = a0[sigma] /\  lt P0 a0 P'. 
@@ -398,10 +512,10 @@ induction Hlt; intros; inversion Hlrcv.
 
 - subst. destruct (down_rcv (LbdSend x) x0 y). 
   auto. destruct H0. inversion H0.
-
+ 
 - set (lem := invert_sb_nu  _ _ _ Hsb).
   destruct lem as [p lem]. subst. 
-  cbn in Hsb. inversion Hsb. subst . admit.
+  cbn in Hsb. inversion Hsb. subst.
   (*
   specialize (IHHlt p _ eq_refl Hsurj). 
   set (lem := down_rcv a x y Hlsend). 
@@ -477,6 +591,14 @@ Admitted.
 
 (*========== attempt requiring sigma to be a bijection   ===============*)
 
+
+(* Note that the Lt_open case requires us to prove an individual send 
+   version beforehand (proven above in this file). 
+   we managed to escape the task of having to prove (up sigma) 
+   preserve surjectivity (which doesn't seem to be the case) by using
+   that individual sen thing but for the Lt_res we are stuck 
+   with no escape route.
+*)
 Lemma invert_sb_lt: forall P P0 a Q sigma, lt P a Q -> 
   P = P0[sigma] -> super_bij sigma ->  
   (not_bdsend a -> exists P' a0, Q = P'[sigma] /\  a = a0[sigma] /\  lt P0 a0 P') /\
@@ -616,168 +738,47 @@ induction H; split; intros.
 
 - subst.  set (lem:= not_bdsend_down _ H4).
   firstorder; inversion H5.
-- set (lem:= invert_sb_nu  _ _ _ H2). 
-  destruct lem as [p lem]. 
-  subst. cbn in  *.
-  inversion H2. subst.  
-  specialize (IHlt _ _ eq_refl).
-  (*
-  (*-----   experimental   -----------*)
-  assert (super_bij (up sigma)). admit.
-  specialize (IHlt H1).
-  destruct IHlt as [IHlt _].
-  destruct IHlt as [p' [a0 IHlt]]; eauto with picalc.
-  destruct IHlt as [G1 [G2 G3]]. subst.
- (*-----------------------------------*)
-  *)
+
+- set (lem:= invert_sb_nu  _ _ _ H2).  
+  destruct lem as [p lem]. subst.  cbn in H2. inversion H2.
+ 
+   set (lem:= invert_sblt_send
+     P _ (Lsend x (ch 0)) P' (up sigma) x (ch 0) eq_refl H H5).
+  destruct lem as [p' [a0 lem]].
+  destruct lem as [G1 [G2 G3]].
+  
+  set (lem:= sb_send _ _ _ _ G2).
+  destruct lem as [x' [y' lem]].
+  rewrite lem in G2. cbn in G2. inversion G2. 
+
+  (*__*)
+  assert (y' = ch 0). 
+  unfold up,scons,funcomp in H7. cbv in H7.
+  destruct y', (sigma n), n; auto. destruct (sigma n). inversion H7.
+  rewrite H1 in lem. rewrite lem in G3.
+  (*__*)
+
+ 
+  exists p'. repeat eexists; auto.
+  
+  Focus 2. eapply Lt_open. eauto. rewrite H6 in H0. 
+  intro.  rewrite H8 in H0. cbn in H0. apply (H0 eq_refl).
+  
+  unfold down in *. 
+  replace (fun x => ch (x-1)) with down_sb in *; auto.
+  unfold down in H4. replace (fun x => ch (x-1)) with down_sb in H4; auto.
+  unfold down in *. 
+  replace (fun x => ch (x-1)) with down_sb in *; auto.
+    
+  erewrite down_permute_lab. auto. 
+  cbv. intro. symmetry in H8. rewrite H8 in H6. cbv in H6.
+  rewrite H6 in H0. apply H0. auto. 
+ 
+- set (lem:= invert_sb_nu  _ _ _ H3).  
+  destruct lem as [p lem]. subst.  cbn in H3. inversion H3.
+  subst.
   Admitted.
 
-
-
-Lemma invert_sb_lt2: forall P P0 a Q sigma, lt P a Q -> 
-  P = P0[sigma] -> super_bij sigma ->  
-  (not_bdsend a -> exists P' a0, Q = P'[sigma] /\  a = a0[sigma] /\  lt P0 a0 P') /\
-  (forall x0, a = LbdSend x0 ->  exists P' a0, Q = P'[up sigma] /\  a = a0[sigma] /\  lt P0 a0 P') . 
-Proof.
-intros. 
-generalize dependent sigma.
-generalize dependent P0.
-induction H; split; intros.   
-- set (lem:= invert_sb_send).
-  specialize (lem _ _ _ _ _ H0).
-  destruct lem. do 2 destruct H2. subst. cbn in *.
-  inversion H0. 
-  eexists. exists (Lsend x0 x1). 
-  split; eauto with picalc. 
-- inversion H.
-
-
--set (lem:= invert_sb_rcv).
-  specialize (lem _ _ _ _ H0).
-  destruct lem. destruct H2 as [p H2]. subst. cbn in *.
-  inversion H0.
-  (*note that we used surjectivity here*)
-  unfold super_bij in H1. destruct H1.
-  assert (exists y0, y = y0[sigma]). eapply H1. 
-  destruct H5 as [y0 H5].
-  exists (p[y0 ..]). exists (Lrcv x0 y0). 
-  split; cbn; try erewrite up_beta_simpl_pr; rewrite H5; eauto with picalc.
-- inversion H. 
-
-- set (lem:= invert_sb_par _ _ _ _ H1).
-  destruct lem as [P1 [Q1 lem]].  subst.
-  cbn in H1. inversion H1. rewrite H5 in IHlt.
-  specialize (IHlt P1 sigma eq_refl H2). 
-  destruct IHlt.  specialize (H4 H3).
-  destruct H4 as [P'0 [a0 H4]].  
-  destruct H4 as [G1 [G2 G3]].
-  rewrite G1. 
-  exists (Par P'0 Q1). eexists. split; eauto with picalc.
-  split. apply G2. eapply Lt_parL. auto.
-  eapply (not_bdsend_sub_rev _ sigma).
-  symmetry in G2. rewrite G2. auto.
-- subst; firstorder; inversion H0.
-
-- set (lem:= invert_sb_par _ _ _ _ H1).  
-  destruct lem as [p [q lem]]. subst. cbn in H1.
-  inversion H1. subst.
-  specialize (IHlt _ _ eq_refl H2). destruct IHlt.
-  specialize (H4 H3). destruct H4 as [P'[a0 H4]]. 
-  destruct H4 as [G1 [G2 G3]]. 
-  rewrite G1.
-  exists (Par p P'). repeat eexists. 
-  eauto with picalc.  
-  eapply Lt_parR. auto.
-  eapply (not_bdsend_sub_rev _ sigma). 
-  symmetry in G2. rewrite G2. auto.
-- subst; firstorder; inversion H0.
-
-- firstorder; inversion H3. 
-- set (lem:= invert_sb_par _ _ _ _ H1).  
-  destruct lem as [p [q lem]]. subst. cbn in H1.
-  inversion H1. subst.
-  specialize (IHlt _ _ eq_refl H2). destruct IHlt.
-  specialize (H4 _ eq_refl).
-  destruct H4 as [p' [a0 H4]].
-  destruct H4 as [G1 [G2 G3]].
-  rewrite G1.
-  exists (Par p' q[shift_sb]). repeat eexists.
-  cbn. erewrite shift_permute_pr. auto.
-  apply G2. 
-  destruct (sb_bdsend _ _ _ G2). rewrite H4 in *.
-  eauto with picalc.
-
-- firstorder; inversion H3.
-- set (lem:= invert_sb_par _ _ _ _ H1).  
-  destruct lem as [p [q lem]]. subst. cbn in H1.
-  inversion H1. subst.
-  specialize (IHlt _ _ eq_refl H2). destruct IHlt.
-  specialize (H4 _ eq_refl).
-  destruct H4 as [q' [a0 H4]].
-  destruct H4 as [G1 [G2 G3]].
-  rewrite G1.
-  exists (Par p[shift_sb] q'). repeat eexists.
-  cbn. erewrite shift_permute_pr. auto.
-  apply G2. 
-  destruct (sb_bdsend _ _ _ G2). rewrite H4 in *.
-  eauto with picalc.
-    
-- set (lem:= invert_sb_par _ _ _ _ H1).  
-  destruct lem as [p [q lem]]. subst. cbn in H1.
-  inversion H1. subst.
-  specialize (IHlt1 _ _ eq_refl H2). destruct IHlt1.
-  specialize (IHlt2 _ _ eq_refl H2). destruct IHlt2.
-  clear H7 H5 H3.
-  assert (not_bdsend (Lsend x y)); eauto with picalc.
-  assert (not_bdsend (Lrcv x y)); eauto with picalc.
-  specialize (H6 H5). specialize (H4 H3). clear H3 H5.
-  destruct H4 as [p' [a0 H4]]. destruct H6 as [q' [b0 H6]].
-  destruct H4 as [F1 [F2 F3]]. destruct H6 as [G1 [G2 G3]].   
-  subst. 
-  exists (Par p' q'). exists Ltau. cbn. split; eauto with picalc. 
-  split. auto. 
-  destruct (sb_send _ _ _ _ F2). destruct (sb_rcv _ _ _ _ G2). 
-  destruct H3. destruct H4. subst. cbn in *.
-  inversion F2. inversion G2. subst.
-  (*note that we used injectivity here*)
-  unfold super_bij in H2. destruct H2.
-  assert (x0 = x1).  apply H3. auto.
-  assert (x2 = x3).  apply H3. auto. 
-  subst. eauto with picalc.
-- inversion H3.
-
-
-- set (lem:= invert_sb_par _ _ _ _ H1).  
-  destruct lem as [p [q lem]]. subst. cbn in H1.
-  inversion H1. subst.
-  specialize (IHlt1 _ _ eq_refl H2). destruct IHlt1.
-  specialize (IHlt2 _ _ eq_refl H2). destruct IHlt2.
-  clear H7 H5 H3.
-  assert (not_bdsend (Lsend x y)); eauto with picalc.
-  assert (not_bdsend (Lrcv x y)); eauto with picalc.
-  specialize (H4 H5). specialize (H6 H3). clear H3 H5.
-  destruct H4 as [p' [a0 H4]]. destruct H6 as [q' [b0 H6]].
-  destruct H4 as [F1 [F2 F3]]. destruct H6 as [G1 [G2 G3]].   
-  subst. 
-  exists (Par p' q'). exists Ltau. cbn. split; eauto with picalc. 
-  split. auto. 
-  destruct (sb_send _ _ _ _ G2). destruct (sb_rcv _ _ _ _ F2). 
-  destruct H3. destruct H4. subst. cbn in *.
-  inversion F2. inversion G2. subst.
-  (*note that we used injectivity here*)
-  unfold super_bij in H2. destruct H2.
-  assert (x0 = x1).  apply H3. auto.
-  assert (x2 = x3).  apply H3. auto. 
-  subst. eauto with picalc.
-- inversion H3.
-
-- subst.  set (lem:= not_bdsend_down _ H4).
-  firstorder; inversion H5.
-- destruct (invert_sb_nu  _ _ _ H2). subst. cbn in  *.
-  inversion H2. subst.  
-  specialize (IHlt _ _ eq_refl H3). destruct IHlt.
-
-(**)
 
 
 
